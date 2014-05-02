@@ -17,11 +17,8 @@
 		<!-- ckeditor -->
 
 		<script type="text/javascript" src = "{APP_URL}/js/ckeditor/ckeditor.js"></script>
-		<link href="{APP_URL}/css/ckeditor.css" rel="stylesheet" type="text/css">
 
 		<!-- -->
-
-		<script type = "text/javascript" src = "{APP_URL}/js/wysiwyg/jquery.wysiwyg.js" ></script>
 
 		<script type = "text/javascript" src = "{APP_URL}/js/forms/forms.js"></script>
 		<script type = "text/javascript" src = "{APP_URL}/js/forms/chosen.jquery.min.js"></script>

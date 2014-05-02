@@ -1619,3 +1619,11 @@ box-shadow: 0 1px 0 #363B3E;
 
 }
 
+/*------------------------------- CKEDITOR -------------------------------*/
+
+#ckeditor{
+	margin-left: 33px;
+}
+#ckeditor-arange{
+	margin-left: 0px;
+}
