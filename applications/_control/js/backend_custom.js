@@ -99,15 +99,31 @@ $(document).ready(function() {
 
 		id_page = $( this ).attr( 'id' );
 
-		jConfirm('Are you sure you want to delete this page?', 'Delete page', function(r) {
+		if($(this).hasClass('page-delete')){
 
-			if( r ) {
+			jConfirm('Are you sure you want to delete this page?', 'Delete page', function(r) {
 
-				delete_page( id_page );
+				if( r ) {
 
-			}
+					delete_page( id_page );
 
-		});
+				}
+
+			});
+		}
+
+		if($(this).hasClass('sidebar-delete')){
+			jConfirm('Are you sure you want to delete this sidebar?', 'Delete sidebar', function(e) {
+
+				if( e ) {
+
+					delete_sidebar( id_page );
+
+
+				}
+
+			});
+		}
 
 	});
 
@@ -117,6 +133,18 @@ $(document).ready(function() {
 			url: base_url + '/pages/page_delete',
 			type: 'POST',
 			data: { id_page: id_page },
+			success: function(data) {
+				location.reload();
+			}
+	 	});
+
+	}
+
+	function delete_sidebar( id_page ) {
+		$.ajax({
+			url: base_url + '/sidebars/sidebar_delete',
+			type: 'POST',
+			data: { id_sidebar: id_page},
 			success: function(data) {
 				location.reload();
 			}

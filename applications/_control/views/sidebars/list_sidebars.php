@@ -2,7 +2,7 @@
 
 	<div class="head">
 
-		<h5 class="iFrames">{lang_page_title}</h5>
+		<h5 class="iFrames">{lang_sidebar_title}</h5>
 
 	</div><!-- .head -->
 
@@ -22,14 +22,14 @@
 
    	<tbody>
 
-			{PAGES}
+			{SIDEBARS}
 
     	<tr>
 
-      	<td>{title}</td>
+      	<td>{name}</td>
       	<td>
 
-					<a href="{BASE_URL}/pages/edit/{id_page}">
+					<a href="{BASE_URL}/sidebars/edit/{id_sidebar}">
 
 						<button class="blackBtn" >{lang_edit_column}</button><!-- .blackBtn -->
 
@@ -38,12 +38,12 @@
 				</td>
       	<td>
 
-					<button class="redBtn bConfirm page-delete" id = "{id_page}" >{lang_delete_column}</button><!-- .redBtn -->
+					<button class="redBtn bConfirm sidebar-delete" id = "{id_sidebar}" >{lang_delete_column}</button><!-- .redBtn -->
 
 				</td>
 
     	</tr>
-			{/PAGES}
+			{/SIDEBARS}
 
    	</tbody>
 
@@ -53,6 +53,6 @@
 
 <a href="{BASE_URL}/pages/add">
 
-	<button class="blueBtn add" >{lang_add_page}</button><!-- .blueBtn -->
+	<button class="blueBtn add" >{lang_add_sidebar}</button><!-- .blueBtn -->
 
 </a>

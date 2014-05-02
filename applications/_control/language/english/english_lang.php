@@ -48,6 +48,25 @@ $lang['pages_default_page_type_value']  = "Parent";
 $lang['pages_empty_page_type_value']    = "Parent (no-link)";
 $lang['pages_submit_form']              = "Submit";
 
+/* ---- SIDEBARS --- */
+
+$lang['sidebars_sidebar_title']            		= "Sidebars";
+$lang['sidebars_title_column']			   				= "Title";
+$lang['sidebars_edit_column']              		= "Edit";
+$lang['sidebars_delete_column']            		= "Delete";
+$lang['sidebars_add_sidebar']                 = "Add sidebar";
+$lang['sidebars_add_new_sidebar']             = "Add a new sidebar";
+$lang['sidebars_edit_sidebar']                = "Edit sidebar - ";
+$lang['sidebars_title_field']              		= "Title";
+$lang['sidebars_content_type_field']       		= "Module";
+$lang['sidebars_content_field']            		= "Content";
+$lang['sidebars_menu_options']             		= "Menu options";
+$lang['sidebars_sidebar_type_field']          = "sidebar type";
+$lang['sidebars_default_sidebar_type_value']  = "Parent";
+$lang['sidebars_empty_sidebar_type_value']    = "Parent (no-link)";
+$lang['sidebars_submit_form']              		= "Submit";
+
+
 
 /* End of file english_lang.php */
 /* Location: ./applications/_control/language/english/english_lang.php */

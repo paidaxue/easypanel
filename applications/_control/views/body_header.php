@@ -36,6 +36,14 @@
 
 			</li>
 
+			<li class = "tables">
+
+				<a href="{BASE_URL}/sidebars" title="Sidebars">
+					<span>Sidebars</span>
+				</a>
+
+			</li>
+
 			<li class = "modules exp">
 				<a href="#" title="Modules">
 					<span>Modules</span>
