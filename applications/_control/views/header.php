@@ -7,13 +7,18 @@
 		<link href = 'http://fonts.googleapis.com/css?family=Cuprum' rel = "stylesheet" type="text/css" >
 
 		<title>Easy Panel - {page_title}</title>
-		<!--
+	<!--
 		<script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js" ></script>
 		<script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" ></script>
-		-->
-		<script type = "text/javascript" src = "{APP_URL}/js/jquery_1.7.1.min.js" ></script>
+	-->
 
-		<script type = "text/javascript" src = "{APP_URL}/js/wysiwyg/jquery.wysiwyg.js" ></script>
+		<script type="text/javascript" src = "{APP_URL}/js/jquery_1.7.1.min.js"></script>
+
+		<!-- ckeditor -->
+
+		<script type="text/javascript" src = "{APP_URL}/js/ckeditor/ckeditor.js"></script>
+
+		<!-- -->
 
 		<script type = "text/javascript" src = "{APP_URL}/js/forms/forms.js"></script>
 		<script type = "text/javascript" src = "{APP_URL}/js/forms/chosen.jquery.min.js"></script>

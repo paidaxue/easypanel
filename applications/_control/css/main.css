@@ -1,3 +1,4 @@
+
 @import "reset.css";
 @import "wysiwyg.css";
 @import "prettyPhoto.css";
@@ -754,7 +755,6 @@ div.uploader input {
 
 .leftNav ul li.dashboard a span { background-image : url(../images/menu_icons/dashboard.png); }
 .leftNav ul li.pages a span { background-image : url(../images/menu_icons/pages.png); }
-.leftNav ul li.tables a span { background-image: url(../images/menu_icons/frames.png); }
 .leftNav ul li.modules a span { background-image : url(../images/menu_icons/modules.png); }
 .leftNav ul li.settings a span { background-image : url(../images/menu_icons/settings.png); }
 
@@ -1620,3 +1620,12 @@ box-shadow: 0 1px 0 #363B3E;
 
 }
 
+/*------------------------------- CKEDITOR -------------------------------*/
+
+#ckeditor{
+	margin-left: 33px;
+}
+#ckeditor-arange{
+	margin-left: 0px;
+}
+>>>>>>> fix-ckeditor
