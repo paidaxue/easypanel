@@ -26,8 +26,10 @@
 
  	    <div id="normal_content">
 
-      	<label id="wysiwyg-content">{lang_content_field}</label><br />
-      	<textarea name="content" class="wysiwyg" id="wysiwyg" rows="5" cols=""></textarea>
+      	<label id="ckeditor">{lang_content_field}</label><br />
+        <p id="ckeditor-arange">
+      	  <textarea name="content" class="ckeditor" id="editor1" rows="5" cols=""></textarea>
+        </p>
 
       </div><!-- #normal_content -->
 
