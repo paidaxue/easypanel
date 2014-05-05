@@ -73,19 +73,32 @@ class Pages extends MY_Controller {
 		$page_type = $this->pages_model->get_parents();
 		$modules = $this->pages_model->get_modules();
 
+		$sidebars = $this->pages_model->get_sidebars();
+
 		$content = $this->parser->parse( $filenames[ 'add_page' ], array(
-																																	'PAGE_TYPE' 										=> $page_type,
-																																	'MODULES' 											=> $modules,
-																																	'lang_add_new_page' 						=> $this->lang->line('pages_add_new_page'),
-																																	'lang_title_field' 							=> $this->lang->line('pages_title_field'),
-																																	'lang_content_type_field' 			=> $this->lang->line('pages_content_type_field'),
-																																	'lang_content_field' 						=> $this->lang->line('pages_content_field'),
-																																	'lang_menu_options' 						=> $this->lang->line('pages_menu_options'),
-																																	'lang_page_type_field' 					=> $this->lang->line('pages_page_type_field'),
-																																	'lang_default_page_type_value' 	=> $this->lang->line('pages_default_page_type_value'),
-																																	'lang_empty_page_type_value' 		=> $this->lang->line('pages_empty_page_type_value'),
-																																	'lang_required_fields' 					=> $this->lang->line('error_required_fields'),
-																																	'lang_submit_form' 							=> $this->lang->line('pages_submit_form')
+						'PAGE_TYPE' 										=> $page_type,
+						'MODULES' 											=> $modules,
+						'SIDEBARS'											=> $sidebars,
+						'lang_add_new_page' 						=> $this->lang->line('pages_add_new_page'),
+						'lang_title_field' 							=> $this->lang->line('pages_title_field'),
+						'lang_content_type_field' 			=> $this->lang->line('pages_content_type_field'),
+						'lang_content_field' 						=> $this->lang->line('pages_content_field'),
+						'lang_menu_options' 						=> $this->lang->line('pages_menu_options'),
+						'lang_page_type_field' 					=> $this->lang->line('pages_page_type_field'),
+						'lang_default_page_type_value' 	=> $this->lang->line('pages_default_page_type_value'),
+						'lang_empty_page_type_value' 		=> $this->lang->line('pages_empty_page_type_value'),
+						'lang_required_fields' 					=> $this->lang->line('error_required_fields'),
+						'lang_submit_form' 							=> $this->lang->line('pages_submit_form'),
+						'lang_sidebars_style' 							=> $this->lang->line('pages_sidebars_style'),
+						'lang_sidebar_none' 							=> $this->lang->line('pages_sidebar_none'),
+						'lang_sidebar_left' 							=> $this->lang->line('pages_sidebar_left'),
+						'lang_sidebar_right' 							=> $this->lang->line('pages_sidebar_right'),
+						'lang_sidebar_both' 							=> $this->lang->line('pages_sidebar_both'),
+						'lang_sidebar_options' 							=> $this->lang->line('pages_sidebars_option'),
+						'lang_sidebar_name' 							=> $this->lang->line('pages_sidebar_name'),
+						'lang_sidebar_name_left' 						=> $this->lang->line('pages_sidebar_name_left'),
+						'lang_sidebar_name_right' 						=> $this->lang->line('pages_sidebar_name_right')
+
 																																), true );
 
 		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
