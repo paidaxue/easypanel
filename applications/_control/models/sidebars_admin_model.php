@@ -38,6 +38,15 @@ class Sidebars_admin_model extends CI_Model {
 
 	}
 
+	/**
+	 * Update by id
+	 */
+	function insert_sidebar($sidebar) {
+
+		return $this->db->insert('ep_sidebars', $sidebar);
+
+	}
+
 
 }
 
