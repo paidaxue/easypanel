@@ -1629,4 +1629,67 @@ box-shadow: 0 1px 0 #363B3E;
 #ckeditor-arange{
 	margin-left: 0px;
 }
->>>>>>> fix-ckeditor
+
+/*------------------------------ ERROR PAGES -----------------------------*/
+.errorPage .errorTitle{
+	width: 290px;
+  padding-bottom: 15px;
+  background: url('../images/linesSepLight.png') repeat-x scroll 0px 100% transparent;
+}
+.errorPage{
+	width: 370px;
+	margin: 100px auto 80px;
+	position: relative;
+}
+.errorPage h1 {
+	color: #FAFAFA;
+	font-size: 140px;
+	margin: 80px 0px;
+	position: relative;
+	padding-left: 10px;
+	font-family: 'Cuprum',sans-serif;
+	font-weight: normal;
+	line-height: 20px;
+}
+.errorPage h2{
+	font-size: 22px;
+	font-weight: normal;
+}
+.errorPage h2 span{
+	background: url('../images/sadEmo.png') no-repeat scroll 0px center transparent;
+	padding-left: 26px;
+}
+.errorPage p{
+	width: 100%;
+	padding: 15px 0px 13px;
+	background: url('../images/linesSepLight.png') repeat-x scroll 0px 0px transparent;
+	font-size: 20px;
+	text-align: center;
+	font-family: 'Cuprum',sans-serif;
+	font-weight: normal;
+	color: #D5D5D5;
+}
+.errorPage .bubbles, .errorPage .bubbles1{
+	background: url('../images/error1.png') no-repeat scroll 0px 0px transparent;
+	width: 138px;
+	height: 133px;
+	top: -10px;
+	left: 225px;
+	position: absolute;
+}
+.errorPage .bubbles1{
+	background: none;
+}
+.red{
+	color: #E0A5A5;
+}
+.backToDash{
+	text-align: center;
+	margin: 10px;
+	font-family: Arial,Helvetica,sans-serif;
+	line-height: 20px;
+	color: #D5D5D5;
+}
+.seaBtn{
+	background: url('../images/seaBtn.png') repeat-x scroll 0px 0px transparent;
+}
