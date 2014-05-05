@@ -757,6 +757,7 @@ div.uploader input {
 .leftNav ul li.pages a span { background-image : url(../images/menu_icons/pages.png); }
 .leftNav ul li.modules a span { background-image : url(../images/menu_icons/modules.png); }
 .leftNav ul li.settings a span { background-image : url(../images/menu_icons/settings.png); }
+.leftNav ul li.sidebars a span { background-image : url(../images/menu_icons/frames.png); }
 
 .widget, .content .title, .count, .widget .num a, a.count1, .table, .breadCrumb, .earnings, .leftNav ul li a, .listData .cNote, .pages li a, .errorPage, .btn14, .btn55, .loginPanel, .customfile, ul.sub, .middleNav ul li a, .searchWidget input[type=text], .nNote {
 

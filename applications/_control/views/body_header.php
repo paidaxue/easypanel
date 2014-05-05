@@ -36,7 +36,7 @@
 
 			</li>
 
-			<li class = "tables">
+			<li class = "sidebars">
 
 				<a href="{BASE_URL}/sidebars" title="Sidebars">
 					<span>Sidebars</span>
