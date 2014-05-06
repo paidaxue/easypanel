@@ -108,18 +108,18 @@
 
         <label class = "sidebar_style left"> * {lang_sidebar_name_left}</label>
         <div class="formRight noSearch" id="sidebar_name_left">
-          <select name="sidebar_style" class = "chzn-select"  id = "sidebar_name_left" >
+          <select name="sidebar_left" class = "chzn-select"  id = "sidebar_name_left" >
               {SIDEBARS}
-                <option value="{name}">{name}</option>
+                <option value="{id_sidebar}">{name}</option>
               {/SIDEBARS}
           </select>
         </div>
 
         <label class = "sidebar_style right"> * {lang_sidebar_name_right}</label>
         <div class="formRight noSearch" id="sidebar_name_right">
-          <select name="sidebar_style" class = "chzn-select"   >
+          <select name="sidebar_right" class = "chzn-select"   >
               {SIDEBARS}
-                <option value="{name}">{name}</option>
+                <option value="{id_sidebar}">{name}</option>
               {/SIDEBARS}
           </select>
         </div>
