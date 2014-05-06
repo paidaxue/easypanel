@@ -156,36 +156,35 @@ $(document).ready(function() {
 
 		$('#sidebar_name_left').hide();
 		$('#sidebar_name_right').hide();
-		$('.left').hide();
-		$('.right').hide();
+		$('#left_sidebar').hide();
+		$('#right_sidebar').hide();
 
 	$("#sidebar_style").change(function () {
 		var style = $(this).val();
-		
 
 		if(style == 'none') {
 			$('#sidebar_name_left').hide();
 			$('#sidebar_name_right').hide();
-			$('.left').hide();
-			$('.right').hide();
+			$('#left_sidebar').hide();
+			$('#right_sidebar').hide();
 		}
 		if(style == 'left') {
 			$('#sidebar_name_left').show();
 			$('#sidebar_name_right').hide();
-			$('.left').show();
-			$('.right').hide();
+			$('#left_sidebar').show();
+			$('#right_sidebar').hide();
 		}
 		if(style == 'right') {
 			$('#sidebar_name_left').hide();
 			$('#sidebar_name_right').show();
-			$('.left').hide();
-			$('.right').show();
+			$('#left_sidebar').hide();
+			$('#right_sidebar').show();
 		}
 		if(style == 'both') {
 			$('#sidebar_name_left').show();
 			$('#sidebar_name_right').show();
-			$('.left').show();
-			$('.right').show();
+			$('#left_sidebar').show();
+			$('#right_sidebar').show();
 		}
 
 	});

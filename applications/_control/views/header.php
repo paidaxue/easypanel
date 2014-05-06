@@ -29,8 +29,6 @@
 		<script type = "text/javascript" src = "{APP_URL}/js/ui/jquery.prettyPhoto.js" ></script>
 		<script type = "text/javascript" src = "{APP_URL}/js/ui/jquery.alerts.js"></script>
 
-		<script type = "text/javascript" src = "{APP_URL}/js/frontend_custom.js" ></script>
-
 		<script type = "text/javascript" >
 
 			var base_url 	= '{BASE_URL}';

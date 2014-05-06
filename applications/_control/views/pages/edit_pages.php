@@ -45,10 +45,10 @@
 		  </div><!-- .rowElem -->
 
  	    <div id="normal_content">
-      
+
       	<label id="ckeditor">{lang_content_field}</label><br />
         <p id="ckeditor-arange">
-          <textarea class="ckeditor" cols="80" id="editor1" name="editor1" rows="10">{content}</textarea>
+          <textarea class="ckeditor" cols="80" id="editor1" name="content" rows="10">{content}</textarea>
         </p>
 
       </div><!-- #normal_content -->
@@ -95,7 +95,7 @@
       </div><!-- .widget -->
       <div class="rowElem">
 
-        <label class = "sidebar_style"> * {lang_sidebars_style}</label>
+        <label class = "sidebar_style">{lang_sidebars_style}</label>
         <div class="formRight noSearch">
           <select name="sidebar_style" class = "chzn-select"  id = "sidebar_style" >
               <option value="none">{lang_sidebar_none}</option>
@@ -105,7 +105,7 @@
           </select>
         </div>
 
-        <label class = "sidebar_style left"> * {lang_sidebar_name_left}</label>
+        <label id="left_sidebar" class = "sidebar_style">{lang_sidebar_name_left}</label>
         <div class="formRight noSearch" id="sidebar_name_left">
           <select name="sidebar_left" class = "chzn-select"  id = "sidebar_name_left" >
               {SIDEBARS}
@@ -114,7 +114,7 @@
           </select>
         </div>
 
-        <label class = "sidebar_style right"> * {lang_sidebar_name_right}</label>
+        <label id="right_sidebar" class = "sidebar_style">{lang_sidebar_name_right}</label>
         <div class="formRight noSearch" id="sidebar_name_right">
           <select name="sidebar_right" class = "chzn-select"   >
               {SIDEBARS}

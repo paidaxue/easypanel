@@ -38,7 +38,7 @@ $(document).ready(function() {
 
 	//===== Dropdown Menu =====//
 
-    $("ul.sub").hide();
+  $(".sub").hide();
 
 	$(".exp").click(function() {
 
