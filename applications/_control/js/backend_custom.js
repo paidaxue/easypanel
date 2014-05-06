@@ -156,7 +156,9 @@ $(document).ready(function() {
 
 		$('#sidebar_name_left').hide();
 		$('#sidebar_name_right').hide();
-		
+		$('.left').hide();
+		$('.right').hide();
+
 	$("#sidebar_style").change(function () {
 		var style = $(this).val();
 		
@@ -164,18 +166,26 @@ $(document).ready(function() {
 		if(style == 'none') {
 			$('#sidebar_name_left').hide();
 			$('#sidebar_name_right').hide();
+			$('.left').hide();
+			$('.right').hide();
 		}
 		if(style == 'left') {
 			$('#sidebar_name_left').show();
 			$('#sidebar_name_right').hide();
+			$('.left').show();
+			$('.right').hide();
 		}
 		if(style == 'right') {
 			$('#sidebar_name_left').hide();
 			$('#sidebar_name_right').show();
+			$('.left').hide();
+			$('.right').show();
 		}
 		if(style == 'both') {
 			$('#sidebar_name_left').show();
 			$('#sidebar_name_right').show();
+			$('.left').show();
+			$('.right').show();
 		}
 
 	});
