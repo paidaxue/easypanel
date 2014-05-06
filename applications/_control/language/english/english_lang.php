@@ -27,7 +27,8 @@ $lang['modules_settings_page_title']   = "Modules Settings";
 //theme settings
 $lang['theme_settings_page_title']   = "Theme Settings";
 $lang['theme_settings_content']      = "Select a theme";
-$lang['theme_select']                = "Select Theme";
+$lang['theme_submit']                = "Submit";
+$lang['theme_refresh_themes']        = "Refresh themes";
 
 /* ---- LOGIN --- */
 $lang['login_page_title']     = "Login";
