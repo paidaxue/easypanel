@@ -16,7 +16,6 @@ class Sidebars extends MY_Controller {
 		$this->load->model( 'sidebars_admin_model' );
 		$this->load->helper( 'sidebars' );
 
-
   }
 
 	/**
@@ -82,7 +81,7 @@ class Sidebars extends MY_Controller {
 			'lang_default_page_type_value' 						=> $this->lang->line('pages_default_page_type_value'),
 			'lang_empty_page_type_value' 						=> $this->lang->line('pages_empty_page_type_value'),
 			'lang_required_fields' 								=> $this->lang->line('error_required_fields'),
-																				'lang_submit_form' 							=> $this->lang->line('pages_submit_form'),
+			'lang_submit_form' 							=> $this->lang->line('pages_submit_form'),
 			), true );
 
 		$page = page_builder( 'header', $sidebar_name, 'body', 'body_header', 'top_nav', 'body_content', $content );

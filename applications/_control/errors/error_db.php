@@ -47,7 +47,6 @@
 <div id="topNav">
     <div class="fixed">
         <div class="wrapper">
-            
             <div class="fix"></div>
         </div>
     </div>
@@ -57,7 +56,7 @@
 <div class="wrapper">
     <div class="errorPage">
         <h2 class="red errorTitle"><span>Something went wrong here</span></h2>
-        <h1><?php echo $heading; ?></h1>
+        <h1 class="smaller"><?php echo $heading; ?></h1>
         <span class="bubbles1"></span>
         <?php echo  $message; ?>
         <div class="backToDash"><a href="<?=base_url()?>_control.php/dashboard" title="" class="seaBtn button">Back to Dashboard</a></div>

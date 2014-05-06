@@ -1651,10 +1651,15 @@ box-shadow: 0 1px 0 #363B3E;
 	font-weight: normal;
 	line-height: 20px;
 }
+.errorPage h1.smaller {
+	font-size: 30px;
+}
+
 .errorPage h2{
 	font-size: 22px;
 	font-weight: normal;
 }
+
 .errorPage h2 span{
 	background: url('../images/sadEmo.png') no-repeat scroll 0px center transparent;
 	padding-left: 26px;
@@ -1670,7 +1675,7 @@ box-shadow: 0 1px 0 #363B3E;
 	color: #D5D5D5;
 }
 .errorPage .bubbles, .errorPage .bubbles1{
-	background: url('../images/error1.png') no-repeat scroll 0px 0px transparent;
+	background: url('../images/error_page.png') no-repeat scroll 0px 0px transparent;
 	width: 138px;
 	height: 133px;
 	top: -10px;
