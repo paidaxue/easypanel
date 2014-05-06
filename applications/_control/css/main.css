@@ -1698,3 +1698,9 @@ box-shadow: 0 1px 0 #363B3E;
 .seaBtn{
 	background: url('../images/seaBtn.png') repeat-x scroll 0px 0px transparent;
 }
+/*---------------------------------- Theme Settings ----------------------------*/
+#submitTheme{
+	position: absolute;
+	top: 22px;
+	left: 500px;
+}

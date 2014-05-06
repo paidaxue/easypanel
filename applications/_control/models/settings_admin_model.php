@@ -29,6 +29,33 @@ class Settings_admin_model extends CI_Model {
 
 	}
 
+	/**
+	 * Theme setting
+	 */
+	function get_themes() {
+
+		return $this->db->get( 'ep_themes')->result();
+
+	}
+
+	/**
+	 * Get themes by id
+	 */
+	function get_theme_by_id($id_theme){
+
+		return $this->db->get_where('ep_themes', array('id_theme' => $id_theme))->row();
+	
+	}
+
+	/**
+	 * Update theme settings
+	 */
+	function update_theme_settings( $theme, $id_theme ) {
+
+		return $this->db->update( 'ep_themes', $theme, array( 'id_theme' => $id_theme ) );
+
+	}
+
 }
 
 /* End of file settings_admin_model.php */

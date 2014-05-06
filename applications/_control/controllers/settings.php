@@ -152,6 +152,74 @@ class Settings extends MY_Controller {
 
 	}
 
+	/**
+	 * Theme settings page
+	 */
+	function theme() {
+
+		$themes = $this->settings_admin_model->get_themes();
+
+		$content_filename = $this->folder_name . 'theme' . $this->files_suffix;
+
+		$page_title = $this->lang->line('theme_settings_page_title');
+
+		$content_data = array(
+
+			'lang_page_title' 	=> $this->lang->line('theme_settings_page_title'),
+			'THEMES'						=> $themes,
+			'lang_content_type_field' =>$this->lang->line('theme_settings_content'),
+			'lang_submit_form'  => $this->lang->line('theme_select'),
+		);
+
+		$content = $this->parser->parse( $content_filename, $content_data, true );
+
+		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$this->parser->parse( 'base_template', $page );
+
+	}
+
+	/**
+	 * theme settings procces
+	 */
+	function theme_process(){
+
+		$id_selected_theme = $this->input->post('themes');
+
+		$themes = $this->settings_admin_model->get_themes();
+
+		foreach($themes as $theme){
+
+			$theme->active = '0';
+
+			$this->settings_admin_model->update_theme_settings( $theme, $theme->id_theme );
+		
+		}
+		
+		$selected_theme = $this->settings_admin_model->get_theme_by_id($id_selected_theme);
+
+		$selected_theme->active = '1';
+
+		$this->settings_admin_model->update_theme_settings($selected_theme, $id_selected_theme);
+
+		$content_filename = $this->folder_name . 'theme' . $this->files_suffix;
+
+		$page_title = $this->lang->line('theme_settings_page_title');
+
+		$content_data = array(
+
+			'lang_page_title' 	=> $this->lang->line('theme_settings_page_title'),
+			'THEMES'						=> $themes,
+			'lang_content_type_field' =>$this->lang->line('theme_settings_content'),
+			'lang_submit_form'  => $this->lang->line('theme_select'),
+		);
+
+		$content = $this->parser->parse( $content_filename, $content_data, true );
+
+		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$this->parser->parse( 'base_template', $page );
+
+	}
+
 }
 
 /* End of file settings.php */
