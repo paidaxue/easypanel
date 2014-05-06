@@ -48,6 +48,16 @@ $lang['pages_default_page_type_value']  = "Parent";
 $lang['pages_empty_page_type_value']    = "Parent (no-link)";
 $lang['pages_submit_form']              = "Submit";
 
+$lang['pages_sidebars_style']               = "Sidebar Style";
+$lang['pages_sidebar_none']                 = "None";
+$lang['pages_sidebar_left']                 = "Left";
+$lang['pages_sidebar_right']                = "Right";
+$lang['pages_sidebar_both']                 = "Both";
+$lang['pages_sidebars_option']              = "Sidebars options";
+$lang['pages_sidebar_name']                 = "Sidebar name";
+$lang['pages_sidebar_name_left']            = "Sidebar Left";
+$lang['pages_sidebar_name_right']           = "Sidebar Right";
+
 /* ---- SIDEBARS --- */
 
 $lang['sidebars_sidebar_title']            		= "Sidebars";

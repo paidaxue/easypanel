@@ -87,6 +87,15 @@ class Pages_model extends CI_Model {
 
 	}
 
+	/**
+	 * Get sidebars
+	 */
+	function get_sidebars() {
+
+		return $this->db->get('ep_sidebars')->result();
+
+	}
+
 }
 
 /* End of file pages_model.php */

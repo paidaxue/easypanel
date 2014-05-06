@@ -152,4 +152,42 @@ $(document).ready(function() {
 
 	}
 
+		//==== Add/Edit page sidebar options
+
+		$('#sidebar_name_left').hide();
+		$('#sidebar_name_right').hide();
+		$('.left').hide();
+		$('.right').hide();
+
+	$("#sidebar_style").change(function () {
+		var style = $(this).val();
+		
+
+		if(style == 'none') {
+			$('#sidebar_name_left').hide();
+			$('#sidebar_name_right').hide();
+			$('.left').hide();
+			$('.right').hide();
+		}
+		if(style == 'left') {
+			$('#sidebar_name_left').show();
+			$('#sidebar_name_right').hide();
+			$('.left').show();
+			$('.right').hide();
+		}
+		if(style == 'right') {
+			$('#sidebar_name_left').hide();
+			$('#sidebar_name_right').show();
+			$('.left').hide();
+			$('.right').show();
+		}
+		if(style == 'both') {
+			$('#sidebar_name_left').show();
+			$('#sidebar_name_right').show();
+			$('.left').show();
+			$('.right').show();
+		}
+
+	});
+
 });
