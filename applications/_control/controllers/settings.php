@@ -220,6 +220,13 @@ class Settings extends MY_Controller {
 
 	}
 
+	/**
+	 * view theme 
+	 */
+	function theme_view(){
+
+	}
+
 }
 
 /* End of file settings.php */

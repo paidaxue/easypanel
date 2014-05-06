@@ -40,3 +40,17 @@
   </fieldset>
 
 </form>
+
+<form action = "{BASE_URL}/settings/theme_view" method="post" class="mainForm">
+
+  <fieldset>
+    
+     <div class="formRight submitRight">
+
+            <input type="submit" value="{lang_submit_form}" class="blackBtn" id = "viewTheme" />
+
+      </div><!-- .formRight -->
+
+  </fieldset>
+
+</form>

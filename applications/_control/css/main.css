@@ -1702,5 +1702,10 @@ box-shadow: 0 1px 0 #363B3E;
 #submitTheme{
 	position: absolute;
 	top: 22px;
-	left: 500px;
+	left: 560px;
+}
+#viewTheme{
+  position: absolute;
+  top: 214px;
+  left: 850px;
 }
