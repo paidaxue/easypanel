@@ -114,7 +114,29 @@ class Pages extends MY_Controller {
 		$pages[ 'title' ] = $this->input->post( 'title', true );
 		$pages[ 'page_type' ] = $this->input->post( 'page_type' );
 		$pages[ 'module' ] = $this->input->post( 'modules' );
-		$pages[ 'content' ] = $this->input->post( 'content' );
+		$pages[ 'content' ] = $this->input->post( 'editor1' );
+		$pages[ 'sidebar_style'] = $this->input->post('sidebar_style');
+
+		if($pages['sidebar_style'] == 'none') {
+			$pages['sidebar_left'] = '0';
+			$pages['sidebar_right'] = '0';
+		}
+
+		if($pages['sidebar_style'] == 'left') {
+			$pages['sidebar_left'] = $this->input->post('sidebar_left');
+			$pages['sidebar_right'] = '0';
+		}
+
+		if($pages['sidebar_style'] == 'right') {
+			$pages['sidebar_left'] = '0';
+			$pages['sidebar_right'] = $this->input->post('sidebar_right');
+		}
+
+		if($pages['sidebar_style'] == 'both') {
+			$pages['sidebar_left'] = $this->input->post('sidebar_left');
+			$pages['sidebar_right'] = $this->input->post('sidebar_right');
+		}
+
 
 		if( $pages[ 'module' ] == 'homepage' ) {
 
