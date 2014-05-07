@@ -64,7 +64,6 @@ class Pages extends MY_Controller {
 	 * Add page
 	 */
 	function add() {
-
 		//get filenames
 		$filenames = get_filenames( $this->folder_name, $this->files_suffix );
 
