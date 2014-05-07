@@ -211,6 +211,31 @@ class Settings extends MY_Controller {
 	 * refresh themes list
 	 */
 	function refresh_themes(){
+		$loc = base_url(); 
+		$local = str_replace( "http://localhost/dev.easypanel/", "", $loc );
+		$dir = $local.'applications/client/views';
+		$i = 0;
+		$folders = scandir($dir);
+		foreach($folders as $folder){
+			if(strpos($folder, '_theme')){
+				$themesDB[$i] = $folder; //put themes who must go in database in array
+				$i++;
+			}
+		}
+
+		$themes_exist =  $this->settings_admin_model->get_themes();
+		$j = 0;
+		foreach($themes_exist as $theme_exist){
+			$name[$j] = $theme_exist->name;
+			$j++;
+		}
+
+		$dif1 = array_diff($themesDB, $name);
+
+		foreach ($themesDB as $themeDB) {
+			$new_insert_theme = $this->settings_admin_model->insert_theme($themeDB, $dif1);
+		}
+		
 	}
 
 }
