@@ -1702,3 +1702,8 @@ box-shadow: 0 1px 0 #363B3E;
 #submit-theme-select{
 	width: 100px;
 }
+#refresh_theme{
+	position: absolute;
+	top: 292px;
+	left: 915px;
+}

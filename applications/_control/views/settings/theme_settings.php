@@ -20,14 +20,15 @@
       <div class="rowElem">
         <div class="formRight submitRight" id="submit-theme-select">
             <input type="submit" value="{lang_submit_form}" class="basicBtn" />
-        </div><!-- .formRight -->
-        <form action = "{BASE_URL}/settings/refresh_themes" method="post" class="mainForm">
-          <div class="formRight submitRight">
-            <input type="submit" value="{lang_refresh_themes}" class="blackBtn" />
-          </div><!-- .formRight -->
-        </form>
+        </div><!-- .formRight -->        
         <div class="fix"></div>
       </div>
     </div>
   </fieldset>
+</form>
+
+<form action = "{BASE_URL}/settings/refresh_themes" method="post" class="mainForm">
+  <div class="formRight submitRight">
+    <input type="submit" value="{lang_refresh_themes}" class="blackBtn" id="refresh_theme"/>
+  </div><!-- .formRight -->
 </form>

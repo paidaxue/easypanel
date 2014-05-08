@@ -59,11 +59,21 @@ class Settings_admin_model extends CI_Model {
 	/**
 	 * Insert new theme from folder
 	 */
-	function insert_theme( $themeDB, $dif1 ) {
+	function insert_theme( $theme_to_DB) {
 
-		return $this->db->insert( 'ep_themes', $themeDB, array('name' => $dif1, 'active' => '0' ) );
+		return $this->db->insert( 'ep_themes', $theme_to_DB );
 
 	}
+
+	/**
+	 * Insert new theme from folder
+	 */
+	function delete_theme( $theme_delete) {
+
+		return $this->db->delete( 'ep_themes', $theme_delete );
+
+	}
+
 }
 
 /* End of file settings_admin_model.php */
