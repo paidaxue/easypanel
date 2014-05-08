@@ -65,7 +65,6 @@ class Pages extends MY_Controller {
 	 * Add page
 	 */
 	function add() {
-
 		//get filenames
 		$filenames = get_filenames( $this->folder_name, $this->files_suffix );
 
@@ -115,7 +114,8 @@ class Pages extends MY_Controller {
 		$pages[ 'title' ] = $this->input->post( 'title', true );
 		$pages[ 'page_type' ] = $this->input->post( 'page_type' );
 		$pages[ 'module' ] = $this->input->post( 'modules' );
-		$pages[ 'content' ] = $this->input->post( 'content' );
+
+		$pages[ 'content' ] = $this->input->post( 'editor1' );
 		$pages[ 'sidebar_style'] = $this->input->post('sidebar_style');
 
 		if($pages['sidebar_style'] == 'none') {
@@ -169,7 +169,7 @@ class Pages extends MY_Controller {
 
 		$page_info = $this->pages_model->get_page_by_id( $id_page );
 
-		$sidebars = $this->sidebars_admin_model->get_all_sidebars();
+		$sidebars = $this->pages_model->get_sidebars();
 
 		$page_type = $this->pages_model->get_parents_by_id( $id_page );
 		foreach( $page_type as $type ) {
@@ -220,15 +220,16 @@ class Pages extends MY_Controller {
 				'lang_empty_page_type_value' 		=> $this->lang->line('pages_empty_page_type_value'),
 				'lang_required_fields' 					=> $this->lang->line('error_required_fields'),
 				'lang_submit_form' 							=> $this->lang->line('pages_submit_form'),
-				'lang_sidebars_style' 					=> $this->lang->line('pages_sidebars_style'),
-				'lang_sidebar_none' 						=> $this->lang->line('pages_sidebar_none'),
-				'lang_sidebar_left' 						=> $this->lang->line('pages_sidebar_left'),
-				'lang_sidebar_right' 						=> $this->lang->line('pages_sidebar_right'),
-				'lang_sidebar_both' 						=> $this->lang->line('pages_sidebar_both'),
-				'lang_sidebar_options' 					=> $this->lang->line('pages_sidebars_option'),
-				'lang_sidebar_name' 						=> $this->lang->line('pages_sidebar_name'),
-				'lang_sidebar_name_left' 				=> $this->lang->line('pages_sidebar_name_left'),
-				'lang_sidebar_name_right' 			=> $this->lang->line('pages_sidebar_name_right')
+
+				'lang_sidebars_style' 							=> $this->lang->line('pages_sidebars_style'),
+						'lang_sidebar_none' 							=> $this->lang->line('pages_sidebar_none'),
+						'lang_sidebar_left' 							=> $this->lang->line('pages_sidebar_left'),
+						'lang_sidebar_right' 							=> $this->lang->line('pages_sidebar_right'),
+						'lang_sidebar_both' 							=> $this->lang->line('pages_sidebar_both'),
+						'lang_sidebar_options' 							=> $this->lang->line('pages_sidebars_option'),
+						'lang_sidebar_name' 							=> $this->lang->line('pages_sidebar_name'),
+						'lang_sidebar_name_left' 						=> $this->lang->line('pages_sidebar_name_left'),
+						'lang_sidebar_name_right' 						=> $this->lang->line('pages_sidebar_name_right')
 			), true );
 
 		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
@@ -244,7 +245,8 @@ class Pages extends MY_Controller {
 		$pages[ 'title' ] = $this->input->post( 'title', true );
 		$pages[ 'page_type' ] = $this->input->post( 'page_type' );
 		$pages[ 'module' ] = $this->input->post( 'modules' );
-		$pages[ 'content' ] = $this->input->post( 'content' );
+
+		$pages[ 'content' ] = $this->input->post( 'editor1' );
 		$pages[ 'sidebar_style'] = $this->input->post('sidebar_style');
 
 		if($pages['sidebar_style'] == 'none') {
