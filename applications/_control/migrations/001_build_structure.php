@@ -3,6 +3,7 @@
 class Migration_Build_structure extends CI_Migration {
 
   public function up() {
+    $this->load->dbforge();
     //creating database...
     //$this->dbforge->create_database('dev.easypanel');
 
@@ -10,7 +11,7 @@ class Migration_Build_structure extends CI_Migration {
     $this->dbforge->add_field(array(
         'id_user' => array(
           'type' => 'INT',
-          'constraint' => 11,
+          'constraint' => 5,
           'unsigned' => TRUE,
           'auto_increment' => TRUE
         ),
@@ -23,14 +24,14 @@ class Migration_Build_structure extends CI_Migration {
           'constraint' => '255',
         ),
     ));
-
+    $this->dbforge->add_key('id_user', TRUE);
     $this->dbforge->create_table('ep_admin_users');
 
     //creating admin settings...
     $this->dbforge->add_field(array(
         'id_setting' => array(
           'type' => 'INT',
-          'constraint' => 11,
+          'constraint' => 5,
           'unsigned' => TRUE,
           'auto_increment' => TRUE
         ),
@@ -43,7 +44,7 @@ class Migration_Build_structure extends CI_Migration {
           'constraint' => '255',
         ),
     ));
-
+    $this->dbforge->add_key('id_setting', TRUE);
     $this->dbforge->create_table('ep_admin_settings');
 
     //creating admin sessions...
@@ -72,7 +73,7 @@ class Migration_Build_structure extends CI_Migration {
           'type' => 'TEXT',
         ),
     ));
-
+    $this->dbforge->add_key('session_id', TRUE);
     $this->dbforge->create_table('ep_admin_sessions');
 
     //creating modules...
@@ -92,7 +93,7 @@ class Migration_Build_structure extends CI_Migration {
           'constraint' => '255',
         ),
     ));
-
+    $this->dbforge->add_key('id_module', TRUE);
     $this->dbforge->create_table('ep_modules');
 
     //creating pages...
@@ -136,7 +137,7 @@ class Migration_Build_structure extends CI_Migration {
           'constraint' => '255',
         ),
     ));
-
+    $this->dbforge->add_key('id_page', TRUE);
     $this->dbforge->create_table('ep_pages');
 
     //creating sidebars...
@@ -155,8 +156,8 @@ class Migration_Build_structure extends CI_Migration {
           'type' => 'TEXT',
         ),
     ));
-
-    $this->dbforge->create_table('ep_modules');
+    $this->dbforge->add_key('id_sidebar', TRUE);
+    $this->dbforge->create_table('ep_sidebars');
 
     //creating themes...
     $this->dbforge->add_field(array(
@@ -175,7 +176,7 @@ class Migration_Build_structure extends CI_Migration {
           'constraint' => '1',
         ),
     ));
-
+    $this->dbforge->add_key('id_theme', TRUE);
     $this->dbforge->create_table('ep_themes');
 
   }

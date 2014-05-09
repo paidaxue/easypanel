@@ -34,7 +34,7 @@ $config['migration_version'] = 1;
 | Also, writing permission is required within the migrations path.
 |
 */
-$config['migration_path'] = '../migrations/';
+$config['migration_path'] = './common/migrations/';
 
 
 /* End of file migration.php */

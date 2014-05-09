@@ -1,3 +1,4 @@
+
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Migrate extends CI_Controller {
@@ -46,7 +47,7 @@ class Migrate extends CI_Controller {
    * Creates the database and builds the basic structure
    */
   function build () {
-    if (!$this->migration->version(1)) {
+    if (!$this->migration->version('1')) {
       echo $this->migration->error_string();
     } else {
       echo "Structure created.\n";
