@@ -14,6 +14,7 @@ class Settings extends MY_Controller {
 
 		/* ===== MODELS & HELPERS ===== */
 		$this->load->model( 'settings_admin_model' );
+		$this->load->model('pages_model');
 
   }
 
@@ -25,6 +26,7 @@ class Settings extends MY_Controller {
 		$settings['website_title'] = $this->settings_admin_model->get_setting_by_name( 'website_title' );
 		$settings['website_logo'] = $this->settings_admin_model->get_setting_by_name( 'website_logo' );
 		$settings['website_copyright'] = $this->settings_admin_model->get_setting_by_name( 'website_copyright' );
+		$settings['website_homepage'] = $this->pages_model->get_all_pages();
 
 		$content_filename = $this->folder_name . 'general' . $this->files_suffix;
 
@@ -35,7 +37,8 @@ class Settings extends MY_Controller {
 			'lang_page_title' 						=> $this->lang->line('general_settings_page_title'),
 			'lang_website_title'					=> $this->lang->line('general_settings_website_title'),
 			'lang_website_logo'						=> $this->lang->line('general_settings_website_logo'),
-			'lang_website_copyright'			=> $this->lang->line('general_settings_website_copyright')
+			'lang_website_copyright'			=> $this->lang->line('general_settings_website_copyright'),
+			'lang_website_homepage'       => $this->lang->line('general_settings_website_homepage')
 
 		);
 

@@ -15,6 +15,7 @@ $lang['general_settings_page_title']                  = "General Settings";
 $lang['general_settings_website_title']               = "Website title";
 $lang['general_settings_website_logo']                = "Website Logo";
 $lang['general_settings_website_copyright']           = "Website Copyright";
+$lang['general_settings_website_homepage']            = "Website Homepage";    
 
 //account settings
 $lang['account_settings_page_title']       = "Account Settings";

@@ -20,6 +20,26 @@
 
 			</div><!-- .rowElem -->
 
+		  <!--Select for website HomePage -->
+			<div class="rowElem nobg">
+
+				<label>{lang_website_homepage}</label>
+
+				<div class="formRight">
+					<select name="website_homepage" id = "homepage" >
+
+	  						{PAGES}
+	                <option value="{nickname}" {selected}>{name}</option>
+	  						{/PAGES}
+
+          </select>
+        </div>
+
+				<div class="fix"></div>
+
+			</div><!-- .rowElem -->
+
+
 			<div class="rowElem">
 
 				<label>{lang_website_logo}</label>
