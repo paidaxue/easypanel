@@ -29,7 +29,7 @@
 					<select name="website_homepage" id = "homepage" >
 
 	  						{PAGES}
-	                <option value="{nickname}" {selected}>{name}</option>
+	                <option value="{id_page}" {selected}>{title}</option>
 	  						{/PAGES}
 
           </select>

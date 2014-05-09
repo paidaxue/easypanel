@@ -26,11 +26,32 @@ class Settings extends MY_Controller {
 		$settings['website_title'] = $this->settings_admin_model->get_setting_by_name( 'website_title' );
 		$settings['website_logo'] = $this->settings_admin_model->get_setting_by_name( 'website_logo' );
 		$settings['website_copyright'] = $this->settings_admin_model->get_setting_by_name( 'website_copyright' );
-		$settings['website_homepage'] = $this->pages_model->get_all_pages();
+		$settings['website_homepage'] = $this->settings_admin_model->get_setting_by_name( 'website_homepage' );
+
+		$pages = $this->pages_model->get_all_pages();
+
+		foreach( $pages as $homepage ){
+
+			if ( $homepage->id_page == $settings['website_homepage'] ) {
+
+				$homepage->selected = "selected='selected'";
+
+			} else {
+
+				$homepage->selected = "";
+
+			}
+
+		}
 
 		$content_filename = $this->folder_name . 'general' . $this->files_suffix;
 
 		$page_title = $this->lang->line('general_settings_page_title');
+
+		$content_data = array(
+
+			'PAGES'						=> $pages,
+		);
 
 		$langs = array(
 
@@ -42,7 +63,9 @@ class Settings extends MY_Controller {
 
 		);
 
-		$settings = array_merge( $settings, $langs );
+		$homepage = array_merge($content_data, $langs);
+
+		$settings = array_merge( $settings, $homepage );
 
 		$content = $this->parser->parse( $content_filename, $settings, true );
 
@@ -58,6 +81,9 @@ class Settings extends MY_Controller {
 
 		$website_title[ 'value' ] = $this->input->post( 'website_title', true );
 		$this->settings_admin_model->update_setting( $website_title, 'website_title' );
+
+		$website_homepage[ 'value' ] = $this->input->post('website_homepage', true);
+		$this->settings_admin_model->update_setting($website_homepage, 'website_homepage');
 
 		$website_logo[ 'value' ] = $this->input->post( 'website_logo' );
 		if( $_FILES['website_logo']['name'] != '' ) {
