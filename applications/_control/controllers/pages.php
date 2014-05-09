@@ -138,18 +138,9 @@ class Pages extends MY_Controller {
 			$pages['sidebar_right'] = $this->input->post('sidebar_right');
 		}
 
-
-		if( $pages[ 'module' ] == 'homepage' ) {
-
-			$link_title = "homepage";
-
-		} else {
-
 			$link_title = $pages[ 'title' ];
 			$link_title_lowercase = strtolower($link_title);
 			$link_title = str_replace(' ', '_', $link_title_lowercase);
-
-		}
 
 		$pages[ 'link_title' ] = $link_title;
 
@@ -186,7 +177,7 @@ class Pages extends MY_Controller {
 
 		}
 
-		$modules = $this->pages_model->get_modules($page_info->module);
+		$modules = $this->pages_model->get_modules();
 		foreach( $modules as $mod ){
 
 			if ( $mod->nickname == $page_info->module ) {
@@ -268,18 +259,10 @@ class Pages extends MY_Controller {
 			$pages['sidebar_left'] = $this->input->post('sidebar_left');
 			$pages['sidebar_right'] = $this->input->post('sidebar_right');
 		}
-
-		if( $pages[ 'module' ] == 'homepage' ) {
-
-			$link_title = "homepage";
-
-		} else {
-
+			
 			$link_title = $pages[ 'title' ];
 			$link_title_lowercase = strtolower($link_title);
 			$link_title = str_replace(' ', '_', $link_title_lowercase);
-
-		}
 
 		$pages[ 'link_title' ] = $link_title;
 

@@ -41,23 +41,9 @@ class Pages_model extends CI_Model {
 	/**
 	 * Gets all modules
 	 */
-	function get_modules($module = 'no-module') {
+	function get_modules() {
 
-		$all_pages = $this->get_all_pages();
-		$homepage_exists = false;
-
-		foreach($all_pages as $page) {
-			if ($page->module == 'homepage' && $module != 'homepage') {
-				$homepage_exists = true;
-			}
-		}
-
-		if ($homepage_exists) {
-			return $this->db->get_where('ep_modules', array('nickname !=' => 'homepage'))->result();
-		} else {
 			return $this->db->get('ep_modules')->result();
-		}
-
 	}
 
 	/**
