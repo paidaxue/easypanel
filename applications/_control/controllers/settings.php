@@ -240,11 +240,12 @@ class Settings extends MY_Controller {
 	 * refresh themes list
 	 */
 	function refresh_themes(){
-		$loc = base_url(); 
+		$loc = base_url();
 		$local = str_replace( "http://localhost/dev.easypanel/", "", $loc );
 		$dir = $local.'applications/client/views';
 		$i = 0;
 		$folders = scandir($dir);
+		$themesDB = array();
 		foreach($folders as $folder){
 			if(strpos($folder, '_theme')){
 				$themesDB[$i] = $folder; //put themes who must go in database in array
@@ -252,21 +253,22 @@ class Settings extends MY_Controller {
 			}
 		}
 
-		//get themes from database	
+		//get themes from database
 		$themes_exist = $this->settings_admin_model->get_themes();
 		$j = 0;
+		$name = array();
 		foreach($themes_exist as $theme_exist){
 			$name[$j] = $theme_exist->name;
 			$j++;
 		}
-  
+
     // verified who is not in database and exist in folder
 		$dif1 = array_diff($themesDB, $name);
 		$k = 0;
 		$count = 0;
 		foreach ($dif1 as $dif) {
 			$different[$k] = $dif;
-			$k++; 
+			$k++;
 			$count++;
 		}
 
