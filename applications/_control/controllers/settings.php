@@ -181,6 +181,127 @@ class Settings extends MY_Controller {
 
 	}
 
+	/**
+	 * Theme settings page
+	 */
+	function theme() {
+
+		$themes = $this->settings_admin_model->get_themes();
+		foreach( $themes as $theme ) {
+			if( $theme->active == '1' ) {
+				$theme->selected = "selected = 'selected'";
+			} else {
+				$theme->selected = "";
+			}
+		}
+
+		$content_filename = $this->folder_name . 'theme' . $this->files_suffix;
+
+		$page_title = $this->lang->line('theme_settings_page_title');
+
+		$content_data = array(
+
+			'lang_page_title' 	=> $this->lang->line('theme_settings_page_title'),
+			'THEMES'						=> $themes,
+			'lang_content_type_field' =>$this->lang->line('theme_settings_content'),
+			'lang_submit_form'  => $this->lang->line('theme_submit'),
+			'lang_refresh_themes'  => $this->lang->line('theme_refresh_themes'),
+		);
+
+		$content = $this->parser->parse( $content_filename, $content_data, true );
+
+		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$this->parser->parse( 'base_template', $page );
+
+	}
+
+	/**
+	 * theme settings procces
+	 */
+	function theme_process(){
+
+		$id_selected_theme = $this->input->post('themes');
+		$themes = $this->settings_admin_model->get_themes();
+
+		foreach($themes as $theme){
+			$theme->active = '0';
+			$this->settings_admin_model->update_theme_settings( $theme, $theme->id_theme );
+		}
+
+		$selected_theme = $this->settings_admin_model->get_theme_by_id($id_selected_theme);
+		$selected_theme->active = '1';
+		$this->settings_admin_model->update_theme_settings($selected_theme, $id_selected_theme);
+
+		redirect('_control.php/settings/theme');
+
+	}
+
+	/**
+	 * refresh themes list
+	 */
+	function refresh_themes(){
+		$loc = base_url(); 
+		$local = str_replace( "http://localhost/dev.easypanel/", "", $loc );
+		$dir = $local.'applications/client/views';
+		$i = 0;
+		$folders = scandir($dir);
+		foreach($folders as $folder){
+			if(strpos($folder, '_theme')){
+				$themesDB[$i] = $folder; //put themes who must go in database in array
+				$i++;
+			}
+		}
+
+		//get themes from database	
+		$themes_exist = $this->settings_admin_model->get_themes();
+		$j = 0;
+		foreach($themes_exist as $theme_exist){
+			$name[$j] = $theme_exist->name;
+			$j++;
+		}
+  
+    // verified who is not in database and exist in folder
+		$dif1 = array_diff($themesDB, $name);
+		$k = 0;
+		$count = 0;
+		foreach ($dif1 as $dif) {
+			$different[$k] = $dif;
+			$k++; 
+			$count++;
+		}
+
+		//if exist new theme in folder, put it in database else stay on that page
+		if($count > 0){
+			foreach ($different as $diff) {
+				$theme_to_DB['name'] = $diff;
+				$theme_to_DB['active'] = '0';
+
+				$this->settings_admin_model->insert_theme($theme_to_DB);
+			}
+		}
+
+		//verified who theme is not folder and is in data base
+		$dif2 = array_diff($name, $themesDB);
+		$n = 0;
+		$count1 = 0;
+		foreach ($dif2 as $diff2) {
+			$different1[$n] = $diff2;
+			$n++;
+			$count1++;
+		}
+
+		//get theme in database by_name
+		//if exsit theme in database who don't exist in folder, delete them all
+		if($count1 > 0){
+			foreach ($different1 as $diff3) {
+				$theme_delete['name'] = $diff3;
+
+				$this->settings_admin_model->delete_theme($theme_delete);
+			}
+		}
+		redirect('_control.php/settings/theme');
+	}
+
 }
 
 /* End of file settings.php */
