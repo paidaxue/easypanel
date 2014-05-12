@@ -240,14 +240,13 @@ class Settings extends MY_Controller {
 	 * refresh themes list
 	 */
 	function refresh_themes(){
-		$loc = base_url();
-		$local = str_replace( "http://localhost/dev.easypanel/", "", $loc );
-		$dir = $local.'applications/client/views';
+		$dir = './applications/client/views';
 		$i = 0;
 		$folders = scandir($dir);
 		$themesDB = array();
 		foreach($folders as $folder){
 			if(strpos($folder, '_theme')){
+				$folder = rtrim($folder,'_theme');
 				$themesDB[$i] = $folder; //put themes who must go in database in array
 				$i++;
 			}
