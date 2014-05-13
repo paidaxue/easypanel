@@ -15,7 +15,7 @@ $lang['general_settings_page_title']                  = "General Settings";
 $lang['general_settings_website_title']               = "Website title";
 $lang['general_settings_website_logo']                = "Website Logo";
 $lang['general_settings_website_copyright']           = "Website Copyright";
-$lang['general_settings_website_homepage']            = "Website Homepage";    
+$lang['general_settings_website_homepage']            = "Website Homepage";
 
 //account settings
 $lang['account_settings_page_title']       = "Account Settings";
@@ -54,6 +54,14 @@ $lang['pages_page_type_field']          = "Page type";
 $lang['pages_default_page_type_value']  = "Parent";
 $lang['pages_empty_page_type_value']    = "Parent (no-link)";
 $lang['pages_submit_form']              = "Submit";
+$lang['pages_sidebars_option']          = "Sidebars";
+$lang['pages_sidebars_style']           = "Sidebars style";
+$lang['pages_sidebar_none']             = "None";
+$lang['pages_sidebar_left']             = "Left";
+$lang['pages_sidebar_right']            = "Right";
+$lang['pages_sidebar_both']             = "Both";
+$lang['pages_sidebar_name_left']        = "Left sidebar";
+$lang['pages_sidebar_name_right']       = "Right sidebar";
 
 /* ---- SIDEBARS --- */
 

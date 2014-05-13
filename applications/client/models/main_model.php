@@ -9,6 +9,16 @@ class Main_model extends CI_Model {
   }
 
   /**
+    * Get homepage
+    */
+  function get_homepage () {
+
+    $page_id = $this->db->get_where('ep_admin_settings', array('name' => 'website_homepage'))->row()->value;
+    return $this->db->get_where('ep_pages', array('id_page' => $page_id))->row();
+
+  }
+
+  /**
     * Get page content by module
     */
   function get_page_by_module ( $module ) {
@@ -32,8 +42,8 @@ class Main_model extends CI_Model {
     */
   function get_parents () {
 
-    $parents_with_link = $this->db->get_where('ep_pages', array('page_type' => '1'))->result();
-    $parents_no_link = $this->db->get_where('ep_pages', array('page_type' => '0'))->result();
+    $parents_with_link = $this->db->get_where('ep_pages', array('page_type' => 'parent'))->result();
+    $parents_no_link = $this->db->get_where('ep_pages', array('page_type' => 'parent-no-link'))->result();
     $parents = array_merge($parents_with_link, $parents_no_link);
 
     return $parents;

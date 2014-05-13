@@ -15,7 +15,7 @@ class Homepage extends CI_Controller {
 		*/
 	function index () {
 
-		$page_info = $this->main_model->get_page_by_module('homepage');
+		$page_info = $this->main_model->get_homepage();
 
     $data = array(
       'page_title'    => $page_info->title,

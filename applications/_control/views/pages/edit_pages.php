@@ -71,8 +71,8 @@
 
         	<select name="page_type"  class = "chzn-select" id = "page_type" >
 
-         		<option value="1">{lang_default_page_type_value}</option>
-            <option value="0">{lang_empty_page_type_value}</option>
+         		<option value="parent">{lang_default_page_type_value}</option>
+            <option value="parent-no-link">{lang_empty_page_type_value}</option>
               {PAGE_TYPE}
           	<option value="{id_page}" {selected}>{title}</option>
               {/PAGE_TYPE}
@@ -94,7 +94,7 @@
 
       </div><!-- .widget -->
       <div class="rowElem">
-        <label class = "sidebar_style"> * {lang_sidebars_style}</label>
+        <label class = "sidebar_style">{lang_sidebars_style}</label>
         <div class="formRight noSearch">
           <select name="sidebar_style" class = "chzn-select"  id = "sidebar_style" >
               <option value="none">{lang_sidebar_none}</option>
@@ -104,7 +104,7 @@
           </select>
         </div>
 
-        <label class = "sidebar_style left"> * {lang_sidebar_name_left}</label>
+        <label id="left_sidebar" class = "sidebar_style">{lang_sidebar_name_left}</label>
         <div class="formRight noSearch" id="sidebar_name_left">
           <select name="sidebar_left" class = "chzn-select"  id = "sidebar_name_left" >
               {SIDEBARS}
@@ -113,8 +113,7 @@
           </select>
         </div>
 
-
-        <label class = "sidebar_style right"> * {lang_sidebar_name_right}</label>
+        <label id="right_sidebar" class = "sidebar_style">{lang_sidebar_name_right}</label>
         <div class="formRight noSearch" id="sidebar_name_right">
           <select name="sidebar_right" class = "chzn-select"   >
               {SIDEBARS}

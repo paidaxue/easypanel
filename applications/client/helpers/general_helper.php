@@ -130,7 +130,9 @@ if ( ! function_exists('get_nav')) {
 
       }
 
-      if ( $menu->module == 'homepage' ) {
+      $homepage = $CI->main_model->get_homepage();
+
+      if ( $menu->id_page == $homepage->id_page ) {
 
         $menu->page_link = site_url();
 

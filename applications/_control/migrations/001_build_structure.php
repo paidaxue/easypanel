@@ -118,9 +118,9 @@ class Migration_Build_structure extends CI_Migration {
           'constraint' => '255',
         ),
         'page_type' => array(
-          'type' => 'INT',
-          'constraint' => '11',
-          'default' => '1',
+          'type' => 'VARCHAR',
+          'constraint' => '100',
+          'default' => 'parent',
         ),
         'content' => array(
           'type' => 'text',
@@ -191,7 +191,7 @@ class Migration_Build_structure extends CI_Migration {
     $ep_admin_settings_seed[3]['value'] = 'Website Copyright';
 
     $ep_admin_settings_seed[4]['name'] = 'website_homepage';
-    $ep_admin_settings_seed[4]['value'] = 'Website homepage';
+    $ep_admin_settings_seed[4]['value'] = '1';
 
     foreach ($ep_admin_settings_seed as $admin_setting) {
       $this->db->insert( "ep_admin_settings", $admin_setting );
@@ -214,7 +214,7 @@ class Migration_Build_structure extends CI_Migration {
     $ep_pages[1]['title'] = 'Home';
     $ep_pages[1]['link_title'] = 'homepage';
     $ep_pages[1]['module'] = 'simple_page';
-    $ep_pages[1]['page_type'] = '1';
+    $ep_pages[1]['page_type'] = 'parent';
     $ep_pages[1]['content'] = '<p>homepage</p>';
     $ep_pages[1]['sidebar_style'] = 'none';
     $ep_pages[1]['sidebar_left'] = '0';
@@ -223,7 +223,7 @@ class Migration_Build_structure extends CI_Migration {
     $ep_pages[2]['title'] = 'Simple Page';
     $ep_pages[2]['link_title'] = 'simple_page';
     $ep_pages[2]['module'] = 'simple_page';
-    $ep_pages[2]['page_type'] = '1';
+    $ep_pages[2]['page_type'] = 'parent';
     $ep_pages[2]['content'] = '<p>Lorem ipsum</p>';
     $ep_pages[2]['sidebar_style'] = 'none';
     $ep_pages[2]['sidebar_left'] = '0';
