@@ -179,7 +179,7 @@ class Pages extends MY_Controller {
 		$modules = $this->pages_model->get_modules();
 		foreach( $modules as $mod ){
 
-			if ( $mod->nickname == $page_info->module ) {
+			if ( $mod->module_slug == $page_info->module ) {
 
 				$mod->selected = "selected='selected'";
 

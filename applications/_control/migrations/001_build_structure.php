@@ -89,7 +89,7 @@ class Migration_Build_structure extends CI_Migration {
           'type' => 'VARCHAR',
           'constraint' => '255',
         ),
-        'nickname' => array(
+        'module_slug' => array(
           'type' => 'VARCHAR',
           'constraint' => '255',
         ),

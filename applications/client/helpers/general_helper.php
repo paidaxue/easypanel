@@ -136,7 +136,7 @@ if ( ! function_exists('get_nav')) {
 
         $menu->page_link = site_url();
 
-      } elseif( $menu->page_type == 0 ) {
+      } elseif( $menu->page_type == 'parent-no-link' ) {
 
         $menu->page_link = '#';
 

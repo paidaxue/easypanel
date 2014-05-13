@@ -33,7 +33,7 @@
 					<select name="modules" class = "chzn-select" id = "modules" >
 
 						{MODULES}
-						<option value="{nickname}" {selected}>{name}</option>
+						<option value="{module_slug}" {selected}>{name}</option>
 						{/MODULES}
 
 					</select>
