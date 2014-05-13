@@ -28,11 +28,11 @@ class Main_model extends CI_Model {
   }
 
   /**
-    * Get page content by link_title
+    * Get page content by page_slug
     */
-  function get_page_by_link_title ( $link_title ) {
+  function get_page_by_page_slug ( $page_slug ) {
 
-    return $this->db->get_where('ep_pages', array('link_title' => $link_title))->row();
+    return $this->db->get_where('ep_pages', array('page_slug' => $page_slug))->row();
 
   }
 

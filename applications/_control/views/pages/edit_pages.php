@@ -48,7 +48,7 @@
 
       	<label id="ckeditor">{lang_content_field}</label><br />
         <p id="ckeditor-arange">
-          <textarea class="ckeditor" cols="80" id="editor1" name="editor1" rows="10">{content}</textarea>
+          <textarea class="ckeditor" cols="80" id="editor1" name="content" rows="10">{content}</textarea>
         </p>
 
       </div><!-- #normal_content -->

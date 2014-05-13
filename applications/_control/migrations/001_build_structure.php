@@ -109,7 +109,7 @@ class Migration_Build_structure extends CI_Migration {
           'type' => 'VARCHAR',
           'constraint' => '255',
         ),
-        'link_title' => array(
+        'page_slug' => array(
           'type' => 'VARCHAR',
           'constraint' => '255',
         ),
@@ -205,14 +205,14 @@ class Migration_Build_structure extends CI_Migration {
     }
 
     $ep_modules[1]['name'] = 'Simple page';
-    $ep_modules[1]['nickname'] = 'simple_page';
+    $ep_modules[1]['module_slug'] = 'simple_page';
 
     foreach ($ep_modules as $admin_module) {
       $this->db->insert( "ep_modules", $admin_module );
     }
 
     $ep_pages[1]['title'] = 'Home';
-    $ep_pages[1]['link_title'] = 'homepage';
+    $ep_pages[1]['page_slug'] = 'homepage';
     $ep_pages[1]['module'] = 'simple_page';
     $ep_pages[1]['page_type'] = 'parent';
     $ep_pages[1]['content'] = '<p>homepage</p>';
@@ -221,7 +221,7 @@ class Migration_Build_structure extends CI_Migration {
     $ep_pages[1]['sidebar_right'] = '0';
 
     $ep_pages[2]['title'] = 'Simple Page';
-    $ep_pages[2]['link_title'] = 'simple_page';
+    $ep_pages[2]['page_slug'] = 'simple_page';
     $ep_pages[2]['module'] = 'simple_page';
     $ep_pages[2]['page_type'] = 'parent';
     $ep_pages[2]['content'] = '<p>Lorem ipsum</p>';

@@ -137,11 +137,11 @@ class Pages extends MY_Controller {
 			$pages['sidebar_right'] = $this->input->post('sidebar_right');
 		}
 
-		$link_title = $pages[ 'title' ];
-		$link_title_lowercase = strtolower($link_title);
-		$link_title = str_replace(' ', '_', $link_title_lowercase);
+		$page_slug = $pages[ 'title' ];
+		$page_slug_lowercase = strtolower($page_slug);
+		$page_slug = str_replace(' ', '_', $page_slug_lowercase);
 
-		$pages[ 'link_title' ] = $link_title;
+		$pages[ 'page_slug' ] = $page_slug;
 
 		$this->pages_model->insert_page( $pages );
 
@@ -259,11 +259,11 @@ class Pages extends MY_Controller {
 			$pages['sidebar_right'] = $this->input->post('sidebar_right');
 		}
 
-		$link_title = $pages[ 'title' ];
-		$link_title_lowercase = strtolower($link_title);
-		$link_title = str_replace(' ', '_', $link_title_lowercase);
+		$page_slug = $pages[ 'title' ];
+		$page_slug_lowercase = strtolower($page_slug);
+		$page_slug = str_replace(' ', '_', $page_slug_lowercase);
 
-		$pages[ 'link_title' ] = $link_title;
+		$pages[ 'page_slug' ] = $page_slug;
 
 		$this->pages_model->update_page( $pages, $id_page );
 

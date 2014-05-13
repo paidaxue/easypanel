@@ -8,18 +8,18 @@ class Page extends CI_Controller {
 
   }
 
-	function _remap( $link_title ) {
+	function _remap( $page_slug ) {
 
-		$this->index( $link_title );
+		$this->index( $page_slug );
 
 	}
 
 	/**
 		* Main function for generating pages
 		*/
-	function index ( $link_title ) {
+	function index ( $page_slug ) {
 
-		$page_info = $this->main_model->get_page_by_link_title($link_title);
+		$page_info = $this->main_model->get_page_by_page_slug($page_slug);
 
 		$data = array(
       'page_title'    => $page_info->title,
