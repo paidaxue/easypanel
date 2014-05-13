@@ -172,9 +172,10 @@ class Migration_Build_structure extends CI_Migration {
           'type' => 'VARCHAR',
           'constraint' => '255',
         ),
-        'content' => array(
+        'active' => array(
           'type' => 'INT',
           'constraint' => '1',
+          'default' => '0'
         ),
     ));
     $this->dbforge->add_key('id_theme', TRUE);

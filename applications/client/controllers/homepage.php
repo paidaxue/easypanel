@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Homepage extends CI_Controller {
+class Homepage extends MY_Controller {
 
   function __construct() {
 
@@ -34,6 +34,10 @@ class Homepage extends CI_Controller {
 
 		return $page->content;
 
+  }
+
+  function test() {
+    $this->themes->get_theme_files();
   }
 }
 

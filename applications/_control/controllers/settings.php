@@ -248,6 +248,7 @@ class Settings extends MY_Controller {
 		foreach($folders as $folder){
 			if(strpos($folder, '_theme')){
 				$folder = rtrim($folder,'_theme');
+				$folder = substr($folder, 0, -6);
 				$themesDB[$i] = $folder; //put themes who must go in database in array
 				$i++;
 			}
