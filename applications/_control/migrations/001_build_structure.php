@@ -180,50 +180,39 @@ class Migration_Build_structure extends CI_Migration {
     $this->dbforge->add_key('id_theme', TRUE);
     $this->dbforge->create_table('ep_themes');
 
-    // Seed 
-
-
-    $ep_admin_settings_seed[1]['name'] = 'Website Title';
-    $ep_admin_settings_seed[1]['value'] = 'website_title';
+    // Seeds
+    $ep_admin_settings_seed[1]['name'] = 'website_title';
+    $ep_admin_settings_seed[1]['value'] = 'Website Title';
 
     $ep_admin_settings_seed[2]['name'] = 'website_logo';
     $ep_admin_settings_seed[2]['value'] = 'logo.png';
 
-    $ep_admin_settings_seed[3]['name'] = 'Website Copyright';
-    $ep_admin_settings_seed[3]['value'] = 'website_copyright';
+    $ep_admin_settings_seed[3]['name'] = 'website_copyright';
+    $ep_admin_settings_seed[3]['value'] = 'Website Copyright';
 
-    $ep_admin_settings_seed[4]['name'] = 'Website homepage';
-    $ep_admin_settings_seed[4]['value'] = 'website_homepage';
-
-    $i = 1;
+    $ep_admin_settings_seed[4]['name'] = 'website_homepage';
+    $ep_admin_settings_seed[4]['value'] = 'Website homepage';
 
     foreach ($ep_admin_settings_seed as $admin_setting) {
       $this->db->insert( "ep_admin_settings", $admin_setting );
-      $i = $i + 1 ;
     }
 
     $ep_admin_users[1]['user'] = 'admin';
     $ep_admin_users[1]['pass'] = '21232f297a57a5a743894a0e4a801fc3';
 
-    $o = 1;
-
     foreach ($ep_admin_users as $admin_user) {
       $this->db->insert( "ep_admin_users", $admin_user );
-      $o = $o + 1 ;
     }
 
     $ep_modules[1]['name'] = 'Simple page';
     $ep_modules[1]['nickname'] = 'simple_page';
 
-    $p = 1;
-
     foreach ($ep_modules as $admin_module) {
       $this->db->insert( "ep_modules", $admin_module );
-      $p = $p + 1 ;
     }
 
     $ep_pages[1]['title'] = 'Home';
-    $ep_pages[1]['link_title'] = 'homepagge';
+    $ep_pages[1]['link_title'] = 'homepage';
     $ep_pages[1]['module'] = 'simple_page';
     $ep_pages[1]['page_type'] = '1';
     $ep_pages[1]['content'] = '<p>homepage</p>';
@@ -240,15 +229,9 @@ class Migration_Build_structure extends CI_Migration {
     $ep_pages[2]['sidebar_left'] = '0';
     $ep_pages[2]['sidebar_right'] = '0';
 
-    $a = 1;
-
     foreach ($ep_pages as $page) {
       $this->db->insert( "ep_pages", $page );
-      $a = $a + 1 ;
     }
-      
-
-
   }
 
   public function down() {
