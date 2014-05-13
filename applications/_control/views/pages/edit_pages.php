@@ -97,25 +97,24 @@
         <label class = "sidebar_style">{lang_sidebars_style}</label>
         <div class="formRight noSearch">
           <select name="sidebar_style" class = "chzn-select"  id = "sidebar_style" >
-              <option value="none">{lang_sidebar_none}</option>
-              <option value="left">{lang_sidebar_left}</option>
-              <option value="right">{lang_sidebar_right}</option>
-              <option value="both">{lang_sidebar_both}</option>
+              {SIDEBARS_STYLE}
+              <option value="{value}" {selected}>{name}</option>
+              {/SIDEBARS_STYLE}
           </select>
         </div>
 
-        <label id="left_sidebar" class = "sidebar_style">{lang_sidebar_name_left}</label>
-        <div class="formRight noSearch" id="sidebar_name_left">
-          <select name="sidebar_left" class = "chzn-select"  id = "sidebar_name_left" >
+        <label id="left_sidebar" class = "sidebar_style {show_left_sidebar}">{lang_sidebar_name_left}</label>
+        <div class="formRight noSearch {show_left_sidebar}" id="sidebar_name_left">
+          <select name="sidebar_left" class = "chzn-select" id = "sidebar_name_left">
               {SIDEBARS}
                 <option value="{id_sidebar}">{name}</option>
               {/SIDEBARS}
           </select>
         </div>
 
-        <label id="right_sidebar" class = "sidebar_style">{lang_sidebar_name_right}</label>
-        <div class="formRight noSearch" id="sidebar_name_right">
-          <select name="sidebar_right" class = "chzn-select"   >
+        <label id="right_sidebar" class = "sidebar_style {show_right_sidebar}">{lang_sidebar_name_right}</label>
+        <div class="formRight noSearch {show_right_sidebar}" id="sidebar_name_right">
+          <select name="sidebar_right" class = "chzn-select">
               {SIDEBARS}
                 <option value="{id_sidebar}">{name}</option>
               {/SIDEBARS}

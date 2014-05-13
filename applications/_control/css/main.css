@@ -17,6 +17,7 @@ body { background: url(../images/body_bg.jpg) repeat; font-family: 'Cuprum', san
 .first { margin-top: 0px!important; }
 .post { margin-left:0px!important; }
 .nobg { background: none!important; }
+.show { visibility: visible!important; }
 button.nobg { background: none; }
 select { overflow: auto; }
 

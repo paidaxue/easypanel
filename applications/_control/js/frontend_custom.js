@@ -89,11 +89,11 @@ $(document).ready(function() {
 		});
 	});
 
-	//==== Add/Edit page sidebar options
-	$('#sidebar_name_left').hide();
-	$('#sidebar_name_right').hide();
-	$('#left_sidebar').hide();
-	$('#right_sidebar').hide();
+	//==== Add/Edit page sidebar options =====//
+	$('#sidebar_name_left:not(.show)').hide();
+	$('#sidebar_name_right:not(.show)').hide();
+	$('#left_sidebar:not(.show)').hide();
+	$('#right_sidebar:not(.show)').hide();
 
 	$("#sidebar_style").change(function () {
 		var style = $(this).val();

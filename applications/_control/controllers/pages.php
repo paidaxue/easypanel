@@ -193,10 +193,39 @@ class Pages extends MY_Controller {
 
 		$page_title = $this->lang->line('pages_edit_page') . $page_info->title;
 
+		$sidebars_style = array(
+			array('value' => 'none', 'selected' => '', 'name' => $this->lang->line('pages_sidebar_none')),
+			array('value' => 'left', 'selected' => '', 'name' => $this->lang->line('pages_sidebar_left')),
+			array('value' => 'right', 'selected' => '', 'name'  => $this->lang->line('pages_sidebar_right')),
+			array('value' => 'both', 'selected' => '', 'name' => $this->lang->line('pages_sidebar_both')),
+		);
+		for($i = 0; $i < 4; $i++) {
+			if($page_info->sidebar_style == $sidebars_style[$i]['value']) {
+				$sidebars_style[$i]['selected'] = "selected='selected'";
+			}
+		}
+
+		if($page_info->sidebar_style == 'both') {
+			$sidebar_left = 'show';
+			$sidebar_right = 'show';
+		} elseif ($page_info->sidebar_style == 'left') {
+			$sidebar_left = 'show';
+			$sidebar_right = '';
+		} elseif ($page_info->sidebar_style == 'right') {
+			$sidebar_left = '';
+			$sidebar_right = 'show';
+		} elseif ($page_info->sidebar_style == 'none') {
+			$sidebar_left = '';
+			$sidebar_right = '';
+		}
+
 		$content = $this->parser->parse( $filenames[ 'edit_page' ], array(
 				'PAGE_TYPE' 										=> $page_type,
 				'MODULES' 											=> $modules,
 				'SIDEBARS'											=> $sidebars,
+				'SIDEBARS_STYLE'								=> $sidebars_style,
+				'show_left_sidebar' 						=> $sidebar_left,
+				'show_right_sidebar' 						=> $sidebar_right,
 				'title' 												=> $page_info->title,
 				'id_page' 											=> $page_info->id_page,
 				'content' 											=> $page_info->content,
