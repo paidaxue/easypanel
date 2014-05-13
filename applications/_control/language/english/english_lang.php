@@ -30,6 +30,7 @@ $lang['theme_settings_page_title']   = "Theme Settings";
 $lang['theme_settings_content']      = "Select a theme";
 $lang['theme_submit']                = "Submit";
 $lang['theme_refresh_themes']        = "Refresh themes";
+$lang['theme_default']               = "Default theme";
 
 /* ---- LOGIN --- */
 $lang['login_page_title']     = "Login";

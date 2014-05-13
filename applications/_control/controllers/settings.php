@@ -206,6 +206,7 @@ class Settings extends MY_Controller {
 			'lang_content_type_field' =>$this->lang->line('theme_settings_content'),
 			'lang_submit_form'  => $this->lang->line('theme_submit'),
 			'lang_refresh_themes'  => $this->lang->line('theme_refresh_themes'),
+			'lang_default'  => $this->lang->line('theme_default'),
 		);
 
 		$content = $this->parser->parse( $content_filename, $content_data, true );
