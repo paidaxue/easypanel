@@ -5,7 +5,6 @@ class MY_Controller extends CI_Controller {
   function __construct() {
     parent::__construct();
 
-    $this->load->model('main_model');
     $this->theme = $this->main_model->get_active_theme();
 
     $this->load->library('Themes', array('theme' => $this->theme));
