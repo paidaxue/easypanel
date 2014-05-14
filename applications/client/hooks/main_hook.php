@@ -13,10 +13,12 @@ class Main_hook {
 
 		$base_url = rtrim(base_url(),'/');
     $app_url = base_url() . 'applications/client';
+    $theme_url = base_url() . 'applications/client/views';
     $up_url = base_url() . 'uploads';
 
     $output = str_replace('{BASE_URL}', $base_url, $output);
     $output = str_replace('{APP_URL}', $app_url, $output);
+    $output = str_replace('{T_URL}', $theme_url, $output);
     $output = str_replace('{UP_URL}', $up_url, $output);
 
 		$this->output->set_output($output);

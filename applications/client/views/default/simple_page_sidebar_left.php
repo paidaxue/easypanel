@@ -2,6 +2,6 @@
 
 <div class="two-thirds column">
 
-	<p>{content}</p>
+	{content}
 
 </div>

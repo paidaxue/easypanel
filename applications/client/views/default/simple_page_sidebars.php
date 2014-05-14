@@ -2,9 +2,8 @@
 
 <div class="one-third column">
 
-	<p>{content}</p>
+	{content}
 
 </div>
-
 
 {sidebar_right}

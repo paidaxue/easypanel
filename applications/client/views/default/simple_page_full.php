@@ -1,5 +1,5 @@
 <div class="sixteen columns">
 
-	<p>{content}</p>
+	{content}
 
 </div>

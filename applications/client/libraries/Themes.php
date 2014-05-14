@@ -8,7 +8,8 @@ class Themes {
 			$this->active_theme = $params['theme'] . '_theme';
 		}
 
-		$this->load->model('main_model');
+		$this->CI =& get_instance();
+		$this->CI->load->model('main_model');
   }
 
 	/**

@@ -98,6 +98,77 @@ if ( ! function_exists('template_builder')) {
 }
 
 /**
+* Builds the main navigation
+* @return array of objects
+*/
+if ( ! function_exists('get_nav')) {
+
+  function get_nav() {
+
+    $CI =& get_instance();
+
+    $nav = $CI->main_model->get_parents();
+
+    foreach($nav as $menu) {
+
+      $chs = $CI->main_model->get_children($menu->id_page);
+
+      if ( ! empty( $chs ) ) {
+
+        foreach ( $chs as $kid ) {
+
+          $kid->s_page_link = site_url() . 'page' . '/' . $kid->link_title;
+          $kid->s_title = $kid->title;
+
+        }
+
+        $menu->S_NAV = $chs;
+
+      } else {
+
+        $menu->S_NAV = array();
+
+      }
+
+      if ( $menu->module == 'homepage' ) {
+
+        $menu->page_link = site_url();
+
+      } elseif( $menu->page_type == 0 ) {
+
+        $menu->page_link = '#';
+
+      } else {
+
+        $menu->page_link = site_url() . 'page' . '/' . $menu->link_title;
+
+      }
+
+    }
+
+    return $nav;
+
+  }
+
+}
+
+/**
+* Builds the footer
+* @return array of objects
+*/
+if ( ! function_exists('get_footer')) {
+
+  function get_footer() {
+
+    $footer['current_year'] = date('Y');
+
+    return $footer;
+
+  }
+
+}
+
+/**
  * Builds the right sidebar
  * @return array of objects
  */
