@@ -1,4 +1,4 @@
-{sidebar_left}
+{left_sidebar}
 
 <div class="two-thirds column">
 

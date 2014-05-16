@@ -1,5 +1,5 @@
 <div class="one-third column">
 
-	{sidebar_left_content}
+	{left_sidebar_content}
 
 </div>

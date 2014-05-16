@@ -4,4 +4,4 @@
 
 </div>
 
-{sidebar_right}
+{right_sidebar}

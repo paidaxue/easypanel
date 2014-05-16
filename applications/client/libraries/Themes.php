@@ -10,6 +10,7 @@ class Themes {
 
 		$this->CI =& get_instance();
 		$this->CI->load->model('main_model');
+		$this->CI->load->library('parser');
   }
 
 	/**
@@ -31,6 +32,8 @@ class Themes {
 			'simple_page_sidebar_right.php',
 			'simple_page_sidebars.php'
 		];
+		$regex_1='.*?';	# Non-greedy match on filler
+  	$regex_2='((?:[a-z][a-z\\.\\d_]+)\\.(?:[a-z\\d]{3}))(?![\\w\\.])';	# File Name 1
 		$dir = APPPATH . 'views/' . $this->active_theme; // folder route
 		$files = array_diff(scandir($dir), array('..', '.')); // removes annoying dots
 		$fallback = array_diff($default, $files);
@@ -38,16 +41,26 @@ class Themes {
 		// gets existing files in current theme folder
 		foreach($files as $key => $file) {
 			if(strpos($file, '.php')){ // checks if string contains substring '.php'
-				$existing_files[$key] = $this->active_theme . '/' . $file;
+				$existing_files_values[$key] = $this->active_theme . '/' . $file;
+				$matches = array();
+				preg_match_all("/".$regex_1.$regex_2."/is", $file, $matches); // regex for filename
+				$existing_files_keys[$key] = $matches[1][0];
 			}
 		}
+
+		$existing_files = array_combine($existing_files_keys, $existing_files_values);
 
 		// builds fallback files
 		foreach($fallback as $key => $file) {
 			if(strpos($file, '.php')){ // checks if string contains substring '.php'
-				$fallback_files[$key] = 'default/' . $file;
+				$fallback_files_values[$key] = 'default/' . $file;
+				$matches = array();
+				preg_match_all("/".$regex_1.$regex_2."/is", $file, $matches); // regex for filename
+				$fallback_files_keys[$key] = $matches[1][0];
 			}
 		}
+
+		$fallback_files = array_combine($fallback_files_keys, $fallback_files_values);
 
 		if(!empty($fallback_files)) {
 			$theme_files = array_merge($existing_files, $fallback_files);
@@ -99,7 +112,7 @@ class Themes {
 	 * @return string website copyright
 	 */
 	function build_footer() {
-		return $this->CI->main_model->get_website_setting_by_name('website_copyright');
+		return $this->CI->main_model->get_website_setting_by_name('website_copyright')->value;
   }
 
 	/**
@@ -128,92 +141,67 @@ class Themes {
     );
 
     // building footer...
-    $nav_data = array(
-      'copyright' => $this->build_footer()
+    $footer_data = array(
+      'copyright' => $this->build_footer(),
+      'current_year' => date("Y")
     );
 
     // building main content...
     if($layout_type == 'both') {
-    	$right_sidebar = $this->main_model->get_sidebar_by_id($right_sidebar);
-    	$left_sidebar = $this->main_model->get_sidebar_by_id($left_sidebar);
-    	$sidebars_data = array(
-    		'right_sidebar' => $right_sidebar,
-    		'left_sidebar' => $left_sidebar,
+    	$right_sidebar_info = $this->CI->main_model->get_sidebar_by_id($right_sidebar);
+    	$left_sidebar_info = $this->CI->main_model->get_sidebar_by_id($left_sidebar);
+    	$right_sidebar_data = array(
+    		'right_sidebar_content' => $right_sidebar_info->content,
+    	);
+    	$left_sidebar_data = array(
+    		'left_sidebar_content' => $left_sidebar_info->content,
     	);
     } elseif ($layout_type == 'left') {
-    	$left_sidebar = $this->main_model->get_sidebar_by_id($left_sidebar);
+    	$left_sidebar_info = $this->CI->main_model->get_sidebar_by_id($left_sidebar);
     	$left_sidebar_data = array(
-    		'left_sidebar' => $left_sidebar,
+    		'left_sidebar_content' => $left_sidebar_info->content,
     	);
     } elseif ($layout_type == 'right') {
-    	$right_sidebar = $this->main_model->get_sidebar_by_id($right_sidebar);
+    	$right_sidebar_info = $this->CI->main_model->get_sidebar_by_id($right_sidebar);
     	$right_sidebar_data = array(
-    		'right_sidebar' => $right_sidebar,
+    		'right_sidebar_content' => $right_sidebar_info->content,
     	);
     }
 
     // parsing data...
     $theme_files = $this->get_theme_files();
-    foreach($theme_files as $index => $file) {
-    	if(strstr($file, 'head.php')) {
-    		$view['HEAD'] = $this->parser->parse( $file, $head_data, true );
-    	} elseif (strstr($file, 'header.php')) {
-    		$header = $this->parser->parse( $file, $head_data, true );
-    	} elseif (strstr($file, 'nav.php')) {
-    		$nav = $this->parser->parse( $file, $head_data, true );
-    	} elseif (strstr($file, 'footer.php')) {
-    		$footer = $this->parser->parse( $file, $head_data, true );
-    	}
 
-    	if($layout_type == 'both') {
-	    	if(strstr($file, 'sidebar_right.php')) {
-	    		$right_sidebar = $this->parser->parse( $file, $right_sidebar, true );
-	    	}
+    $view['HEAD'] = $this->CI->parser->parse( $theme_files['head.php'], $head_data, true );
+		$header = $this->CI->parser->parse( $theme_files['header.php'], $header_data, true );
+		$nav = $this->CI->parser->parse( $theme_files['nav.php'], $nav_data, true );
+		$footer = $this->CI->parser->parse( $theme_files['footer.php'], $footer_data, true );
 
-				if(strstr($file, 'sidebar_left.php')) {
-	    		$left_sidebar = $this->parser->parse( $file, $left_sidebar, true );
-	    	}
-
-	    	if(strstr($file, 'simple_page_sidebars.php')) {
-	    		$data = array_merge($sidebars_data, $content_data);
-	    		$main = $this->parser->parse( $file, $data, true );
-	    	}
-	    } elseif ($layout_type == 'left') {
-	    	if(strstr($file, 'sidebar_left.php')) {
-	    		$left_sidebar = $this->parser->parse( $file, $left_sidebar, true );
-	    	}
-
-	    	if(strstr($file, 'simple_page_sidebar_left.php')) {
-	    		$data = array_merge($left_sidebar_data, $content_data);
-	    		$main = $this->parser->parse( $file, $data, true );
-	    	}
-	    } elseif ($layout_type == 'right') {
-				if(strstr($file, 'sidebar_right.php')) {
-	    		$right_sidebar = $this->parser->parse( $file, $right_sidebar, true );
-	    	}
-
-	    	if(strstr($file, 'simple_page_sidebar_right.php')) {
-	    		$data = array_merge($right_sidebar_data, $content_data);
-	    		$main = $this->parser->parse( $file, $data, true );
-	    	}
-	    } elseif ($layout_type == 'none') {
-	    	if(strstr($file, 'simple_page_full.php')) {
-	    		$main = $this->parser->parse( $file, $content_data, true );
-	    	}
-	    }
-
-	    if(strstr($file, 'body.php')) {
-	    	// build body...
-		    $body_data = array(
-		    	'HEADER'    => $header,
-		      'NAV'       => $nav,
-		      'MAIN'      => $main,
-		      'FOOTER'    => $footer
-		    );
-
-		    $view['BODY'] = $this->parser->parse( $file, $body_data, true );
-	    }
+  	if($layout_type == 'both') {
+  		$right_sidebar = $this->CI->parser->parse( $theme_files['sidebar_right.php'], $right_sidebar_data, true );
+  		$left_sidebar = $this->CI->parser->parse( $theme_files['sidebar_left.php'], $left_sidebar_data, true );
+  		$data = array_merge(array('right_sidebar' => $right_sidebar, 'left_sidebar' => $left_sidebar), $content_data);
+  		$main = $this->CI->parser->parse( $theme_files['simple_page_sidebars.php'], $data, true );
+    } elseif ($layout_type == 'left') {
+  		$left_sidebar = $this->CI->parser->parse( $theme_files['sidebar_left.php'], $left_sidebar_data, true );
+  		$data = array_merge(array('left_sidebar' => $left_sidebar), $content_data);
+  		$main = $this->CI->parser->parse( $theme_files['simple_page_sidebar_left.php'], $data, true );
+    } elseif ($layout_type == 'right') {
+  		$right_sidebar = $this->CI->parser->parse( $theme_files['sidebar_right.php'], $right_sidebar_data, true );
+  		$data = array_merge(array('right_sidebar' => $right_sidebar), $content_data);
+  		$main = $this->CI->parser->parse( $theme_files['simple_page_sidebar_right.php'], $data, true );
+    } elseif ($layout_type == 'none') {
+  		$main = $this->CI->parser->parse( $theme_files['simple_page_full.php'], $content_data, true );
     }
+
+  	// build body...
+    $body_data = array(
+    	'HEADER'    => $header,
+      'NAV'       => $nav,
+      'MAIN'      => $main,
+      'FOOTER'    => $footer
+    );
+
+    $view['BODY'] = $this->CI->parser->parse( $theme_files['body.php'], $body_data, true );
 
     return $view;
 	}
@@ -224,10 +212,6 @@ class Themes {
 	 */
 	public function get_base() {
 		$theme_files = $this->get_theme_files();
-    foreach($theme_files as $file) {
-    	if(strstr($file, 'base.php')) {
-    		return $file;
-    	}
-    }
+    return $theme_files['base.php'];
 	}
 }

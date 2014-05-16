@@ -1,4 +1,4 @@
-{sidebar_left}
+{left_sidebar}
 
 <div class="one-third column">
 
@@ -6,4 +6,4 @@
 
 </div>
 
-{sidebar_right}
+{right_sidebar}

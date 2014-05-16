@@ -22,17 +22,13 @@ class Homepage extends MY_Controller {
 		$template = $this->themes->build_template(
       $data,
       $page_info->sidebar_style,
-      $data,
-      $page_info->sidebar_left != 0 ? $page_info->sidebar_left : '0',
-      $page_info->sidebar_right != 0 ? $page_info->sidebar_right : '0'
+      $page_info->sidebar_right != 0 ? $page_info->sidebar_right : '0',
+      $page_info->sidebar_left != 0 ? $page_info->sidebar_left : '0'
     );
     $base = $this->themes->get_base();
     $this->parser->parse($base, $template);
 	}
 
-  function test() {
-    $this->themes->get_base();
-  }
 }
 
 /* End of file homepage.php */
