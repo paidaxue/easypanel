@@ -73,9 +73,9 @@
 
             <option value="parent">{lang_default_page_type_value}</option>
           	<option value="parent-no-link">{lang_empty_page_type_value}</option>
-              {PAGE_TYPE}
+            {PAGE_TYPE}
           	<option value="{id_page}">{title}</option>
-              {/PAGE_TYPE}
+            {/PAGE_TYPE}
 
         	</select>
 

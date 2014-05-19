@@ -72,7 +72,7 @@
         	<select name="page_type"  class = "chzn-select" id = "page_type" >
 
          		<option value="parent">{lang_default_page_type_value}</option>
-            <option value="parent-no-link">{lang_empty_page_type_value}</option>
+            <option value="parent-no-link" {parent_no_link}>{lang_empty_page_type_value}</option>
               {PAGE_TYPE}
           	<option value="{id_page}" {selected}>{title}</option>
               {/PAGE_TYPE}
