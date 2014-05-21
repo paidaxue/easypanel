@@ -3,20 +3,14 @@
 class MY_Controller extends CI_Controller {
 
   function __construct() {
-
     parent::__construct();
-
     $this->load->helper('general_helper');
 
     /* ===== SESSION VERIF. ===== */
     if( ! session_verif() ) {
-
-      redirect( 'login' );
-
+      redirect( '_control.php/login' );
     }
-
   }
-
 }
 
 /* End of file MY_Controller.php */

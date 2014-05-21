@@ -694,7 +694,7 @@ div.uploader input {
 
 }
 
-.leftNav .last { border-bottom: none; }
+.leftNav li:last-child { border-bottom: none; }
 
 .leftNav ul li { position: relative; }
 

@@ -47,18 +47,16 @@
 			<li class = "modules exp">
 				<a href="#" title="Modules">
 					<span>Modules</span>
-					<span class = "numberLeft">2</span>
+					<span class = "numberLeft">{count_modules}</span>
 				</a>
 
 				<ul class="sub">
 
+					{MODULES}
 					<li>
-						<a href="{BASE_URL}/blog" title="Blog">Blog</a>
+						<a href="{BASE_URL}/{slug}" title="{name}">{name}</a>
 					</li>
-
-					<li class="last">
-						<a href="{BASE_URL}/galleries" title="Gallery">Gallery</a>
-					</li>
+					{/MODULES}
 
 				</ul><!-- .sub -->
 

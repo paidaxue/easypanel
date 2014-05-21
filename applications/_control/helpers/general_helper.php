@@ -19,6 +19,9 @@ if ( ! function_exists('page_builder')) {
                         ) {
 
     $CI =& get_instance();
+    $CI->load->model('general_admin_model');
+
+    $modules = $CI->general_admin_model->get_modules();
 
     /* ------- generate header ------- */
     $main_data[ 'HEADER' ] = $CI->parser->parse( $header, array( 'page_title' => $title ), true );
@@ -26,12 +29,12 @@ if ( ! function_exists('page_builder')) {
     /* ------- generate content ------- */
     if( $top_nav != strip_tags( $top_nav ) ) {
 
-      $body_header_parsed = $CI->parser->parse( $body_header, array( 'TOP_NAV' => $top_nav ), true );
+      $body_header_parsed = $CI->parser->parse( $body_header, array( 'TOP_NAV' => $top_nav, 'MODULES' => $modules, 'count_modules' => count($modules) ), true );
 
     } else {
 
       $top_nav_parsed = $CI->load->view( $top_nav, '', true );
-      $body_header_parsed = $CI->parser->parse( $body_header, array( 'TOP_NAV' => $top_nav_parsed ), true );
+      $body_header_parsed = $CI->parser->parse( $body_header, array( 'TOP_NAV' => $top_nav_parsed, 'MODULES' => $modules, 'count_modules' => count($modules) ), true );
 
     }
 
