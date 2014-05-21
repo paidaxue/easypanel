@@ -93,20 +93,17 @@ $(document).ready(function() {
 
 	});
 
-	//===== Alert windows =====//
+	//===== Alert windows - delete =====//
 
 	$(".bConfirm").click( function() {
 
-		id_page = $( this ).attr( 'id' );
+		id = $( this ).attr( 'id' );
 
 		if($(this).hasClass('page-delete')){
-
 			jConfirm('Are you sure you want to delete this page?', 'Delete page', function(r) {
 
 				if( r ) {
-
-					delete_page( id_page );
-
+					delete_page( id );
 				}
 
 			});
@@ -116,10 +113,17 @@ $(document).ready(function() {
 			jConfirm('Are you sure you want to delete this sidebar?', 'Delete sidebar', function(e) {
 
 				if( e ) {
+					delete_sidebar( id );
+				}
 
-					delete_sidebar( id_page );
+			});
+		}
 
+		if($(this).hasClass('module-delete')){
+			jConfirm('Are you sure you want to delete this module?', 'Delete module', function(e) {
 
+				if( e ) {
+					delete_module( id );
 				}
 
 			});
@@ -137,19 +141,28 @@ $(document).ready(function() {
 				location.reload();
 			}
 	 	});
-
 	}
 
-	function delete_sidebar( id_page ) {
+	function delete_sidebar( id_sidebar ) {
 		$.ajax({
 			url: base_url + '/sidebars/sidebar_delete',
 			type: 'POST',
-			data: { id_sidebar: id_page},
+			data: { id_sidebar: id_sidebar},
 			success: function(data) {
 				location.reload();
 			}
 	 	});
+	}
 
+	function delete_module( id_module ) {
+		$.ajax({
+			url: base_url + '/settings/module_delete',
+			type: 'POST',
+			data: { id_module: id},
+			success: function(data) {
+				location.reload();
+			}
+	 	});
 	}
 
 });

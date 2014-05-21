@@ -54,7 +54,7 @@
 
 					{MODULES}
 					<li>
-						<a href="{BASE_URL}/{slug}" title="{name}">{name}</a>
+						<a href="{BASE_URL}/{module_slug}" title="{name}">{name}</a>
 					</li>
 					{/MODULES}
 

@@ -17,6 +17,13 @@ class General_admin_model extends CI_Model {
   function get_modules() {
     return $this->db->get_where('ep_modules', array('module_slug !=' => 'simple_page'))->result();
   }
+
+  /**
+   * Deleted a specific model
+   */
+  function delete_module($id_module) {
+    return $this->db->delete('ep_modules', array('id_module' => $id_module));
+  }
 }
 
 /* End of file general_admin_model.php */

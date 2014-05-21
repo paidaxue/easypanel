@@ -3,7 +3,6 @@
 class Settings extends MY_Controller {
 
 	function __construct() {
-
     parent::__construct();
 
 		//html files folder
@@ -162,23 +161,28 @@ class Settings extends MY_Controller {
 	 * Modules settings page
 	 */
 	function modules() {
-
 		$content_filename = $this->folder_name . 'modules' . $this->files_suffix;
+		$lang = (array)$this->lang->line('modules_settings');
+		$page_title = $lang['lang_page_title'];
 
-		$page_title = $this->lang->line('modules_settings_page_title');
+		$modules = $this->general_admin_model->get_modules();
 
-		$content_data = array(
-
-			'lang_page_title' 	=> $this->lang->line('modules_settings_page_title'),
-			'lang_contruction' 	=> $this->lang->line('misc_construction')
-
+		$data = array(
+			'MODULES' => $modules,
 		);
 
-		$content = $this->parser->parse( $content_filename, $content_data, true );
+		$data = array_merge($data, $lang);
+
+		$content = $this->parser->parse( $content_filename, $data, true );
 
 		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
+	}
 
+	function module_delete() {
+		$id_module = $this->input->post('id_module');
+		$this->general_admin_model->delete_module($id_module);
+		redirect('_control.php/settings/modules');
 	}
 
 	/**

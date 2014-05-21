@@ -23,7 +23,12 @@ $lang['account_settings_username_field']   = "Username";
 $lang['account_settings_password_field']   = "New password";
 
 //modules settings
-$lang['modules_settings_page_title']   = "Modules Settings";
+$lang['modules_settings'] = array(
+  'lang_page_title' => 'Modules Settings',
+  'lang_name'       => 'Name',
+  'lang_slug'       => 'Slug',
+  'lang_delete'     => 'Delete',
+);
 
 //theme settings
 $lang['theme_settings_page_title']   = "Theme Settings";
