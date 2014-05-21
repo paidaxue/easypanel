@@ -8,7 +8,6 @@ class Migration_Build_structure extends CI_Migration {
     //$this->dbforge->create_database('dev.easypanel');
 
     //creating admin users...
-
     $this->dbforge->add_field(array(
         'id_user' => array(
           'type' => 'INT',

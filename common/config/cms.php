@@ -12,6 +12,6 @@
 |	['app_version'] The current version of the cms.
 */
 
-$cms['app_version'] = 'beta';
+$cms['app_version'] = 'v1.0-beta';
 
 /* End of file cms.php */
