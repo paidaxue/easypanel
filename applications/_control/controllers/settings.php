@@ -190,6 +190,8 @@ class Settings extends MY_Controller {
 	 */
 	function theme() {
 
+		$this->refresh_themes();
+
 		$themes = $this->settings_admin_model->get_themes();
 		foreach( $themes as $theme ) {
 			if( $theme->active == '1' ) {
@@ -217,7 +219,6 @@ class Settings extends MY_Controller {
 
 		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
-
 	}
 
 	/**
@@ -238,13 +239,12 @@ class Settings extends MY_Controller {
 		$this->settings_admin_model->update_theme_settings($selected_theme, $id_selected_theme);
 
 		redirect('_control.php/settings/theme');
-
 	}
 
 	/**
-	 * refresh themes list
+	 * Refreshes ep_themes with all the folders from client/views
 	 */
-	function refresh_themes(){
+	public function refresh_themes(){
 		$dir = './applications/client/views';
 		$i = 0;
 		$folders = scandir($dir);
@@ -305,7 +305,6 @@ class Settings extends MY_Controller {
 				$this->settings_admin_model->delete_theme($theme_delete);
 			}
 		}
-		redirect('_control.php/settings/theme');
 	}
 
 }

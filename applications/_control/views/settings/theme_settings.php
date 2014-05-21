@@ -27,9 +27,3 @@
     </div>
   </fieldset>
 </form>
-
-<form action = "{BASE_URL}/settings/refresh_themes" method="post" class="mainForm">
-  <div class="formRight submitRight">
-    <input type="submit" value="{lang_refresh_themes}" class="blackBtn" id="refresh_theme"/>
-  </div><!-- .formRight -->
-</form>
