@@ -129,6 +129,16 @@ $(document).ready(function() {
 			});
 		}
 
+		if($(this).hasClass('post-delete')){
+			jConfirm('Are you sure you want to delete this post?', 'Delete post', function(e) {
+
+				if( e ) {
+					delete_post( id );
+				}
+
+			});
+		}
+
 	});
 
 	function delete_page( id_page ) {
@@ -159,6 +169,17 @@ $(document).ready(function() {
 			url: base_url + '/settings/module_delete',
 			type: 'POST',
 			data: { id_module: id},
+			success: function(data) {
+				location.reload();
+			}
+	 	});
+	}
+
+	function delete_post( id_post ) {
+		$.ajax({
+			url: base_url + '/blog/delete',
+			type: 'POST',
+			data: { id_post: id},
 			success: function(data) {
 				location.reload();
 			}
