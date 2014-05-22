@@ -161,6 +161,8 @@ class Settings extends MY_Controller {
 	 * Modules settings page
 	 */
 	function modules() {
+
+		$this->refresh_modules();
 		$content_filename = $this->folder_name . 'modules' . $this->files_suffix;
 		$lang = (array)$this->lang->line('modules_settings');
 		$page_title = $lang['lang_page_title'];
@@ -179,6 +181,35 @@ class Settings extends MY_Controller {
 		$this->parser->parse( 'base_template', $page );
 	}
 
+	public function refresh_modules() {
+		$dir = './applications/_control/modules';
+		$folders = array_diff(scandir($dir), array('..', '.'));
+
+		$modules_in_db = $this->general_admin_model->get_modules();
+		$modules_slugs = array();
+		foreach($modules_in_db as $key => $module) {
+			$modules_slugs[$key] = $module->module_slug;
+		}
+
+		$modules_to_add = array_diff($folders, $modules_slugs);
+		$this->general_admin_model->delete_modules();
+
+		$modules = array();
+		foreach($folders as $key => $folder_name) {
+			if(strpos($folder_name, '_')) {
+				$module_name = str_replace('_', ' ', $folder_name);
+				$module_name = ucfirst($module_name);
+			} else {
+				$module_name = ucfirst($folder_name);
+			}
+
+			$this->general_admin_model->insert_module($module_name, $folder_name);
+		}
+	}
+
+	/**
+	 * Deletes a module from the database
+	 */
 	function module_delete() {
 		$id_module = $this->input->post('id_module');
 		$this->general_admin_model->delete_module($id_module);
