@@ -213,30 +213,9 @@ class Settings extends MY_Controller {
 	function module_delete() {
 		$id_module = $this->input->post('id_module');
 		$module = $this->general_admin_model->get_module_by_id($id_module);
-		$this->delete_directory('./applications/_control/modules/' . $module->module_slug);
+		delete_directory('./applications/_control/modules/' . $module->module_slug);
 		$this->general_admin_model->delete_module($id_module);
 		redirect('_control.php/settings/modules');
-	}
-
-	/**
-	 * Deletes subdirectores and files from a specific path
-	 * @param  string $path directory to be deleted
-	 * @return boolean      false
-	 */
-	function delete_directory($path) {
-		if (is_dir($path) === true) {
-      $files = array_diff(scandir($path), array('.', '..'));
-
-      foreach ($files as $file) {
-        $this->delete_directory(realpath($path) . '/' . $file);
-      }
-
-      return rmdir($path);
-    } else if (is_file($path) === true) {
-      return unlink($path);
-    }
-
-    return false;
 	}
 
 	/**
