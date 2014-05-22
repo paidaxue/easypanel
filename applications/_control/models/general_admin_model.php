@@ -19,6 +19,14 @@ class General_admin_model extends CI_Model {
   }
 
   /**
+   * Get module by id
+   * @return object all modules
+   */
+  function get_module_by_id($id_module) {
+    return $this->db->get_where('ep_modules', array('id_module' => $id_module))->row();
+  }
+
+  /**
    * Insert module
    * @return object all modules
    */
