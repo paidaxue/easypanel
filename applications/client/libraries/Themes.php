@@ -151,7 +151,7 @@ class Themes {
 	 * Builds the template
 	 * @return array with parsed data
 	 */
-	public function build_template($data, $layout_type, $right_sidebar = '0', $left_sidebar = '0', $module = false, $module_view_folder = false) {
+	public function build_template($data, $layout_type = 'none', $right_sidebar = '0', $left_sidebar = '0', $module = false, $module_view_folder = false) {
 		// building head...
     $head_data = array(
       'page_title' => $data['page_title']
@@ -168,9 +168,13 @@ class Themes {
     );
 
     // building content...
-    $content_data = array(
-      'content'   => $data['page_content'],
-    );
+    if(isset($data['page_content'])) {
+      $content_data = array(
+        'content'   => $data['page_content'],
+      );
+    } else {
+      $content_data = array();
+    }
 
     if(isset($data['page_data'])) {
       $content_data = array_merge($content_data, $data['page_data']);

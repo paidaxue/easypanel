@@ -1,34 +1,14 @@
-<div class="widget first">
-  <div class="head">
-    <h5 class="iFrames">{lang_page_title}</h5>
-  </div><!-- .head -->
+<div class="two-thirds column">
 
-  <table cellpadding="0" cellspacing="0" width="100%" class="tableStatic resize">
-    <thead>
-      <tr>
-        <td width="80%">{lang_title_column}</td>
-        <td>{lang_edit_column}</td>
-        <td>{lang_delete_column}</td>
-      </tr>
-    </thead>
-    <tbody>
-      {POSTS}
-      <tr>
-        <td>{title}</td>
-        <td>
-          <a href="{BASE_URL}/blog/edit/{id_post}">
-            <button class="blackBtn">{lang_edit_column}</button><!-- .blackBtn -->
-          </a>
-        </td>
-        <td>
-          <button class="redBtn bConfirm post-delete" id="{id_post}">{lang_delete_column}</button><!-- .redBtn -->
-        </td>
-      </tr>
-      {/POSTS}
-    </tbody>
-  </table>
-</div><!-- .widget .first -->
+  <h1>Blog posts</h1>
+  {POSTS}
+  <div class="sixteen columns">
+    <h2><a href="{BASE_URL}/blog/single/{id_post}">{title}</a></h2>
+    <img src="{UP_URL}/blog/{image}" alt="image" />
+    <p style="text-overflow: ellipsis;">{content}</p>
+  </div>
+  {/POSTS}
 
-<a href="{BASE_URL}/blog/add">
-  <button class="blueBtn add">{lang_add_post}</button><!-- .blueBtn -->
-</a>
+</div>
+
+{right_sidebar}
