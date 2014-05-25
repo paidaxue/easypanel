@@ -17,21 +17,34 @@ class Themes {
 	 * Check files in theme's folder
 	 * @return array files that are in current active theme
 	 */
-	public function get_theme_files() {
-		$default = [
-			'base.php',
-			'body.php',
-			'footer.php',
-			'head.php',
-			'header.php',
-			'nav.php',
-			'sidebar_left.php',
-			'sidebar_right.php',
-			'simple_page_full.php',
-			'simple_page_sidebar_left.php',
-			'simple_page_sidebar_right.php',
-			'simple_page_sidebars.php'
-		];
+	public function get_theme_files($module = false, $module_view_folder = false) {
+		if(!$module) {
+      $default = [
+  			'base.php',
+  			'body.php',
+  			'footer.php',
+  			'head.php',
+  			'header.php',
+  			'nav.php',
+  			'sidebar_left.php',
+  			'sidebar_right.php',
+  			'page_full.php',
+  			'page_sidebar_left.php',
+  			'page_sidebar_right.php',
+  			'page_sidebars.php'
+  		];
+    } else {
+      $default = [
+        'base.php',
+        'body.php',
+        'footer.php',
+        'head.php',
+        'header.php',
+        'nav.php',
+        'sidebar_left.php',
+        'sidebar_right.php',
+      ];
+    }
 		$regex_1='.*?';	# Non-greedy match on filler
   	$regex_2='((?:[a-z][a-z\\.\\d_]+)\\.(?:[a-z\\d]{3}))(?![\\w\\.])';	# File Name 1
 		$dir = APPPATH . 'views/' . $this->active_theme; // folder route
@@ -68,6 +81,25 @@ class Themes {
 			$theme_files = $existing_files;
 		}
 
+    if(!$module_view_folder) {
+      $module_view_folder = $module . '_view';
+    }
+
+    if($module) {
+      $dir = APPPATH . 'modules/' . $module . '/' . 'views/' . $module_view_folder;
+      $files = array_diff(scandir($dir), array('..', '.')); // removes annoying dots
+
+      foreach($files as $key => $file) {
+        $module_files_values[$key] = $module_view_folder . '/' . $file;
+        $matches = array();
+        preg_match_all("/".$regex_1.$regex_2."/is", $file, $matches); // regex for filename
+        $module_files_keys[$key] = $matches[1][0];
+      }
+
+      $module_files = array_combine($module_files_keys, $module_files_values);
+      $theme_files = array_merge($theme_files, $module_files);
+    }
+
 	  return $theme_files;
 	}
 
@@ -84,7 +116,7 @@ class Themes {
 
       if ( ! empty( $chs ) ) {
         foreach ( $chs as $kid ) {
-          $kid->s_page_link = site_url() . 'page' . '/' . $kid->page_slug;
+          $kid->s_page_link = site_url() . $kid->module . '/' . $kid->page_slug;
           $kid->s_title = $kid->title;
         }
 
@@ -100,7 +132,7 @@ class Themes {
       } elseif( $menu->page_type == 'parent-no-link' ) {
         $menu->page_link = '#';
       } else {
-        $menu->page_link = site_url() . 'page' . '/' . $menu->page_slug;
+        $menu->page_link = site_url() . $menu->module . '/' . $menu->page_slug;
       }
     }
 
@@ -119,7 +151,7 @@ class Themes {
 	 * Builds the template
 	 * @return array with parsed data
 	 */
-	public function build_template($data, $layout_type, $right_sidebar = '0', $left_sidebar = '0') {
+	public function build_template($data, $layout_type, $right_sidebar = '0', $left_sidebar = '0', $module = false, $module_view_folder = false) {
 		// building head...
     $head_data = array(
       'page_title' => $data['page_title']
@@ -137,8 +169,12 @@ class Themes {
 
     // building content...
     $content_data = array(
-      'content' => $data['page_content']
+      'content'   => $data['page_content'],
     );
+
+    if(isset($data['page_data'])) {
+      $content_data = array_merge($content_data, $data['page_data']);
+    }
 
     // building footer...
     $footer_data = array(
@@ -169,7 +205,11 @@ class Themes {
     }
 
     // parsing data...
-    $theme_files = $this->get_theme_files();
+    if($module) {
+      $theme_files = $this->get_theme_files($module, $module_view_folder);
+    } else {
+      $theme_files = $this->get_theme_files();
+    }
 
     $view['HEAD'] = $this->CI->parser->parse( $theme_files['head.php'], $head_data, true );
 		$header = $this->CI->parser->parse( $theme_files['header.php'], $header_data, true );
@@ -180,17 +220,17 @@ class Themes {
   		$right_sidebar = $this->CI->parser->parse( $theme_files['sidebar_right.php'], $right_sidebar_data, true );
   		$left_sidebar = $this->CI->parser->parse( $theme_files['sidebar_left.php'], $left_sidebar_data, true );
   		$data = array_merge(array('right_sidebar' => $right_sidebar, 'left_sidebar' => $left_sidebar), $content_data);
-  		$main = $this->CI->parser->parse( $theme_files['simple_page_sidebars.php'], $data, true );
+  		$main = $this->CI->parser->parse( $theme_files['page_sidebars.php'], $data, true );
     } elseif ($layout_type == 'left') {
   		$left_sidebar = $this->CI->parser->parse( $theme_files['sidebar_left.php'], $left_sidebar_data, true );
   		$data = array_merge(array('left_sidebar' => $left_sidebar), $content_data);
-  		$main = $this->CI->parser->parse( $theme_files['simple_page_sidebar_left.php'], $data, true );
+  		$main = $this->CI->parser->parse( $theme_files['page_sidebar_left.php'], $data, true );
     } elseif ($layout_type == 'right') {
   		$right_sidebar = $this->CI->parser->parse( $theme_files['sidebar_right.php'], $right_sidebar_data, true );
   		$data = array_merge(array('right_sidebar' => $right_sidebar), $content_data);
-  		$main = $this->CI->parser->parse( $theme_files['simple_page_sidebar_right.php'], $data, true );
+  		$main = $this->CI->parser->parse( $theme_files['page_sidebar_right.php'], $data, true );
     } elseif ($layout_type == 'none') {
-  		$main = $this->CI->parser->parse( $theme_files['simple_page_full.php'], $content_data, true );
+  		$main = $this->CI->parser->parse( $theme_files['page_full.php'], $content_data, true );
     }
 
   	// build body...

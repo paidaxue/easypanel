@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Page extends MY_Controller {
+class Simple_page extends MY_Controller {
 
 	function _remap( $page_slug ) {
 		$this->index( $page_slug );

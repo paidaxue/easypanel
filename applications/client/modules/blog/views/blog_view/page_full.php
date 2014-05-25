@@ -1,0 +1,3 @@
+{POSTS}
+{title}
+{/POSTS}
