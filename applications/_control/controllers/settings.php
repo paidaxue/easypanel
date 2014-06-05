@@ -267,10 +267,11 @@ class Settings extends MY_Controller {
 			$this->settings_admin_model->update_theme_settings( $theme, $theme->id_theme );
 		}
 
-		$selected_theme = $this->settings_admin_model->get_theme_by_id($id_selected_theme);
-		$selected_theme->active = '1';
-		$this->settings_admin_model->update_theme_settings($selected_theme, $id_selected_theme);
-
+		if($id_selected_theme != '0') {
+			$selected_theme = $this->settings_admin_model->get_theme_by_id($id_selected_theme);
+			$selected_theme->active = '1';
+			$this->settings_admin_model->update_theme_settings($selected_theme, $id_selected_theme);
+		}
 		redirect('_control.php/settings/theme');
 	}
 
