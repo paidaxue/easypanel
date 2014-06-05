@@ -73,9 +73,8 @@ class Themes {
 			}
 		}
 
-		$fallback_files = array_combine($fallback_files_keys, $fallback_files_values);
-
-		if(!empty($fallback_files)) {
+		if(!empty($fallback)) {
+      $fallback_files = array_combine($fallback_files_keys, $fallback_files_values);
 			$theme_files = array_merge($existing_files, $fallback_files);
 		} else {
 			$theme_files = $existing_files;
