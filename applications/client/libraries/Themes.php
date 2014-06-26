@@ -19,7 +19,7 @@ class Themes {
 	 */
 	public function get_theme_files($module = false, $module_view_folder = false) {
 		if(!$module) {
-      $default = [
+      $default = array(
   			'base.php',
   			'body.php',
   			'footer.php',
@@ -32,9 +32,9 @@ class Themes {
   			'page_sidebar_left.php',
   			'page_sidebar_right.php',
   			'page_sidebars.php'
-  		];
+  		);
     } else {
-      $default = [
+      $default = array(
         'base.php',
         'body.php',
         'footer.php',
@@ -43,7 +43,7 @@ class Themes {
         'nav.php',
         'sidebar_left.php',
         'sidebar_right.php',
-      ];
+      );
     }
 		$regex_1='.*?';	# Non-greedy match on filler
   	$regex_2='((?:[a-z][a-z\\.\\d_]+)\\.(?:[a-z\\d]{3}))(?![\\w\\.])';	# File Name 1
