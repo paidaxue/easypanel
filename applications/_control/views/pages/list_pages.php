@@ -53,6 +53,6 @@
 
 <a href="{BASE_URL}/pages/add">
 
-	<button class="blueBtn add" >{lang_add_page}</button><!-- .blueBtn -->
+	<button class="blueBtn outside-button" >{lang_add_page}</button><!-- .blueBtn -->
 
 </a>

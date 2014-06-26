@@ -53,6 +53,6 @@
 
 <a href="{BASE_URL}/sidebars/add">
 
-	<button class="blueBtn add" >{lang_add_sidebar}</button><!-- .blueBtn -->
+	<button class="blueBtn outside-button" >{lang_add_sidebar}</button><!-- .blueBtn -->
 
 </a>

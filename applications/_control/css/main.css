@@ -13,7 +13,7 @@ html { height: 100%; }
 body { background: url(../images/body_bg.jpg) repeat; font-family: 'Cuprum', sans-serif; font-weight: normal; min-height: 100%; position: relative; margin: 0; padding: 0; }
 
 .fix { clear: both; }
-.add { margin-top: 10px; }
+.outside-button { margin-top: 10px; }
 .first { margin-top: 0px!important; }
 .post { margin-left:0px!important; }
 .nobg { background: none!important; }

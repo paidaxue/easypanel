@@ -3,7 +3,7 @@
 	<head>
     <meta charset="utf-8">
     <meta name="robots" value="noindex">
-    <meta name="author" content="yoX64">
+    <meta name="author" content="Microdevt">
 
     <title>Easy Panel - {page_title}</title>
 
