@@ -20,7 +20,7 @@ class Blog extends MY_Controller {
 
     $content = $this->parser->parse('listing', $data, true);
 
-    $page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+    $page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
     $this->parser->parse( 'base_template', $page );
   }
 
@@ -30,7 +30,7 @@ class Blog extends MY_Controller {
 
     $content = $this->parser->parse('add', $lang, true);
 
-    $page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+    $page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
     $this->parser->parse( 'base_template', $page );
   }
 
@@ -74,7 +74,7 @@ class Blog extends MY_Controller {
 
     $content = $this->parser->parse('edit', $data, true);
 
-    $page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+    $page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
     $this->parser->parse( 'base_template', $page );
   }
 

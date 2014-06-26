@@ -51,7 +51,7 @@ class Sidebars extends MY_Controller {
 																																'lang_add_sidebar' 			=> $this->lang->line('sidebars_add_sidebar')
 																															), true );
 						}
-		$sidebars = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$sidebars = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $sidebars );
 
 	}
@@ -84,7 +84,7 @@ class Sidebars extends MY_Controller {
 			'lang_submit_form' 							=> $this->lang->line('pages_submit_form'),
 			), true );
 
-		$page = page_builder( 'header', $sidebar_name, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$page = page_builder( $sidebar_name, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 
 	}
@@ -137,7 +137,7 @@ class Sidebars extends MY_Controller {
 								'lang_submit_form' 							=> $this->lang->line('sidebars_submit_form')
 							), true );
 
-		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 	}
 

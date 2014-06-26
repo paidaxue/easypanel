@@ -56,7 +56,7 @@ class Pages extends MY_Controller {
 
 		}
 
-		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 
 	}
@@ -100,7 +100,7 @@ class Pages extends MY_Controller {
 
 		), true );
 
-		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 
 	}
@@ -252,7 +252,7 @@ class Pages extends MY_Controller {
 				'lang_sidebar_name_right' 			=> $this->lang->line('pages_sidebar_name_right')
 			), true );
 
-		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 
 	}

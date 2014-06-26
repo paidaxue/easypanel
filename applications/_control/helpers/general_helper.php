@@ -6,17 +6,15 @@ require_once('./common/helpers/general.php');
  * Builds the page using all template parts
  */
 if ( ! function_exists('page_builder')) {
-
   function page_builder(
-                          $header = 'header',
-                          $title = 'no_title',
-                          $body = 'body',
-                          $body_header = 'body_header',
-                          $top_nav = 'top_nav',
-                          $body_content = 'body_content',
-                          $content = 'no_content',
-                          $body_footer = 'body_footer'
-                        ) {
+    $title = 'no_title',
+    $body = 'body',
+    $body_header = 'body_header',
+    $top_nav = 'top_nav',
+    $body_content = 'body_content',
+    $content = 'no_content',
+    $body_footer = 'body_footer'
+  ) {
 
     $CI =& get_instance();
     $CI->load->model('general_admin_model');
@@ -24,7 +22,7 @@ if ( ! function_exists('page_builder')) {
     $modules = $CI->general_admin_model->get_modules();
 
     /* ------- generate header ------- */
-    $main_data[ 'HEADER' ] = $CI->parser->parse( $header, array( 'page_title' => $title ), true );
+    $main_data['page_title'] = $title;
 
     /* ------- generate content ------- */
     if( $top_nav != strip_tags( $top_nav ) ) {
@@ -42,15 +40,13 @@ if ( ! function_exists('page_builder')) {
     $body_footer_parsed = $CI->load->view( $body_footer, '', true );
 
     $main_data[ 'BODY' ] = $CI->parser->parse( $body, array(
-                                'BODY_HEADER' => $body_header_parsed,
-                                'BODY_CONTENT' => $body_content_parsed,
-                                'BODY_FOOTER' => $body_footer_parsed
-                              ), true );
+      'BODY_HEADER' => $body_header_parsed,
+      'BODY_CONTENT' => $body_content_parsed,
+      'BODY_FOOTER' => $body_footer_parsed
+    ), true );
 
     return $main_data;
-
   }
-
 }
 
 /**

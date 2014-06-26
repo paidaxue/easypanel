@@ -68,7 +68,7 @@ class Settings extends MY_Controller {
 
 		$content = $this->parser->parse( $content_filename, $settings, true );
 
-		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 
 	}
@@ -130,7 +130,7 @@ class Settings extends MY_Controller {
 
 		$content = $this->parser->parse( $content_filename, $user_data, true );
 
-		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 
 	}
@@ -177,7 +177,7 @@ class Settings extends MY_Controller {
 
 		$content = $this->parser->parse( $content_filename, $data, true );
 
-		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 	}
 
@@ -250,7 +250,7 @@ class Settings extends MY_Controller {
 
 		$content = $this->parser->parse( $content_filename, $content_data, true );
 
-		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 	}
 

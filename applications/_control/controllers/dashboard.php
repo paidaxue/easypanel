@@ -43,7 +43,7 @@ class Dashboard extends MY_Controller {
 
 		$content = $this->parser->parse( 'dashboard', $content_data, true );
 
-		$page = page_builder( 'header', $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content, 'body_footer' );
+		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content, 'body_footer' );
 		$this->parser->parse( 'base_template', $page );
 
 	}

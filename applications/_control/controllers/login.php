@@ -54,7 +54,7 @@ class Login extends CI_Controller {
 		$top_nav = $this->parser->parse( $filenames[ 'top_nav' ], $top_nav_data, true );
 		$content = $this->parser->parse( $filenames[ 'content' ], $content_data, true );
 
-		$page = page_builder( 'header', $page_title, 'body', $filenames[ 'body_header' ], $top_nav, 'body_content', $content );
+		$page = page_builder( $page_title, 'body', $filenames[ 'body_header' ], $top_nav, 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 
 	}
