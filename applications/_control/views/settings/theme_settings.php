@@ -6,7 +6,7 @@
       </div>
 
       <div class="rowElem nobg">
-        <label>{lang_content_type_field}</label>
+        <label>{lang_select_theme}</label>
         <div class="formRight noSearch">
           <select name="themes" class = "chzn-select" id = "themes" >
             <option value="0">{lang_default}</option>
@@ -20,7 +20,7 @@
 
       <div class="rowElem">
         <div class="formRight submitRight" id="submit-theme-select">
-            <input type="submit" value="{lang_submit_form}" class="basicBtn" />
+            <input type="submit" value="{lang_submit}" class="basicBtn" />
         </div>
         <div class="fix"></div>
       </div>

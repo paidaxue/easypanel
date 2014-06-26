@@ -1,7 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Settings extends MY_Controller {
-
 	function __construct() {
     parent::__construct();
 
@@ -11,17 +10,16 @@ class Settings extends MY_Controller {
 		//files suffix
 		$this->files_suffix = '_settings';
 
-		/* ===== MODELS & HELPERS ===== */
+		/* Load Models */
 		$this->load->model( 'settings_admin_model' );
 		$this->load->model('pages_model');
-
   }
 
 	/**
-	 * General settings page
+	 * General settings
+	 * @return void
 	 */
 	function index() {
-
 		$settings['website_title'] = $this->settings_admin_model->get_setting_by_name( 'website_title' );
 		$settings['website_logo'] = $this->settings_admin_model->get_setting_by_name( 'website_logo' );
 		$settings['website_copyright'] = $this->settings_admin_model->get_setting_by_name( 'website_copyright' );
@@ -30,54 +28,33 @@ class Settings extends MY_Controller {
 		$pages = $this->pages_model->get_all_pages();
 
 		foreach( $pages as $homepage ){
-
 			if ( $homepage->id_page == $settings['website_homepage'] ) {
-
 				$homepage->selected = "selected='selected'";
-
 			} else {
-
 				$homepage->selected = "";
-
 			}
-
 		}
 
 		$content_filename = $this->folder_name . 'general' . $this->files_suffix;
 
-		$page_title = $this->lang->line('general_settings_page_title');
+		$lang = (array)$this->lang->line('general_settings');
+		$page_title = $lang['lang_page_title'];
 
 		$content_data = array(
-
-			'PAGES'						=> $pages,
+			'PAGES' => $pages,
 		);
 
-		$langs = array(
-
-			'lang_page_title' 						=> $this->lang->line('general_settings_page_title'),
-			'lang_website_title'					=> $this->lang->line('general_settings_website_title'),
-			'lang_website_logo'						=> $this->lang->line('general_settings_website_logo'),
-			'lang_website_copyright'			=> $this->lang->line('general_settings_website_copyright'),
-			'lang_website_homepage'       => $this->lang->line('general_settings_website_homepage')
-
-		);
-
-		$homepage = array_merge($content_data, $langs);
-
-		$settings = array_merge( $settings, $homepage );
-
-		$content = $this->parser->parse( $content_filename, $settings, true );
+		$content = $this->parser->parse($content_filename, array_merge($content_data, $settings, $lang), true);
 
 		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
-
 	}
 
 	/**
-	 * general settings process
+	 * Form process from general settings. Redirects to the same page.
+	 * @return void
 	 */
 	function general_process() {
-
 		$website_title[ 'value' ] = $this->input->post( 'website_title', true );
 		$this->settings_admin_model->update_setting( $website_title, 'website_title' );
 
@@ -87,78 +64,67 @@ class Settings extends MY_Controller {
 		$website_logo[ 'value' ] = $this->input->post( 'website_logo' );
 		if( $_FILES['website_logo']['name'] != '' ) {
 
-				//$basepath = rtrim(BASEPATH, 'system/');
-				//$path = $basepath . '/uploads/general/';
-				$path = './uploads/general/';
-				$random = basename($_FILES['website_logo']['name']);
-				$path = $path . $random;
+			//$basepath = rtrim(BASEPATH, 'system/');
+			//$path = $basepath . '/uploads/general/';
+			$path = './uploads/general/';
+			$random = basename($_FILES['website_logo']['name']);
+			$path = $path . $random;
 
-				move_uploaded_file($_FILES['website_logo']['tmp_name'], $path);
+			move_uploaded_file($_FILES['website_logo']['tmp_name'], $path);
 
-				$website_logo[ 'value' ] = $random;
+			$website_logo[ 'value' ] = $random;
 
-				$this->settings_admin_model->update_setting( $website_logo, 'website_logo' );
+			$this->settings_admin_model->update_setting( $website_logo, 'website_logo' );
 		}
 
 		$website_copyright[ 'value' ] = $this->input->post( 'website_copyright', true );
 		$this->settings_admin_model->update_setting( $website_copyright, 'website_copyright' );
 
 		redirect( '_control.php/settings' );
-
 	}
 
 	/**
-	 * Account settings page
+	 * Account settings
+	 * @param  int   $id_user id of current logged in user
+	 * @return void
 	 */
-	function account( $id_user ) {
-
+	function account($id_user) {
 		$user_data = get_logged_user_by_id( $id_user );
 		$content_filename = $this->folder_name . 'account' . $this->files_suffix;
 
-		$page_title = $this->lang->line('account_settings_page_title');
+		$lang = (array)$this->lang->line('account_settings');
+		$page_title = $lang['lang_page_title'];
 
-		$langs = array(
-
-			'lang_page_title' 			=> $this->lang->line('account_settings_page_title'),
-			'lang_required_input' 	=> $this->lang->line('error_required_input'),
-			'lang_username'					=> $this->lang->line('account_settings_username_field'),
-			'lang_password'					=> $this->lang->line('account_settings_password_field'),
-
+		$content_data = array(
+			'user' => $user_data['user']
 		);
 
-		$user_data = array_merge( $user_data, $langs );
-
-		$content = $this->parser->parse( $content_filename, $user_data, true );
+		$content = $this->parser->parse( $content_filename, array_merge($content_data, $lang), true );
 
 		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
-
 	}
 
 	/**
-	 * account settings process
+	 * Form process from account settings. Redirects to the same page.
+	 * @param  int   $id_user id of current logged in user
+	 * @return void
 	 */
 	function account_process( $id_user ) {
-
 		$user_data[ 'user' ] = $this->input->post( 'user', true );
 
-		if ( $this->input->post( 'pass' ) ) {
-
-				$pass = $this->input->post( 'pass', true );
-				$user_data[ 'pass' ] = md5($pass);
-
+		if ( $this->input->post('pass') ) {
+			$pass = $this->input->post( 'pass', true );
+			$user_data[ 'pass' ] = md5($pass);
 		}
 
-		if( $this->settings_admin_model->update_user_by_id( $user_data, $id_user ) ) {
-
-			redirect( '_control.php/settings/account/' . $id_user );
-
-		}
-
+		$this->settings_admin_model->update_user_by_id( $user_data, $id_user );
+		redirect( '_control.php/settings/account/' . $id_user );
 	}
 
 	/**
-	 * Modules settings page
+	 * Modules settings
+	 * @return void
 	 */
 	function modules() {
 
@@ -169,18 +135,21 @@ class Settings extends MY_Controller {
 
 		$modules = $this->general_admin_model->get_modules();
 
-		$data = array(
+		$content_data = array(
 			'MODULES' => $modules,
 		);
 
-		$data = array_merge($data, $lang);
-
-		$content = $this->parser->parse( $content_filename, $data, true );
+		$content = $this->parser->parse( $content_filename, array_merge($content_data, $lang), true );
 
 		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 	}
 
+	/**
+	 * Searches if new modules have been added and if so,
+	 * adds the name of the module in the database.
+	 * @return void
+	 */
 	public function refresh_modules() {
 		$dir = './applications/_control/modules';
 		$folders = array_diff(scandir($dir), array('..', '.'));
@@ -208,7 +177,9 @@ class Settings extends MY_Controller {
 	}
 
 	/**
-	 * Deletes a module from the database
+	 * Deletes a module with all the files and folders.
+	 * Redirects to the same page
+	 * @return void
 	 */
 	function module_delete() {
 		$id_module = $this->input->post('id_module');
@@ -219,10 +190,10 @@ class Settings extends MY_Controller {
 	}
 
 	/**
-	 * Theme settings page
+	 * Theme settings
+	 * @return void
 	 */
 	function theme() {
-
 		$this->refresh_themes();
 
 		$themes = $this->settings_admin_model->get_themes();
@@ -235,27 +206,23 @@ class Settings extends MY_Controller {
 		}
 
 		$content_filename = $this->folder_name . 'theme' . $this->files_suffix;
+		$lang = (array)$this->lang->line('theme_settings');
 
-		$page_title = $this->lang->line('theme_settings_page_title');
+		$page_title = $lang['lang_page_title'];
 
 		$content_data = array(
-
-			'lang_page_title' 	=> $this->lang->line('theme_settings_page_title'),
-			'THEMES'						=> $themes,
-			'lang_content_type_field' =>$this->lang->line('theme_settings_content'),
-			'lang_submit_form'  => $this->lang->line('theme_submit'),
-			'lang_refresh_themes'  => $this->lang->line('theme_refresh_themes'),
-			'lang_default'  => $this->lang->line('theme_default'),
+			'THEMES' => $themes,
 		);
 
-		$content = $this->parser->parse( $content_filename, $content_data, true );
+		$content = $this->parser->parse($content_filename, array_merge($content_data, $lang), true);
 
 		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
 		$this->parser->parse( 'base_template', $page );
 	}
 
 	/**
-	 * theme settings procces
+	 * Form process from theme settings. Redirects to the same page.
+	 * @return void
 	 */
 	function theme_process(){
 
@@ -276,7 +243,9 @@ class Settings extends MY_Controller {
 	}
 
 	/**
-	 * Refreshes ep_themes with all the folders from client/views
+	 * Searches for new themes and if found,
+	 * adds them to the database.
+	 * @return void
 	 */
 	public function refresh_themes(){
 		$dir = './applications/client/views';
@@ -342,6 +311,3 @@ class Settings extends MY_Controller {
 	}
 
 }
-
-/* End of file settings.php */
-/* Location: ./applications/_control/controllers/settings.php */

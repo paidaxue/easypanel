@@ -1,6 +1,6 @@
 <div class="widget first">
 	<div class="head">
-		<h5 class="iFrames">{lang_sidebar_title}</h5>
+		<h5 class="iFrames">{lang_page_title}</h5>
 	</div>
 
 	<table cellpadding="0" cellspacing="0" width="100%" class="tableStatic resize">

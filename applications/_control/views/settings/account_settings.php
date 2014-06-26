@@ -11,7 +11,7 @@
 					<input type="text" name="user" value="{user}" id="user" />
 				</div>
 
-				<div class="inputError" id = "username">
+				<div class="inputError" id="username">
 					<label class="error" id="required">{lang_required_input}</label>
 				</div>
 				<div class="fix"></div>

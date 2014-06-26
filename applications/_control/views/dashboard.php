@@ -5,7 +5,7 @@
 <div class = "left">
 	<!-- Website statistics -->
 	<div class="widget">
-		<div class="head"><h5 class="iChart8">{lang_records}</h5></div>
+		<div class="head"><h5 class="iChart8">{lang_website_records}</h5></div>
 		<table cellpadding="0" cellspacing="0" width="100%" class="tableStatic">
 			<thead>
 				<tr>
