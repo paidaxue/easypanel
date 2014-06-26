@@ -7,7 +7,7 @@
 
     <title>Easy Panel - {page_title}</title>
 
-    <link href="{APP_URL}/images/favicon.png" rel="shortcut">
+    <link href="{APP_URL}/images/favicon.png" rel="shortcut icon" >
     <link href="{APP_URL}/css/main.css" type="text/css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Cuprum' rel="stylesheet">
 
