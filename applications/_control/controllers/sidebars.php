@@ -23,7 +23,7 @@ class Sidebars extends MY_Controller {
 	function index() {
 		$filenames = get_filenames( $this->folder_name, $this->files_suffix );
 		$sidebars = $this->sidebars_admin_model->get_all_sidebars();
-		$no_content = $this->lang->line('error_no_pages');
+		$no_content = $this->lang->line('error_no_sidebars');
 
 		$page_title = $this->langs['lang_page_title'];
 
