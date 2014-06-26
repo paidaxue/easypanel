@@ -29,8 +29,6 @@
     </script>
 	</head>
 	<body>
-
-{BODY}
-
+    {BODY}
 	</body>
 </html>

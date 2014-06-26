@@ -1,8 +1,5 @@
-		<div class="content">
-
-{CONTENT}
-
-		</div><!-- .content -->
-
-	</div><!-- .wrapper -->
+  <div class="content">
+    {CONTENT}
+	</div>
+</div><!-- .wrapper -->
 

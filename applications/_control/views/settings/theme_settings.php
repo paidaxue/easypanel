@@ -1,9 +1,9 @@
-<form action = "{BASE_URL}/settings/theme_process" method="post" class="mainForm">
+<form action="{BASE_URL}/settings/theme_process" method="post" class="mainForm">
   <fieldset>
     <div class="widget first">
       <div class="head">
         <h5 class="iFrames">{lang_page_title}</h5>
-      </div><!-- .head -->
+      </div>
 
       <div class="rowElem nobg">
         <label>{lang_content_type_field}</label>
@@ -14,14 +14,14 @@
             <option value="{id_theme}" {selected}>{name}</option>
             {/THEMES}
           </select>
-        </div><!-- .formRight -->
+        </div>
         <div class="fix"></div>
-      </div><!-- .rowElem -->
+      </div>
 
       <div class="rowElem">
         <div class="formRight submitRight" id="submit-theme-select">
             <input type="submit" value="{lang_submit_form}" class="basicBtn" />
-        </div><!-- .formRight -->
+        </div>
         <div class="fix"></div>
       </div>
     </div>

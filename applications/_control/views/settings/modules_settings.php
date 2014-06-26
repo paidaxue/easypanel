@@ -1,7 +1,7 @@
 <div class="widget first">
   <div class="head">
     <h5 class="iFrames">{lang_page_title}</h5>
-  </div><!-- .head -->
+  </div>
 
   <table cellpadding="0" cellspacing="0" width="100%" class="tableStatic resize">
     <thead>
@@ -18,12 +18,12 @@
         <td>{name}</td>
         <td>{module_slug}</td>
         <td>
-          <button class="redBtn bConfirm module-delete" id = "{id_module}" >{lang_delete}</button>
+          <button class="redBtn bConfirm module-delete" id="{id_module}" >{lang_delete}</button>
         </td>
       </tr>
       {/MODULES}
 
     </tbody>
   </table>
-</div><!-- .widget .first -->
+</div>
 

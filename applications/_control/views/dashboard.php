@@ -1,9 +1,8 @@
 <div class="title">
 	<h5>{lang_page_title}</h5>
-</div><!-- .title -->
+</div>
 
 <div class = "left">
-
 	<!-- Website statistics -->
 	<div class="widget">
 		<div class="head"><h5 class="iChart8">{lang_records}</h5></div>
@@ -22,5 +21,4 @@
 			</tbody>
 		</table>
 	</div>
-
 </div>

@@ -1,102 +1,69 @@
 <form action="{BASE_URL}/settings/general_process" method="post" class="mainForm" enctype="multipart/form-data">
-
 	<fieldset>
-
-    	<div class="widget first">
-
-  			<div class="head">
+  	<div class="widget first">
+			<div class="head">
 				<h5>{lang_page_title}</h5>
-			</div><!-- .head -->
+			</div>
 
 			<div class="rowElem nobg">
-
 				<label>{lang_website_title}</label>
-
 				<div class="formRight">
 					<input type="text" name="website_title" value="{website_title}" />
-				</div><!-- .formRight -->
+				</div>
 
 				<div class="fix"></div>
+			</div>
 
-			</div><!-- .rowElem -->
-
-		  <!--Select for website HomePage -->
 			<div class="rowElem nobg">
-
 				<label>{lang_website_homepage}</label>
-
 				<div class="formRight">
 					<select name="website_homepage" id = "homepage" >
-
-	  						{PAGES}
-	                <option value="{id_page}" {selected}>{title}</option>
-	  						{/PAGES}
-
+						{PAGES}
+            <option value="{id_page}" {selected}>{title}</option>
+						{/PAGES}
           </select>
         </div>
 
 				<div class="fix"></div>
-
-			</div><!-- .rowElem -->
-
+			</div>
 
 			<div class="rowElem">
-
 				<label>{lang_website_logo}</label>
-
 				<div class="formRight">
-
 					<div class="pics single">
-
 					   <ul>
-
 							<li>
-
 								<a href="#" title="{lang_website_logo}" class = "img">
 									<img src="{UP_URL}/general/{website_logo}" alt="" />
 								</a>
 
 								<div class="actions">
-									<a href="#" title="">
+									<a href="#">
 										<img src="{APP_URL}/images/edit.png" alt="" />
 										<input type = "file" name = "website_logo" class = "default" />
 									</a>
 								</div>
-
 							</li>
-
 						</ul>
-
-					</div><!-- .pics -->
-
-				</div><!-- .formRight -->
+					</div>
+				</div>
 
 				<div class="fix"></div>
-
-			</div><!-- .rowElem -->
+			</div>
 
 			<div class="rowElem">
-
 				<label>{lang_website_copyright}</label>
-
 				<div class="formRight">
 					<input type="text" name="website_copyright" value="{website_copyright}" />
-				</div><!-- .formRight -->
+				</div>
 
 				<div class="fix"></div>
-
-			</div><!-- .rowElem -->
+			</div>
 
 			<div class="rowElem">
-
 				<input type="submit" value="Submit" id="submit" class="basicBtn submitForm" />
-
 				<div class="fix"></div>
-
-			</div><!-- .rowElem -->
-
-		</div><!-- .widget .first -->
-
+			</div>
+		</div>
   </fieldset>
-
 </form>
