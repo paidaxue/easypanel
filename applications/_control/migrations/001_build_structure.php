@@ -220,8 +220,8 @@ class Migration_Build_structure extends CI_Migration {
     $ep_pages[1]['sidebar_left'] = '0';
     $ep_pages[1]['sidebar_right'] = '0';
 
-    $ep_pages[2]['title'] = 'Simple Page';
-    $ep_pages[2]['page_slug'] = 'simple_page';
+    $ep_pages[2]['title'] = 'First Page';
+    $ep_pages[2]['page_slug'] = 'first_page';
     $ep_pages[2]['module'] = 'simple_page';
     $ep_pages[2]['page_type'] = 'parent';
     $ep_pages[2]['content'] = '<p>Lorem ipsum</p>';
