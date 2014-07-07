@@ -12,7 +12,7 @@
 			<form class="mainForm" id="loginForm" >
 				<fieldset>
 					<div class="loginRow">
-						<label>{lang_user_field}</label>
+						<label>{lang_user}</label>
 
 						<div class="loginInput nobg">
 							<input type="text" name="user" id="user" />
@@ -26,7 +26,7 @@
 					</div>
 
 					<div class="loginRow">
-						<label>{lang_pass_field}</label>
+						<label>{lang_pass}</label>
 
 						<div class="loginInput nobg">
 							<input type="password" name="pass" id="pass" />
@@ -44,7 +44,7 @@
 							<p>{lang_incorrect_login}</p>
 						</div>
 
-						<input type="submit" value="{lang_submit_login}" class="basicBtn submitForm" id="log_in" />
+						<input type="submit" value="{lang_submit}" class="basicBtn submitForm" id="log_in" />
 						<div class="fix"></div>
 					</div>
 

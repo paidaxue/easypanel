@@ -28,7 +28,7 @@ class Login extends CI_Controller {
 
 		$filenames = get_filenames( $this->folder_name, $this->files_suffix );
 		$lang = (array)$this->lang->line('login');
-		$page_title = $this->lang->line('login_page_title');
+		$page_title = $lang['lang_page_title'];
 
 		$content_data = array(
 			'lang_incorrect_login' 	=> $this->lang->line('error_incorrenct_login'),
@@ -36,7 +36,7 @@ class Login extends CI_Controller {
 		);
 
 		$top_nav_data = array(
-			'lang_main_website'	=> $lang('lang_main_website'),
+			'lang_main_website'	=> $lang['lang_main_website'],
 		);
 
 		$top_nav = $this->parser->parse($filenames[ 'top_nav' ], $top_nav_data, true);
