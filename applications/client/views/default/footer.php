@@ -2,7 +2,7 @@
 
 <div class="sixteen columns">
 
-	<p>{current_year} - {copyright}</p>
+	{copyright}
 
 </div>
 

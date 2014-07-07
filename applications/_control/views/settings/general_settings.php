@@ -54,9 +54,8 @@
 			<div class="rowElem">
 				<label>{lang_website_copyright}</label>
 				<div class="formRight">
-					<input type="text" name="website_copyright" value="{website_copyright}" />
+					<textarea class="ckeditor" cols="80" id="editor1" rows="10" name="website_copyright">{website_copyright}</textarea>
 				</div>
-
 				<div class="fix"></div>
 			</div>
 
