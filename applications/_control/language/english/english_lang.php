@@ -4,10 +4,15 @@
 $lang['dashboard'] = array(
   'lang_page_title'      => 'Dashboard',
   'lang_website_records' => 'Website records',
+  'lang_modules'         => 'Modules',
   'lang_amount'          => 'Amount',
   'lang_records_added'   => 'Record type',
   'lang_pages_singular'  => 'Page',
   'lang_pages_plural'    => 'Pages',
+  'lang_posts_singular'  => 'Post',
+  'lang_posts_plural'    => 'Posts',
+  'lang_modules_singular'=> 'Module',
+  'lang_modules_plural'  => 'Modules',
 );
 
 /* Language array for General settings */

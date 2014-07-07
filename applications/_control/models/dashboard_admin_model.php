@@ -12,6 +12,23 @@ class Dashboard_admin_model extends CI_Model {
 
 	}
 
+	/**
+	 * Dashboard stats - modules
+	 */
+	function get_module_records () {
+
+		return $this->db->get_where('ep_modules', array('module_slug !=' => 'simple_page'))->result();
+
+	}
+
+	/**
+	 * Dashboard stats - posts
+	 */
+	function get_posts_records () {
+
+		return $this->db->get('blog')->result();
+
+	}
 }
 
 /* End of file dashboard_admin_model.php */

@@ -1217,6 +1217,14 @@ li.plupload_droptext {
 .left {
 
 	width: 344px;
+	float: left;
+
+}
+
+.right {
+
+	width: 344px;
+	float: right;
 
 }
 
