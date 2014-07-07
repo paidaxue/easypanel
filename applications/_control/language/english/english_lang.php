@@ -43,6 +43,9 @@ $lang['modules_settings'] = array(
 /* Language array for Theme settings */
 $lang['theme_settings'] = array(
   'lang_page_title'   => 'Theme Settings',
+  'lang_name'         => 'Name',
+  'lang_enable'       => 'Enable',
+  'lang_delete'       => 'Delete',
   'lang_select_theme' => 'Select a theme',
   'lang_submit'       => 'Submit',
   'lang_default'      => 'Default theme',

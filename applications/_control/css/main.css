@@ -20,7 +20,7 @@ body { background: url(../images/body_bg.jpg) repeat; font-family: 'Cuprum', san
 .show { visibility: visible!important; }
 button.nobg { background: none; }
 select { overflow: auto; }
-
+#cke_editor1 { border: none!important; }
 
 /* ===== Header ===== */
 

@@ -1,29 +1,31 @@
-<form action="{BASE_URL}/settings/theme_process" method="post" class="mainForm">
-  <fieldset>
-    <div class="widget first">
-      <div class="head">
-        <h5 class="iFrames">{lang_page_title}</h5>
-      </div>
+<div class="widget first">
+  <div class="head">
+    <h5 class="iFrames">{lang_page_title}</h5>
+  </div>
 
-      <div class="rowElem nobg">
-        <label>{lang_select_theme}</label>
-        <div class="formRight noSearch">
-          <select name="themes" class = "chzn-select" id = "themes" >
-            <option value="0">{lang_default}</option>
-            {THEMES}
-            <option value="{id_theme}" {selected}>{name}</option>
-            {/THEMES}
-          </select>
-        </div>
-        <div class="fix"></div>
-      </div>
+  <table cellpadding="0" cellspacing="0" width="100%" class="tableStatic resize">
+    <thead>
+      <tr>
+        <td width="80%">{lang_name}</td>
+        <td>{lang_enable}</td>
+        <td>{lang_delete}</td>
+      </tr>
+    </thead>
 
-      <div class="rowElem">
-        <div class="formRight submitRight" id="submit-theme-select">
-            <input type="submit" value="{lang_submit}" class="basicBtn" />
-        </div>
-        <div class="fix"></div>
-      </div>
-    </div>
-  </fieldset>
-</form>
+    <tbody>
+      {THEMES}
+      <tr>
+        <td>{name}</td>
+        <td>
+          <button class="basicBtn" id="{id_theme}" >{lang_enable}</button>
+        </td>
+        <td>
+          <button class="redBtn" id="{id_theme}" >{lang_delete}</button>
+        </td>
+      </tr>
+      {/THEMES}
+
+    </tbody>
+  </table>
+</div>
+
