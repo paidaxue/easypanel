@@ -7,6 +7,7 @@ $lang['dashboard'] = array(
   'lang_modules'         => 'Modules',
   'lang_amount'          => 'Amount',
   'lang_records_added'   => 'Record type',
+  'lang_modules_added'   => 'Module name',
   'lang_pages_singular'  => 'Page',
   'lang_pages_plural'    => 'Pages',
   'lang_posts_singular'  => 'Post',

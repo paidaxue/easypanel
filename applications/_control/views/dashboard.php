@@ -34,7 +34,7 @@
 		<table cellpadding="0" cellspacing="0" width="100%" class="tableStatic">
 				<thead>
 					<tr>
-					  <td>{lang_records_added}</td>
+					  <td>{lang_modules_added}</td>
 					</tr>
 				</thead>
 				<tbody>
