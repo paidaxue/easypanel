@@ -28,8 +28,12 @@ $lang['general_settings'] = array(
 /* Language array for Account settings */
 $lang['account_settings'] = array(
   'lang_page_title' => 'Account Settings',
+  'lang_fullname'   => 'Full name',
   'lang_username'   => 'Username',
   'lang_password'   => 'New password',
+  'lang_email'      => 'Email',
+  'lang_required_input' => 'This field is important!',
+  'lang_user_avatar'=> 'Avatar',
 );
 
 /* Language array for Modules settings */

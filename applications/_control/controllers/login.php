@@ -12,6 +12,7 @@ class Login extends CI_Controller {
 
 		/* Load models and helpers */
 		$this->load->helper('login');
+		$this->load->helper('form');
 		$this->load->model('login_admin_model');
   }
 
@@ -53,7 +54,7 @@ class Login extends CI_Controller {
 	 */
 	function log_in() {
 		$username = mysql_real_escape_string( $this->input->post('user', true) );
-		$password = md5( $this->input->post('pass', true) );
+		$password = $this->input->post('pass', true);
 
 		$access = $this->login_admin_model->get_access( $username, $password );
 
@@ -63,6 +64,7 @@ class Login extends CI_Controller {
 		} else {
 			echo 0;
 		}
+		
 	}
 
 	/**

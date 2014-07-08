@@ -54,10 +54,6 @@
 					</li>
 
 					<li>
-						<a href="{BASE_URL}/settings/account/{id_loggedUser}" title="Account settings">Account settings</a>
-					</li>
-
-					<li>
 						<a href="{BASE_URL}/settings/modules" title="Modules settings">Modules settings</a>
 					</li>
 

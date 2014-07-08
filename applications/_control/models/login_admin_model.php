@@ -6,11 +6,15 @@ class Login_admin_model extends CI_Model {
 	 * Returns the user for login
 	 */
 	function get_access( $username, $password ) {
+		$this->db->where('user', $username);
+		$query = $this->db->get('ep_admin_users')->row();
 
-		return $this->db->get_where('ep_admin_users', array('user' => $username, 'pass' => $password))->row();
+		$current_password = $query->pass;
 
+		if(crypt($password, $current_password) == $current_password){
+			return $query;
+		}
 	}
-
 }
 
 /* End of file login_admin_model.php */

@@ -66,7 +66,7 @@ class Settings extends MY_Controller {
 
 			//$basepath = rtrim(BASEPATH, 'system/');
 			//$path = $basepath . '/uploads/general/';
-			$path = './uploads/general/';
+			$path = './uploads/general/settings/';
 			$random = basename($_FILES['website_logo']['name']);
 			$path = $path . $random;
 
@@ -96,7 +96,10 @@ class Settings extends MY_Controller {
 		$page_title = $lang['lang_page_title'];
 
 		$content_data = array(
-			'user' => $user_data['user']
+			'avatar' => $user_data['avatar'],
+			'user' => $user_data['user'],
+			'fullname' => $user_data['fullname'],
+			'email' => $user_data['email']
 		);
 
 		$content = $this->parser->parse( $content_filename, array_merge($content_data, $lang), true );
@@ -111,11 +114,29 @@ class Settings extends MY_Controller {
 	 * @return void
 	 */
 	function account_process( $id_user ) {
+		$user_data[ 'fullname' ] = $this->input->post( 'fullname', true );
 		$user_data[ 'user' ] = $this->input->post( 'user', true );
+		$user_data[ 'email' ] = $this->input->post( 'email', true );
 
-		if ( $this->input->post('pass') ) {
-			$pass = $this->input->post( 'pass', true );
-			$user_data[ 'pass' ] = md5($pass);
+		define('MB', 1048576);
+
+		if( $_FILES['avatar']['name'] != '' ) {
+			$temp = explode('.', $_FILES['avatar']['name']);
+			$ext = end($temp);
+			$size = $_FILES['avatar']['size'];
+
+			if( ($ext == 'png') || ($ext == 'jpg') || ($ext == 'gif') ){
+				if( $_FILES['avatar']['size'] < 1*MB ){
+					$upload_path = './uploads/general/account/';
+					$file_name = date('ymdsu').md5($user_data['email']).$user_data['user'].'id-'.$id_user;
+
+					$uploaded_file = $upload_path . $file_name . '.' . end($temp);
+
+					move_uploaded_file($_FILES['avatar']['tmp_name'], $uploaded_file);
+
+					$user_data[ 'avatar' ] = 'account/'.$file_name .'.'. end($temp);
+				}
+			}
 		}
 
 		$this->settings_admin_model->update_user_by_id( $user_data, $id_user );
