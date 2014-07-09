@@ -17,22 +17,27 @@ if ( ! function_exists('page_builder')) {
   ) {
 
     $CI =& get_instance();
-    $CI->load->model('general_admin_model');
+    $CI->load->model('modules_model');
 
-    $modules = $CI->general_admin_model->get_modules();
+    $modules = $CI->modules_model->get_modules();
 
     /* ------- generate header ------- */
     $main_data['page_title'] = $title;
 
     /* ------- generate content ------- */
+    $lang_nav = (array)$CI->lang->line('lang_nav');
     if( $top_nav != strip_tags( $top_nav ) ) {
 
-      $body_header_parsed = $CI->parser->parse( $body_header, array( 'TOP_NAV' => $top_nav, 'MODULES' => $modules, 'count_modules' => count($modules) ), true );
+      $data_content = array( 'TOP_NAV' => $top_nav, 'MODULES' => $modules, 'count_modules' => count($modules) );
+      $body_header_parsed = $CI->parser->parse( $body_header, array_merge($data_content, $lang_nav), true );
 
     } else {
+      $lang = (array)$CI->lang->line('top_nav');
 
-      $top_nav_parsed = $CI->load->view( $top_nav, '', true );
-      $body_header_parsed = $CI->parser->parse( $body_header, array( 'TOP_NAV' => $top_nav_parsed, 'MODULES' => $modules, 'count_modules' => count($modules) ), true );
+      $top_nav_parsed = $CI->parser->parse( $top_nav, $lang, true );
+
+      $data_content = array( 'TOP_NAV' => $top_nav_parsed, 'MODULES' => $modules, 'count_modules' => count($modules) );
+      $body_header_parsed = $CI->parser->parse( $body_header, array_merge($data_content, $lang_nav), true );
 
     }
 
