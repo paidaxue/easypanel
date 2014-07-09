@@ -33,3 +33,6 @@
   </table>
 </div>
 
+<a href="{BASE_URL}/users/register">
+  <button class="blueBtn outside-button" >{lang_register_user}</button>
+</a>

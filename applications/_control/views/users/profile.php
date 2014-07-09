@@ -1,4 +1,4 @@
-<form action="{BASE_URL}/users/account_process/{id_loggedUser}" method="post" class="mainForm" enctype="multipart/form-data">
+<form action="{BASE_URL}/users/profile_process/{id_loggedUser}" method="post" class="mainForm" enctype="multipart/form-data">
 	<fieldset>
   	<div class="widget first">
 			<div class="head">

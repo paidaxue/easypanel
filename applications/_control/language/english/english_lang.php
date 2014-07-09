@@ -47,6 +47,21 @@ $lang['users_settings'] = array(
   'lang_user_avatar'=> 'Avatar',
   'lang_edit'       => 'Edit',
   'lang_delete'     => 'Delete',
+  'lang_register_user' => 'Register',
+);
+
+/* Language array for User Register */
+$lang['user_register'] = array(
+  'lang_page_title' => 'Register a new user',
+  'lang_fullname'   => 'Full name',
+  'lang_username'   => 'Username',
+  'lang_password'   => 'New password',
+  'lang_email'      => 'Email',
+  'lang_required_input' => 'This field is important!',
+  'lang_user_avatar'=> 'Avatar',
+  'lang_edit'       => 'Edit',
+  'lang_delete'     => 'Delete',
+  'lang_register_user' => 'Register',
 );
 
 /* Language array for Modules settings */

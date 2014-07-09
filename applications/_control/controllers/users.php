@@ -148,8 +148,65 @@ class Users extends MY_Controller {
 		redirect( '_control.php/users/edit_profile/' . $id_user );
 	}
 
+	/**
+	 * Allows user deleting
+	 * @return
+	 */
 	function user_delete() {
 		$id_user = $this->input->post('id_user');
 		$this->users_model->delete_user($id_user);
+	}
+
+	/**
+	 * Allows registering new users
+	 * @return
+	 */
+	function register() {
+
+		$lang = (array)$this->lang->line('user_register');
+		$page_title = $lang['lang_page_title'];
+
+		$content_data = array(
+			'added_by' => 'nu'
+		);
+
+		$content = $this->parser->parse('users/register', array_merge($content_data, $lang), true);
+
+		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$this->parser->parse( 'base_template', $page );
+	}
+
+	function register_process(){
+		$data['fullname'] 		= $this->input->post('fullname');
+		$data['user'] 				= $this->input->post('user');
+		$data['pass'] 				= crypt($this->input->post('password'));
+		$data['email'] 				= $this->input->post('email');
+		$data['avatar']				= 'account/default.png';
+
+		if($_FILES['avatar']['name'] != ''){
+			$new_user_data = (array)$this->users_model->register_user_return($data);
+
+			$temp = explode('.', $_FILES['avatar']['name']);
+			$ext = end($temp);
+			$size = $_FILES['avatar']['size'];
+
+			if( ($ext == 'png') || ($ext == 'jpg') || ($ext == 'gif') ){
+					$upload_path = './uploads/general/account/';
+
+					$file_name = date('ymdsu').md5($new_user_data['email']).$new_user_data['user'].'id-'.$new_user_data['id_user'];
+
+					$uploaded_file = $upload_path . $file_name . '.' . end($temp);
+
+					move_uploaded_file($_FILES['avatar']['tmp_name'], $uploaded_file);
+
+					$new_user_data[ 'avatar' ] = 'account/'.$file_name .'.'. end($temp);
+
+					$this->users_model->update_user($new_user_data);
+			}
+		} else{
+			$this->users_model->register_user($data);
+		}
+
+		redirect( '_control.php/users/');
 	}
 }
