@@ -147,4 +147,9 @@ class Users extends MY_Controller {
 		$this->settings_admin_model->update_user_by_id( $user_data, $id_user );
 		redirect( '_control.php/users/edit_profile/' . $id_user );
 	}
+
+	function user_delete() {
+		$id_user = $this->input->post('id_user');
+		$this->users_model->delete_user($id_user);
+	}
 }

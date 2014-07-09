@@ -99,6 +99,16 @@ $(document).ready(function() {
 
 		id = $( this ).attr( 'id' );
 
+		if($(this).hasClass('user-delete')){
+			jConfirm('Are you sure you want to delete this user?', 'Delete user', function(r) {
+
+				if( r ) {
+					delete_user( id );
+				}
+
+			});
+		}
+
 		if($(this).hasClass('page-delete')){
 			jConfirm('Are you sure you want to delete this page?', 'Delete page', function(r) {
 
@@ -140,6 +150,18 @@ $(document).ready(function() {
 		}
 
 	});
+
+	function delete_user( id_user ) {
+
+		$.ajax({
+			url: base_url + '/users/user_delete',
+			type: 'POST',
+			data: { id_user: id_user },
+			success: function(data) {
+				location.reload();
+			}
+	 	});
+	}
 
 	function delete_page( id_page ) {
 

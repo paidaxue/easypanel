@@ -24,7 +24,7 @@
           </a>
         </td>
         <td>
-          <button class="redBtn" id="{id_user}" >{lang_delete}</button>
+          <button class="redBtn bConfirm user-delete" id="{id_user}" >{lang_delete}</button>
         </td>
       </tr>
       {/USERS}

@@ -13,4 +13,8 @@ class Users_model extends CI_Model {
   	return $this->db->get_where('ep_admin_users', array('id_user' => $id_user))->row();
   }
 
+  function delete_user($id_user){
+    $this->db->delete('ep_admin_users', array('id_user' => $id_user));
+  }
+
 }
