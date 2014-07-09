@@ -36,6 +36,19 @@ $lang['account_settings'] = array(
   'lang_user_avatar'=> 'Avatar',
 );
 
+/* Language array for User settings */
+$lang['users_settings'] = array(
+  'lang_page_title' => 'Users Settings',
+  'lang_fullname'   => 'Full name',
+  'lang_username'   => 'Username',
+  'lang_password'   => 'New password',
+  'lang_email'      => 'Email',
+  'lang_required_input' => 'This field is important!',
+  'lang_user_avatar'=> 'Avatar',
+  'lang_edit'       => 'Edit',
+  'lang_delete'     => 'Delete',
+);
+
 /* Language array for Modules settings */
 $lang['modules_settings'] = array(
   'lang_page_title' => 'Modules Settings',

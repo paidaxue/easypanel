@@ -89,5 +89,21 @@ if ( ! function_exists('get_logged_user_by_id')) {
 
 }
 
+/**
+ * Gets all users
+ */
+if ( ! function_exists('get_all_users')) {
+
+  function get_all_users() {
+
+    $CI =& get_instance();
+
+    $CI->load->model('users_model');
+
+    return $CI->users_model->get_users();
+
+  }
+
+}
 /* End of file general_helper.php */
 /* Location: ./applications/_control/helpers/general_helper.php */

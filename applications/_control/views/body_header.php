@@ -6,7 +6,7 @@
 			<img src="{APP_URL}/images/loginLogo.png" alt="logo" />
 		</a>
 	</div>
-	<div id = "notifications"></div>
+	<div id = "notifications"></div><!-- notifications -->
 </div>
 
 <div class="wrapper">

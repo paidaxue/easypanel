@@ -212,6 +212,8 @@ div.formRight label.error { color:#FF0000; }
 	display: block;
 	margin: 13px 2px 11px 14px;
 
+	width: 16px;
+	height: 16px;
 }
 
 .userNav ul li ul {

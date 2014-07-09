@@ -44,7 +44,7 @@ class Settings_admin_model extends CI_Model {
 	function get_theme_by_id($id_theme){
 
 		return $this->db->get_where('ep_themes', array('id_theme' => $id_theme))->row();
-	
+
 	}
 
 	/**

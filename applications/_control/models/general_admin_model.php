@@ -49,6 +49,13 @@ class General_admin_model extends CI_Model {
   function delete_module($id_module) {
     return $this->db->delete('ep_modules', array('id_module' => $id_module));
   }
+
+  /**
+   *  Gets all users
+   */
+  function get_all_users(){
+    return $this->db->get('ep_admin_users')->row();
+  }
 }
 
 /* End of file general_admin_model.php */
