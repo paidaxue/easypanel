@@ -116,6 +116,7 @@ $lang['pages'] = array(
   'lang_sidebar_both'             => 'Both',
   'lang_sidebar_name_left'        => 'Left sidebar',
   'lang_sidebar_name_right'       => 'Right sidebar',
+  'lang_submit_form'              => 'Submit',
 );
 
 /* Language array for Sidebars */
