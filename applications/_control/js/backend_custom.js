@@ -116,6 +116,14 @@ $(document).ready(function() {
 	 	});
 	}
 
+	$(".default-theme").click( function() {
+
+			default_theme();
+
+	});
+
+
+
 	//===== Alert windows - delete =====//
 
 	$(".bConfirm").click( function() {
@@ -183,6 +191,18 @@ $(document).ready(function() {
 		}
 
 	});
+
+	function default_theme() {
+		id = 0;
+		$.ajax({
+			url: base_url + '/settings/theme_default',
+			type: 'POST',
+			data: { id_theme: id },
+			success: function() {
+				location.reload();
+			}
+	 	});
+	}
 
 	function delete_theme( id_theme ) {
 

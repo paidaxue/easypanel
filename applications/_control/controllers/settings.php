@@ -208,6 +208,10 @@ class Settings extends MY_Controller {
 		redirect('_control.php/settings/theme');
 	}
 
+	function theme_default(){
+		$this->themes_model->back_default();
+	}
+
 	function theme_delete() {
 		$id_theme = $this->input->post('id_theme');
 		$theme = $this->themes_model->get_theme_by_id($id_theme);

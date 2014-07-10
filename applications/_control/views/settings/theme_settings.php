@@ -29,3 +29,5 @@
   </table>
 </div>
 
+<button class="blueBtn outside-button default-theme" >{lang_default}</button>
+

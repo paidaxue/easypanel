@@ -21,4 +21,8 @@ class Themes_model extends CI_Model {
 		$this->db->delete('ep_themes');
 
 	}
+
+	function back_default(){
+		$this->db->update('ep_themes', array('active' => 0), array('active' => 1) );
+	}
 }
