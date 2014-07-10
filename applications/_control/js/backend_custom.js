@@ -93,6 +93,28 @@ $(document).ready(function() {
 
 	});
 
+	//===== Themes - enabling =====//
+
+	$(".enableTheme").click( function() {
+
+			$( this ).attr( 'class' , 'blueBtn enableTheme');
+			id_theme = $( this ).attr('id');
+			$( this ).html('...');
+
+			enable_theme(id_theme);
+
+	});
+
+	function enable_theme( id_theme ) {
+		$.ajax({
+			url: base_url + '/settings/theme_process',
+			type: 'POST',
+			data: { id_theme: id_theme },
+			success: function(data) {
+				location.reload();
+			}
+	 	});
+	}
 	//===== Alert windows - delete =====//
 
 	$(".bConfirm").click( function() {

@@ -1,7 +1,7 @@
 <!-- Basic Page Needs
 ================================================== -->
 <meta charset="utf-8">
-<title>{website_title} First - {page_title}</title>
+<title>{website_title} Second - {page_title}</title>
 <meta name="description" content="">
 <meta name="author" content="">
 

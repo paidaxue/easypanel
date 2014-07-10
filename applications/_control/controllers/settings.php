@@ -156,18 +156,20 @@ class Settings extends MY_Controller {
 	 */
 	function theme() {
 		$this->refresh_themes();
+		$lang = (array)$this->lang->line('theme_settings');
 
 		$themes = $this->settings_admin_model->get_themes();
 		foreach( $themes as $theme ) {
 			if( $theme->active == '1' ) {
-				$theme->selected = "selected = 'selected'";
+				$theme->selected = "blueBtn";
+				$theme->lang_verb = $lang['lang_enabled'];
 			} else {
 				$theme->selected = "";
+				$theme->lang_verb = $lang['lang_enable'];
 			}
 		}
 
 		$content_filename = $this->folder_name . 'theme' . $this->files_suffix;
-		$lang = (array)$this->lang->line('theme_settings');
 
 		$page_title = $lang['lang_page_title'];
 
@@ -187,7 +189,7 @@ class Settings extends MY_Controller {
 	 */
 	function theme_process(){
 
-		$id_selected_theme = $this->input->post('themes');
+		$id_selected_theme = $this->input->post('id_theme');
 		$themes = $this->settings_admin_model->get_themes();
 
 		foreach($themes as $theme){

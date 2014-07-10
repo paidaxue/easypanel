@@ -17,7 +17,7 @@
       <tr>
         <td>{name}</td>
         <td>
-          <button class="basicBtn" id="{id_theme}" >{lang_enable}</button>
+          <button class="basicBtn enableTheme {selected}" id="{id_theme}" >{lang_verb}</button>
         </td>
         <td>
           <button class="redBtn" id="{id_theme}" >{lang_delete}</button>

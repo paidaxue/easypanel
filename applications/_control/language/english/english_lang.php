@@ -96,6 +96,7 @@ $lang['theme_settings'] = array(
   'lang_page_title'   => 'Theme Settings',
   'lang_name'         => 'Name',
   'lang_enable'       => 'Enable',
+  'lang_enabled'      => 'Enabled',
   'lang_delete'       => 'Delete',
   'lang_select_theme' => 'Select a theme',
   'lang_submit'       => 'Submit',
