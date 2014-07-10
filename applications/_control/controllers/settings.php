@@ -148,6 +148,7 @@ class Settings extends MY_Controller {
 		$id_module = $this->input->post('id_module');
 		$module = $this->modules_model->get_module_by_id($id_module);
 		delete_directory('./applications/_control/modules/' . $module->module_slug);
+		delete_directory('./applications/client/modules/' . $module->module_slug);
 		$this->modules_model->delete_module($id_module);
 		redirect('_control.php/settings/modules');
 	}
