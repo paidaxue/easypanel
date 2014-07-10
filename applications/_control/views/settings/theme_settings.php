@@ -20,7 +20,7 @@
           <button class="basicBtn enableTheme {selected}" id="{id_theme}" >{lang_verb}</button>
         </td>
         <td>
-          <button class="redBtn" id="{id_theme}" >{lang_delete}</button>
+          <button class="redBtn bConfirm theme-delete" id="{id_theme}" >{lang_delete}</button>
         </td>
       </tr>
       {/THEMES}

@@ -13,6 +13,8 @@ class Settings extends MY_Controller {
 		/* Load Models */
 		$this->load->model( 'settings_admin_model' );
 		$this->load->model('pages_model');
+		$this->load->model('themes_model');
+		$this->load->model('modules_model');
   }
 
 	/**
@@ -94,7 +96,7 @@ class Settings extends MY_Controller {
 		$lang = (array)$this->lang->line('modules_settings');
 		$page_title = $lang['lang_page_title'];
 
-		$modules = $this->general_admin_model->get_modules();
+		$modules = $this->modules_model->get_modules();
 
 		$content_data = array(
 			'MODULES' => $modules,
@@ -115,14 +117,14 @@ class Settings extends MY_Controller {
 		$dir = './applications/_control/modules';
 		$folders = array_diff(scandir($dir), array('..', '.'));
 
-		$modules_in_db = $this->general_admin_model->get_modules();
+		$modules_in_db = $this->modules_model->get_modules();
 		$modules_slugs = array();
 		foreach($modules_in_db as $key => $module) {
 			$modules_slugs[$key] = $module->module_slug;
 		}
 
 		$modules_to_add = array_diff($folders, $modules_slugs);
-		$this->general_admin_model->delete_modules();
+		$this->modules_model->delete_modules();
 
 		$modules = array();
 		foreach($folders as $key => $folder_name) {
@@ -133,7 +135,7 @@ class Settings extends MY_Controller {
 				$module_name = ucfirst($folder_name);
 			}
 
-			$this->general_admin_model->insert_module($module_name, $folder_name);
+			$this->modules_model->insert_module($module_name, $folder_name);
 		}
 	}
 
@@ -144,9 +146,9 @@ class Settings extends MY_Controller {
 	 */
 	function module_delete() {
 		$id_module = $this->input->post('id_module');
-		$module = $this->general_admin_model->get_module_by_id($id_module);
+		$module = $this->modules_model->get_module_by_id($id_module);
 		delete_directory('./applications/_control/modules/' . $module->module_slug);
-		$this->general_admin_model->delete_module($id_module);
+		$this->modules_model->delete_module($id_module);
 		redirect('_control.php/settings/modules');
 	}
 
@@ -203,6 +205,14 @@ class Settings extends MY_Controller {
 			$this->settings_admin_model->update_theme_settings($selected_theme, $id_selected_theme);
 		}
 		redirect('_control.php/settings/theme');
+	}
+
+	function theme_delete() {
+		$id_theme = $this->input->post('id_theme');
+		$theme = $this->themes_model->get_theme_by_id($id_theme);
+		delete_directory('./applications/client/views/' . $theme['name'] . '_theme');
+
+		$this->themes_model->delete_theme($id_theme);
 	}
 
 	/**

@@ -115,11 +115,22 @@ $(document).ready(function() {
 			}
 	 	});
 	}
+
 	//===== Alert windows - delete =====//
 
 	$(".bConfirm").click( function() {
 
 		id = $( this ).attr( 'id' );
+
+		if($(this).hasClass('theme-delete')){
+			jConfirm('Are you sure you want to delete this theme?', 'Delete theme', function(r) {
+
+				if( r ) {
+					delete_theme( id );
+				}
+
+			});
+		}
 
 		if($(this).hasClass('user-delete')){
 			jConfirm('Are you sure you want to delete this user?', 'Delete user', function(r) {
@@ -172,6 +183,18 @@ $(document).ready(function() {
 		}
 
 	});
+
+	function delete_theme( id_theme ) {
+
+		$.ajax({
+			url: base_url + '/settings/theme_delete',
+			type: 'POST',
+			data: { id_theme: id_theme },
+			success: function(data) {
+				location.reload();
+			}
+	 	});
+	}
 
 	function delete_user( id_user ) {
 

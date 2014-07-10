@@ -4,122 +4,55 @@ class Blog extends MY_Controller {
   function __construct() {
     parent::__construct();
     $this->load->model('blog_m');
-    $this->lang->load('english');
   }
 
-  function index() {
-    $posts = $this->blog_m->get_posts();
-    $lang = $this->lang->line('blog_listings');
-    $page_title = $lang['lang_page_title'];
-
-    $data = array(
-      'POSTS' => $posts,
-    );
-
-    $data = array_merge($data, $lang);
-
-    $content = $this->parser->parse('listing', $data, true);
-
-    $page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
-    $this->parser->parse( 'base_template', $page );
-  }
-
-  function add() {
-    $lang = $this->lang->line('blog_add');
-    $page_title = $lang['lang_page_title'];
-
-    $content = $this->parser->parse('add', $lang, true);
-
-    $page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
-    $this->parser->parse( 'base_template', $page );
-  }
-
-  function add_process() {
-    $post['title'] = $this->input->post('title');
-    $post['date_created'] = date("Y/m/d");
-    $post['content'] = $this->input->post('content');
-
-    if($_FILES['image']['name'] != '') {
-      $path = './uploads/blog/';
-
-      if(!is_dir($path)) {
-        mkdir($path);
-      }
-
-      $image_name = basename($_FILES['image']['name']);
-      $path = $path . $image_name;
-
-      move_uploaded_file($_FILES['image']['tmp_name'], $path);
-
-      $post['image'] = $image_name;
+  function _remap( $page_slug ) {
+    if($this->uri->segment(2) != 'single') {
+      $this->index( $page_slug );
+    } else {
+      $this->single();
     }
-
-    $this->blog_m->insert_post($post);
-    redirect('_control.php/blog');
   }
 
-  function edit($id_post) {
-    $lang = $this->lang->line('blog_edit');
-    $page_title = $lang['lang_page_title'];
+  function index($page_slug) {
+    $page_info = $this->main_model->get_page_by_page_slug($page_slug);
+    $posts = $this->blog_m->get_posts();
 
-    $post = $this->blog_m->get_post_by_id($id_post);
     $data = array(
-      'id_post' => $post->id_post,
-      'title'   => $post->title,
-      'image'   => $post->image,
-      'content' => $post->content,
+      'page_title'    => $page_info->title,
+      'page_content'  => $page_info->content,
+      'page_data'     => array(
+                          'POSTS' => $posts,
+                         ),
     );
 
-    $data = array_merge($data, $lang); // add lang to be parsed
-
-    $content = $this->parser->parse('edit', $data, true);
-
-    $page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
-    $this->parser->parse( 'base_template', $page );
+    $template = $this->themes->build_template(
+      $data,
+      $page_info->sidebar_style,
+      $page_info->sidebar_right != 0 ? $page_info->sidebar_right : '0',
+      $page_info->sidebar_left != 0 ? $page_info->sidebar_left : '0',
+      $page_info->module
+    );
+    $base = $this->themes->get_base();
+    $this->parser->parse($base, $template);
   }
 
-  function edit_process($id_post) {
+  function single() {
+    $id_post = $this->uri->segment(3);
     $post_info = $this->blog_m->get_post_by_id($id_post);
 
-    $post['title'] = $this->input->post('title');
-    $post['date_created'] = date("Y/m/d");
-    $post['content'] = $this->input->post('content');
+    $data = array(
+      'page_title'    => $post_info->title,
+      'page_data'     => array(
+                          'title' => $post_info->title,
+                          'image' => $post_info->image,
+                          'date_created' => $post_info->date_created,
+                          'content' => $post_info->content,
+                         ),
+    );
 
-    if($_FILES['image']['name'] != '') {
-      $path = './uploads/blog/';
-
-      if(file_exists($path . $post_info->image)) {
-        unlink($path . $post_info->image);
-      }
-
-      if(!is_dir($path)) {
-        mkdir($path);
-      }
-
-      $image_name = basename($_FILES['image']['name']);
-      $path = $path . $image_name;
-
-      move_uploaded_file($_FILES['image']['tmp_name'], $path);
-
-      $post['image'] = $image_name;
-    }
-
-    $this->blog_m->update_post($post, $id_post);
-    redirect('_control.php/blog');
-  }
-
-  function delete() {
-    $id_post = $this->input->post('id_post');
-    $all_posts = $this->blog_m->get_posts();
-    $single_post = $this->blog_m->get_post_by_id($id_post);
-
-    if(count($all_posts) == 1) {
-      delete_directory('./uploads/blog');
-    } else {
-      unlink('./uploads/blog' . $single_post->image);
-    }
-
-    $this->blog_m->delete_post($id_post);
-    redirect('_control.php/blog');
+    $template = $this->themes->build_template($data, 'none', 0, 0, 'blog', 'blog_simple');
+    $base = $this->themes->get_base();
+    $this->parser->parse($base, $template);
   }
 }
