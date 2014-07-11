@@ -1306,6 +1306,7 @@ li.plupload_droptext {
 	width: 12px;
 	height: 12px;
 	opacity: 0;
+	top: 0;
 	right: 3px;
 	cursor: pointer;
 
