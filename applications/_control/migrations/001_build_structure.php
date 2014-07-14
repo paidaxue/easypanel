@@ -23,6 +23,18 @@ class Migration_Build_structure extends CI_Migration {
           'type' => 'VARCHAR',
           'constraint' => '255',
         ),
+        'fullname' => array(
+          'type' => 'VARCHAR',
+          'constraint' => '255',
+        ),
+        'email' => array(
+          'type' => 'VARCHAR',
+          'constraint' => '255',
+        ),
+        'avatar' => array(
+          'type' => 'VARCHAR',
+          'constraint' => '255',
+        ),
     ));
     $this->dbforge->add_key('id_user', TRUE);
     $this->dbforge->create_table('ep_admin_users');
@@ -198,7 +210,10 @@ class Migration_Build_structure extends CI_Migration {
     }
 
     $ep_admin_users[1]['user'] = 'admin';
-    $ep_admin_users[1]['pass'] = '21232f297a57a5a743894a0e4a801fc3';
+    $ep_admin_users[1]['pass'] = '$1$bA3.Ib5.$0aMvbLek/MvCcpzfvja98.';
+    $ep_admin_users[1]['fullname'] = 'July Administrator';
+    $ep_admin_users[1]['email'] = 'admin@easypanel-cms.com';
+    $ep_admin_users[1]['avatar'] = 'account/default.png';
 
     foreach ($ep_admin_users as $admin_user) {
       $this->db->insert( "ep_admin_users", $admin_user );
