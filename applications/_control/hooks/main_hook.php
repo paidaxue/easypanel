@@ -48,7 +48,8 @@ class Main_hook {
     $output = $this->output->get_output();
 
 		$output = str_replace('{loggedUser}',$CI->session->userdata('username'),$output);
-		$output = str_replace('{id_loggedUser}',$CI->session->userdata('id_user'),$output);
+    $output = str_replace('{id_loggedUser}',$CI->session->userdata('id_user'),$output);
+		$output = str_replace('{active_avatar}',$CI->session->userdata('avatar'),$output);
 
 		$this->output->set_output($output);
 

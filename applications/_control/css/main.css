@@ -21,6 +21,7 @@ body { background: url(../images/body_bg.jpg) repeat; font-family: 'Cuprum', san
 button.nobg { background: none; }
 select { overflow: auto; }
 #cke_editor1 { border: none!important; }
+.avatar-img { height: 20px; }
 
 /* ===== Header ===== */
 
@@ -211,9 +212,6 @@ div.formRight label.error { color:#FF0000; }
 	float: left;
 	display: block;
 	margin: 13px 2px 11px 14px;
-
-	width: 16px;
-	height: 16px;
 }
 
 .userNav ul li ul {

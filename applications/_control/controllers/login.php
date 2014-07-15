@@ -64,7 +64,6 @@ class Login extends CI_Controller {
 		} else {
 			echo 0;
 		}
-		
 	}
 
 	/**
