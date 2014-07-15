@@ -21,10 +21,11 @@ if ( ! function_exists('create_session')) {
     $CI =& get_instance();
 
     $session_data = array(
-      'id_user' => $user->id_user,
-      'username' => $user->user,
-      'avatar' => $user->avatar,
-      'inside' => true,
+      'id_user'   => $user->id_user,
+      'username'  => $user->user,
+      'avatar'    => $user->avatar,
+      'full_name' => $user->fullname,
+      'inside'    => true,
     );
 
     $CI->session->set_userdata( $session_data );

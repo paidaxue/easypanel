@@ -5,7 +5,7 @@
 				<a href="{BASE_URL}/users/profile/{id_loggedUser}" title="{lang_top_profile}">
 					<img src="{UP_URL}/general/{active_avatar}" alt="" class="avatar-img">
 				</a>
-				<span>{lang_top_welcome}, {loggedUser}!</span>
+				<span>{lang_top_welcome}, {active_full_name}!</span>
 			</div>
 			<div class="userNav">
 				<ul>
