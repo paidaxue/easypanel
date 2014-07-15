@@ -34,7 +34,7 @@
 					   <ul>
 							<li>
 								<a href="#" title="{lang_website_logo}" class = "img">
-									<img src="{UP_URL}/general/{website_logo}" alt="" />
+									<img src="{UP_URL}/general/settings/{website_logo}" alt="" />
 								</a>
 
 								<div class="actions">
