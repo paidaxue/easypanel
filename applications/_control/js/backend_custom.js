@@ -70,6 +70,26 @@ $(document).ready(function() {
 
 		}
 
+	});	//===== Reset Password settings =====//
+
+	$("#reset_submit").click(function() {
+		var npw = $("input#new_password").val();
+		var cpw = $("input#confirm_password").val();
+
+		$.ajax({
+			url: base_url + '/users/change_pass',
+			type: 'POST',
+			data: { npw: npw,
+							cpw: cpw },
+			success: function(data) {
+				alert('Change Successfull!');
+				location.reload();
+			}
+	 	});
+	});
+
+	$(".bAlert").click( function() {
+		jAlert('We sent an email with the steps you should follow to change your password! Good luck!', 'Email sent!');
 	});
 
 	//===== Pages - form verification =====//

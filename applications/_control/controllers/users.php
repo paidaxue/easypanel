@@ -7,6 +7,9 @@ class Users extends MY_Controller {
 		/* Load Models */
     $this->load->model('users_model');
     $this->load->model('settings_admin_model');
+
+    /* Libraries */
+		$this->load->library('email');
   }
 
   /**
@@ -42,6 +45,7 @@ class Users extends MY_Controller {
 
 		$content_data = array(
 			'avatar' => $user_data['avatar'],
+			'id_user'	=> $user_data['id_user'],
 			'user' => $user_data['user'],
 			'fullname' => $user_data['fullname'],
 			'email' => $user_data['email']
@@ -209,4 +213,48 @@ class Users extends MY_Controller {
 
 		redirect( '_control.php/users/');
 	}
+
+	function create_token($id_user, $user) {
+		$token = md5($id_user.$user.date('h:m:s'));
+
+		$this->users_model->insert_token($id_user, $token);
+		$user_data = (array) $this->users_model->get_user_data($id_user);
+		$this->users_model->send_email($user_data);
+
+		redirect('_control.php/dashboard');
+	}
+
+	function reset_password($id_user, $token) {
+		$this->users_model->check_reset_activity($id_user);
+		$this->users_model->check_token($id_user, $token);
+		$this->users_model->reset_null($id_user);
+
+
+		$lang = (array)$this->lang->line('user_reset');
+		$page_title = $lang['lang_page_title'];
+
+		$content_data = array(
+			'nu' => 'nu'
+		);
+
+		$content = $this->parser->parse('users/reset', array_merge($content_data, $lang), true);
+
+		$page = page_builder( $page_title, 'body', 'body_header', 'top_nav', 'body_content', $content );
+		$this->parser->parse( 'base_template', $page );
+	}
+
+	function change_pass($id_user){
+		$nwpass = $this->input->post('new_password');
+		$cnpass = $this->input->post('confirm_password');
+
+		if($nwpass != $cnpass){redirect('_control/dashboard');}
+
+		$this->users_model->change_pass($id_user, $nwpass);
+		redirect('_control.php/dashboard');
+	}
+
+	function view_user($id_user){
+		$this->users_model->view_user($id_user);
+	}
+
 }

@@ -60,3 +60,7 @@
 		</div>
   </fieldset>
 </form>
+
+<a href="{BASE_URL}/users/create_token/{id_loggedUser}/{user}">
+	<button class="blueBtn outside-button default-theme .resetPassBtn bAlert" >{lang_reset}</button>
+</a>

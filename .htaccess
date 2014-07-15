@@ -1,6 +1,8 @@
 <IfModule mod_rewrite.c>
 
-    Options +FollowSymLinks
+# For security reasons, Option followsymlinks cannot be overridden.
+#    Options +FollowSymLinks
+    Options +SymLinksIfOwnerMatch
     RewriteEngine on
 
     # Send request via index.php

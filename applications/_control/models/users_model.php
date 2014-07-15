@@ -63,4 +63,94 @@ class Users_model extends CI_Model {
     $this->db->where('id_user', $user_data['id_user']);
     $this->db->update('ep_admin_users', $data);
   }
+
+  /**
+   * Gets all data about user
+   * @param
+   * @return
+   */
+  function view_user($id_user){
+    $this->db->where('id_user', $id_user);
+    $user = $this->db->get('ep_admin_users')->row_array();
+
+    echo '<table border="1" style="width: 100%;text-align: center;">
+            <tr>
+              <th>id_user</th>
+              <th>user</th>
+              <th>pass</th>
+              <th>fullname</th>
+              <th>email</th>
+              <th>avatar</th>
+              <th>token</th>
+              <th>reset_active</th>
+            </tr>
+
+            <tr>
+              <td>'.$user['id_user'].'</td>
+              <td>'.$user['user'].'</td>
+              <td>'.$user['pass'].'</td>
+              <td>'.$user['fullname'].'</td>
+              <td>'.$user['email'].'</td>
+              <td>'.$user['avatar'].'</td>
+              <td>'.$user['token'].'</td>
+              <td>'.$user['reset_active'].'</td>
+            </tr>
+
+          </table>';
+  }
+
+  /**
+   * Inserts the token code into database
+   * @param  string token md5 combination between user id and email
+   * @return
+   */
+  function insert_token($id_user, $token){
+    $data['token'] = $token;
+    $data['reset_active'] = 1;
+
+    $this->db->where('id_user', $id_user);
+    $this->db->update('ep_admin_users', $data);
+  }
+
+  function send_email($user_data){
+    $template = 'Thank you for using our reset password service! Use the following link to change your password: '.base_url().'_control.php/users/reset_password/'.$user_data['id_user'].'/'.$user_data['token'];
+    $this->email->from('easypanel@easypanel.com', 'Easy Panel');
+    $this->email->to($user_data['email']);
+    $this->email->subject('Easy Panel - Reset Password');
+    $this->email->message($template);
+
+    $this->email->send();
+  }
+
+  function check_reset_activity($id_user){
+    $this->db->where('id_user', $id_user);
+    $user_data = $this->db->get('ep_admin_users')->row_array();
+
+    if($user_data['reset_active'] == 0){
+      echo 'This account did not requested a password reset!';
+      die();
+    }
+  }
+
+  function check_token($id_user, $token){
+    $this->db->where('id_user', $id_user);
+    $user_data = $this->db->get('ep_admin_users')->row_array();
+
+    if($user_data['token'] != $token){
+      echo 'There was a problem with your token code! Please request a new one!';
+      die();
+    }
+  }
+
+  function reset_null($id_user){
+    $data['reset_active'] = 0;
+    $this->db->where('id_user', $id_user);
+    $this->db->update('ep_admin_users', $data);
+  }
+
+  function change_pass($id_user, $password){
+    $data['pass'] = crypt($password);
+    $this->db->where('id_user', $id_user);
+    $this->db->update('ep_admin_users', $data);
+  }
 }

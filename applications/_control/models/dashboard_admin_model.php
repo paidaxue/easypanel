@@ -24,9 +24,9 @@ class Dashboard_admin_model extends CI_Model {
 	/**
 	 * Dashboard stats - posts
 	 */
-	function get_posts_records () {
+	function get_users_records () {
 
-		return $this->db->get('blog')->result();
+		return $this->db->get('ep_admin_users')->result();
 
 	}
 }

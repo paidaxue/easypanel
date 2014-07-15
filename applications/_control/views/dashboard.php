@@ -19,8 +19,8 @@
 					<td align="center">{page_record_name}</td>
 				</tr>
 				<tr>
-					<td align="center"><a href="#" title="" class="webStatsLink">{posts_no}</a></td>
-					<td align="center">{post_record_name}</td>
+					<td align="center"><a href="#" title="" class="webStatsLink">{users_no}</a></td>
+					<td align="center">{users_record_name}</td>
 				</tr>
 			</tbody>
 		</table>

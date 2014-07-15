@@ -18,8 +18,8 @@ class Dashboard extends MY_Controller {
 
 		$modules = $this->dashboard_admin_model->get_module_records();
 
-		$posts = $this->dashboard_admin_model->get_posts_records();
-		$posts_no = count( $posts );
+		$users = $this->dashboard_admin_model->get_users_records();
+		$users_no = count( $users );
 
 		$lang = (array)$this->lang->line('dashboard');
 		$page_title = $lang['lang_page_title'];
@@ -30,18 +30,18 @@ class Dashboard extends MY_Controller {
 			$page_records_name = $lang['lang_pages_plural'];
 		}
 
-		if( $posts_no == 1 ){
-			$post_record_name = $lang['lang_posts_singular'];
+		if( $users_no == 1 ){
+			$users_record_name = $lang['lang_users_singular'];
 		} else {
-			$post_record_name = $lang['lang_posts_plural'];
+			$users_record_name = $lang['lang_users_plural'];
 		}
 
 		$content_data = array(
 			'pages_no' 					=> $page_records_no,
 			'page_record_name'	=> $page_records_name,
 			'modules'						=> $modules,
-			'posts_no'					=> $posts_no,
-			'post_record_name'  => $post_record_name
+			'users_no'					=> $users_no,
+			'users_record_name' => $users_record_name
 		);
 
 		$content = $this->parser->parse('dashboard', array_merge($content_data, $lang), true);

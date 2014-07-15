@@ -11,6 +11,8 @@ $lang['dashboard'] = array(
   'lang_pages_plural'    => 'Pages',
   'lang_posts_singular'  => 'Post',
   'lang_posts_plural'    => 'Posts',
+  'lang_users_singular'  => 'User',
+  'lang_users_plural'    => 'Users',
   'lang_modules_singular'=> 'Module',
   'lang_modules_plural'  => 'Modules',
 );
@@ -51,6 +53,7 @@ $lang['account_settings'] = array(
   'lang_username'   => 'Username',
   'lang_password'   => 'New password',
   'lang_email'      => 'Email',
+  'lang_reset'      => 'Reset Password',
   'lang_required_input' => 'This field is important!',
   'lang_user_avatar'=> 'Avatar',
 );
@@ -81,6 +84,13 @@ $lang['user_register'] = array(
   'lang_edit'       => 'Edit',
   'lang_delete'     => 'Delete',
   'lang_register_user' => 'Register',
+);
+
+/* Language array for User Reset password */
+$lang['user_reset'] = array(
+  'lang_page_title' => 'Reset password',
+  'lang_newpass'    => 'New Password',
+  'lang_confirmpass'=> 'Confirm Password',
 );
 
 /* Language array for Modules settings */

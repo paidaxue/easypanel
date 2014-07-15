@@ -1335,14 +1335,13 @@ li.plupload_droptext {
 .ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 5px; bottom: 5px; opacity: 0.3; }
 .ui-draggable .ui-dialog-titlebar { cursor: move; }
 
-#popup_container { min-width: 300px; max-width: 600px; background: url(../images/alert/alertOpacityOverlay.png) repeat; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
-#popup_title { text-align: center; background: url(../images/alert/leftNavBg.png) repeat-x; border-bottom: 1px solid #d5d5d5; cursor: default; padding: 9px 0 9px 0px; margin: 0em; height: 20px; color: #424242; }
+#popup_container { min-width: 300px; max-width: 600px; background: url(../images/alertOpacityOverlay.png) repeat; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+#popup_title { text-align: center; background: url(../images/leftNavBg.png) repeat-x; border-bottom: 1px solid #d5d5d5; cursor: default; padding: 9px 0 9px 0px; margin: 0em; height: 20px; color: #424242; }
 #popup_content { background: #fafafa; padding: 1em 1.75em; margin: 0em; }
 #popup_message { text-align: center; color: #424242; }
 #popup_panel { text-align: center; margin: 1em 0em 0em 0em; }
 #popup_message input[type=text] { background: #FCFCFC; border: 1px solid #D1D1D1; padding: 5px; width: 258px; }
 #popup_prompt { margin: .5em 0em; }
-
 
 /* ===== Chosen multiple select plugin with dropdown ===== */
 
