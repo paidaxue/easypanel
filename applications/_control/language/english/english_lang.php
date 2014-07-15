@@ -23,6 +23,7 @@ $lang['top_nav'] = array(
   'lang_top_profile'    => 'Profile',
   'lang_top_logout'     => 'Logout',
   'lang_top_welcome'    => 'Welcome',
+  'lang_top_settings'   => 'Settings',
 );
 
 /* Language array for Nav */

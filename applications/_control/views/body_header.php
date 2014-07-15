@@ -50,10 +50,6 @@
 				</a>
 				<ul class="sub">
 					<li>
-						<a href="{BASE_URL}/settings" title="General settings">{lang_nav_general_settings}</a>
-					</li>
-
-					<li>
 						<a href="{BASE_URL}/settings/modules" title="Modules settings">{lang_nav_module_settings}</a>
 					</li>
 
