@@ -1,17 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700,700italic&subset=latin,latin-ext);
-@import "vendor/reset.css";
-@import "modules/buttons.css";
-@import "modules/errors.css";
-@import "modules/forms.css";
-@import "modules/notifications.css";
-@import "modules/popup.css";
-@import "modules/tooltip.css";
-@import "modules/widget.css";
-@import "plugins/chzn.css";
-@import "plugins/plupload.css";
-@import "plugins/prettyPhoto.css";
-@import "plugins/ui-dialog.css";
-@import "plugins/wysiwyg.css";
 /*
    TABLE OF CONTENTS
 
@@ -24,9 +10,29 @@
    7. Left nav
    8. Content
    ========================================================================== */
+
 /* ==========================================================================
    1. Imports
    ========================================================================== */
+@import url(http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700,700italic&subset=latin,latin-ext);
+
+@import "vendor/reset.css";
+
+@import "modules/buttons.css";
+@import "modules/errors.css";
+@import "modules/forms.css";
+@import "modules/notifications.css";
+@import "modules/popup.css";
+@import "modules/tooltip.css";
+@import "modules/widget.css";
+
+@import "plugins/chzn.css";
+@import "plugins/plupload.css";
+@import "plugins/prettyPhoto.css";
+@import "plugins/ui-dialog.css";
+@import "plugins/wysiwyg.css";
+
+
 /* ==========================================================================
    2. General
    ========================================================================== */
@@ -34,6 +40,7 @@ a,
 a:hover {
   text-decoration: none;
 }
+
 html {
   height: 100%;
 }
@@ -47,36 +54,19 @@ body {
   padding: 0;
   position: relative;
 }
-.fix {
-  clear: both;
-}
-.outside-button {
-  margin-top: 10px;
-}
-.first {
-  margin-top: 0px!important;
-}
-.post {
-  margin-left: 0px!important;
-}
-.nobg {
-  background: none!important;
-}
-.show {
-  visibility: visible!important;
-}
-button.nobg {
-  background: none;
-}
-select {
-  overflow: auto;
-}
-#cke_editor1 {
-  border: none!important;
-}
-.avatar-img {
-  height: 20px;
-}
+
+.fix { clear: both; }
+.outside-button { margin-top: 10px; }
+.first { margin-top: 0px!important; }
+.post { margin-left:0px!important; }
+.nobg { background: none!important; }
+.show { visibility: visible!important; }
+button.nobg { background: none; }
+select { overflow: auto; }
+#cke_editor1 { border: none!important; }
+.avatar-img { height: 20px; }
+
+
 /* ==========================================================================
    3. Header
    ========================================================================== */
@@ -84,36 +74,44 @@ select {
   height: 106px;
   clear: both;
 }
+
 .logo {
   width: 250px;
   height: 100%;
   float: left;
 }
+
 .logo > a {
   display: block;
   margin-top: 30px;
 }
+
 #notifications {
   width: 730px;
   height: 100%;
   float: left;
 }
+
 #notifications > div {
   height: 50px;
   margin: 30px 2px 0 4px;
 }
+
+
 #wysiwyg-content {
-  margin-left: 35px;
-  margin-bottom: 10px;
+  margin-left:35px;
+  margin-bottom:10px;
 }
+
 .content_type {
   font-size: 12px;
   margin-left: -10px;
   margin-top: 5px;
 }
-div.formRight label.error {
-  color: #FF0000;
-}
+
+div.formRight label.error { color:#FF0000; }
+
+
 /* ==========================================================================
    4. Footer
    ========================================================================== */
@@ -125,15 +123,17 @@ div.formRight label.error {
   position: absolute;
   bottom: 0px;
 }
+
 #footer span {
   color: #696969;
   padding: 9px 5px;
   display: block;
   font-size: 11px;
 }
-#footer span a {
-  color: #eeeeee;
-}
+
+#footer span a { color: #eeeeee; }
+
+
 /* ==========================================================================
    5. Top nav
    ========================================================================== */
@@ -141,6 +141,7 @@ div.formRight label.error {
   height: 46px;
   display: block;
 }
+
 .fixed {
   position: fixed;
   background: url(../images/topNav.jpg) repeat;
@@ -149,25 +150,28 @@ div.formRight label.error {
   border-bottom: 1px solid #4a4f51;
   z-index: 999;
 }
+
 .wrapper {
   width: 980px;
   min-height: 0px;
   overflow: hidden;
   margin: auto;
 }
-.back a:hover {
-  background: #212121;
-}
+
+.back a:hover { background: #212121; }
+
 .back span {
   padding: 8px 14px 8px 8px;
   display: block;
   float: left;
 }
+
 .back img {
   margin: 13px 2px 11px 14px;
   float: left;
   display: block;
 }
+
 .back a {
   float: left;
   color: #eeeeee;
@@ -175,12 +179,14 @@ div.formRight label.error {
   border-right: 1px solid #2F2F2F;
   border-left: 1px solid #2F2F2F;
 }
+
 .userNav {
   float: right;
   z-index: 6000;
   position: relative;
   font-size: 11px;
 }
+
 .userNav .lastNav {
   width: 2px;
   height: 36px;
@@ -189,9 +195,9 @@ div.formRight label.error {
   top: 0;
   right: 0;
 }
-.userNav ul {
-  margin-right: 2px;
-}
+
+.userNav ul { margin-right: 2px; }
+
 .userNav ul li {
   display: inline;
   float: left;
@@ -199,29 +205,31 @@ div.formRight label.error {
   cursor: pointer;
   border-right: 1px solid #2f2f2f;
 }
-.userNav ul li:first-child {
-  border-left: 1px solid #2f2f2f;
-}
+
+.userNav ul li:first-child { border-left: 1px solid #2f2f2f; }
+
 .userNav ul li a {
   color: #eeeeee;
   text-decoration: none;
   display: block;
   float: left;
 }
+
 .userNav ul li:hover,
-.selected {
-  background: #212121;
-}
+.selected { background: #212121; }
+
 .userNav ul li span {
   display: block;
   padding: 10px 14px 8px 8px;
   float: left;
 }
+
 .userNav ul li img {
   float: left;
   display: block;
   margin: 13px 2px 11px 14px;
 }
+
 .userNav ul li ul {
   position: absolute;
   left: -1px;
@@ -233,6 +241,7 @@ div.formRight label.error {
   border: 1px solid #1d1d1d;
   z-index: 100;
 }
+
 .userNav ul li ul li {
   display: block;
   float: none;
@@ -241,9 +250,9 @@ div.formRight label.error {
   border-right: none;
   border-bottom: 1px solid #141414;
 }
-.userNav ul li ul li:first-child {
-  border-left: none!important;
-}
+
+.userNav ul li ul li:first-child { border-left: none!important; }
+
 .userNav ul li ul li a {
   width: 100px;
   padding: 6px 10px 7px 36px;
@@ -254,21 +263,21 @@ div.formRight label.error {
   background-color: none;
   float: none;
 }
+
 .userNav ul li ul li a:hover {
   background-color: none;
   font-weight: normal;
   color: #a4a4a4;
 }
-.userNav ul li ul li:hover {
-  background: #1d1d1d!important;
-}
-.welcome {
-  float: left;
-}
+
+.userNav ul li ul li:hover { background: #1d1d1d!important; }
+
+.welcome { float: left; }
 .welcome img {
   float: left;
   margin: 8px 8px 8px 0;
 }
+
 .welcome span {
   padding: 10px 5px;
   display: block;
@@ -276,6 +285,8 @@ div.formRight label.error {
   float: left;
   font-size: 11px;
 }
+
+
 /* ==========================================================================
    6. Left nav
    ========================================================================== */
@@ -286,12 +297,11 @@ div.formRight label.error {
   margin-right: 41px;
   margin-bottom: 80px;
 }
-.leftNav li:last-child {
-  border-bottom: none;
-}
-.leftNav ul li {
-  position: relative;
-}
+
+.leftNav li:last-child { border-bottom: none; }
+
+.leftNav ul li { position: relative; }
+
 .leftNav ul li a {
   color: #fafafa;
   font-size: 15px;
@@ -300,18 +310,20 @@ div.formRight label.error {
   border: 1px solid #2e3234;
   margin-top: 1px;
 }
+
 .leftNav ul li a:hover {
   background-position: 0 -39px;
   color: #fafafa;
   border: 1px solid #252a31;
 }
-.leftNav ul li a.active {
-  background-position: 0 -78px;
-}
+
+.leftNav ul li a.active { background-position: 0 -78px; }
+
 .leftNav ul li a span {
   padding: 9px 0 9px 35px;
   display: block;
 }
+
 .numberLeft {
   margin: 0;
   position: absolute;
@@ -320,7 +332,7 @@ div.formRight label.error {
   font-size: 11px;
   font-family: Arial, Helvetica, sans-serif;
   float: none;
-  background: url(../images/number.png) repeat-x !important;
+  background: url(../images/number.png) repeat-x!important;
   padding: 2px 6px!important;
   -moz-box-shadow: 0 1px 0 #4f565a;
   -webkit-box-shadow: 0 1px 0 #4f565a;
@@ -330,25 +342,18 @@ div.formRight label.error {
   -khtml-border-radius: 3px;
   border-radius: 3px;
 }
+
 .leftNav ul li a span {
   background-position: 10px center;
   background-repeat: no-repeat;
 }
-.leftNav ul li.dashboard a span {
-  background-image: url(../images/menu_icons/dashboard.png);
-}
-.leftNav ul li.pages a span {
-  background-image: url(../images/menu_icons/pages.png);
-}
-.leftNav ul li.modules a span {
-  background-image: url(../images/menu_icons/modules.png);
-}
-.leftNav ul li.settings a span {
-  background-image: url(../images/menu_icons/settings.png);
-}
-.leftNav ul li.sidebars a span {
-  background-image: url(../images/menu_icons/frames.png);
-}
+
+.leftNav ul li.dashboard a span { background-image : url(../images/menu_icons/dashboard.png); }
+.leftNav ul li.pages a span { background-image : url(../images/menu_icons/pages.png); }
+.leftNav ul li.modules a span { background-image : url(../images/menu_icons/modules.png); }
+.leftNav ul li.settings a span { background-image : url(../images/menu_icons/settings.png); }
+.leftNav ul li.sidebars a span { background-image : url(../images/menu_icons/frames.png); }
+
 .widget,
 .content .title,
 .count,
@@ -374,24 +379,28 @@ ul.sub,
   -khtml-border-radius: 3px;
   border-radius: 3px;
 }
+
 .widget,
 ul.sub {
-  box-shadow: inset 0 0 2px #272b2c;
-  -moz-box-shadow: inset 0 0 2px #272b2c;
+  box-shadow:inset 0 0 2px #272b2c;
+  -moz-box-shadow:inset 0 0 2px #272b2c;
   -webkit-box-shadow: inset 0 0 2px #272b2c;
   -moz-box-shadow: 0 1px 0 #4b4e50;
   -webkit-box-shadow: 0 1px 0 #4b4e50;
   box-shadow: 0 1px 0 #4b4e50;
 }
+
 ul.sub {
   border: 1px solid #272c30;
   border-top: none;
   background: url(../images/widgetBg.png) repeat;
 }
+
 ul.sub li {
   border-bottom: 1px dotted #24272B;
   padding: 1px;
 }
+
 ul.sub li a {
   background: url(../images/arrow.gif) no-repeat 8px 16px;
   border: none;
@@ -400,19 +409,22 @@ ul.sub li a {
   padding: 8px 10px 8px 18px;
   color: #d5d5d5;
 }
+
 ul.sub li a:hover,
 .sub li a:active {
   font-style: normal;
   border: none;
   background: url(../images/arrow.gif) no-repeat 8px 16px;
 }
+
 ul.sub li ul {
   border: none;
   border-top: 1px solid #c9c9c9;
 }
-ul.sub li ul li {
-  padding-left: 10px;
-}
+
+ul.sub li ul li { padding-left: 10px; }
+
+
 /* ==========================================================================
    8. Content
    ========================================================================== */
@@ -421,6 +433,7 @@ ul.sub li ul li {
   width: 726px;
   padding-bottom: 60px;
 }
+
 .content .title {
   background: url(../images/pageTitleBg.png) repeat-x;
   height: 36px;
@@ -430,6 +443,7 @@ ul.sub li ul li {
   box-shadow: 0 1px 0 #4c5154;
   margin-top: 1px;
 }
+
 .content .title h5 {
   float: left;
   color: #fafafa;
@@ -437,11 +451,13 @@ ul.sub li ul li {
   display: block;
   padding: 7px 15px;
 }
+
 .content p {
-  margin-top: 30px;
-  margin-left: 10px;
-  color: #fff;
+  margin-top:30px;
+  margin-left:10px;
+  color:#fff;
 }
+
 /*
    8.1 Login
    ========================================================================== */
@@ -458,13 +474,14 @@ ul.sub li ul li {
   border-top: 0;
   display: block;
   /*height: 222px; */
-  box-shadow: inset 0 0 2px #272b2c;
-  -moz-box-shadow: inset 0 0 2px #272b2c;
+  box-shadow:inset 0 0 2px #272b2c;
+  -moz-box-shadow:inset 0 0 2px #272b2c;
   -webkit-box-shadow: inset 0 0 2px #272b2c;
   -moz-box-shadow: 0 1px 0 #4b4e50;
   -webkit-box-shadow: 0 1px 0 #4b4e50;
   box-shadow: 0 1px 0 #4b4e50;
 }
+
 .head {
   background: url(../images/titleBg.png) repeat-x;
   height: 38px;
@@ -473,6 +490,7 @@ ul.sub li ul li {
   position: relative;
   color: #fafafa;
 }
+
 .loginLogo {
   position: absolute;
   width: 190px;
@@ -482,14 +500,17 @@ ul.sub li ul li {
   left: 50%;
   margin-left: -110px;
 }
+
 .loginPanel h5 {
   font-weight: normal;
   padding: 9px 12px 9px 35px;
   float: left;
 }
+
 .iUser {
   background: url(../images/user.png) no-repeat 12px;
 }
+
 .head,
 ul.tabs {
   border-top-left-radius: 3px;
@@ -499,6 +520,7 @@ ul.tabs {
   -webkit-border-top-right-radius: 3px;
   -webkit-border-top-left-radius: 3px;
 }
+
 /*
    8.2 Dashboard
    ========================================================================== */
@@ -506,10 +528,12 @@ ul.tabs {
   width: 344px;
   float: left;
 }
+
 .right {
   width: 344px;
   float: right;
 }
+
 /*
    8.3 Gallery
    ========================================================================== */
@@ -520,6 +544,7 @@ ul.tabs {
   text-align: center;
   display: table;
 }
+
 .pics ul li {
   display: inline-block;
   width: 100%;
@@ -534,20 +559,23 @@ ul.tabs {
   text-align: center;
   vertical-align: middle;
 }
+
 .pics ul li a.img {
   line-height: 110px;
 }
+
 .pics ul li a img {
   max-width: 100px;
   max-height: 102px;
 }
+
 .single {
   width: 130px;
   margin: 0;
 }
-.pics ul li:hover {
-  border-color: #1d2125;
-}
+
+.pics ul li:hover { border-color: #1d2125; }
+
 .pics .actions {
   background: #000;
   opacity: 0.8;
@@ -556,6 +584,7 @@ ul.tabs {
   right: 0;
   display: none;
 }
+
 .pics .actions a {
   color: #fff;
   font-size: 11px;
@@ -563,6 +592,7 @@ ul.tabs {
   padding: 3px 4px;
   float: left;
 }
+
 .pics .actions a input {
   position: absolute;
   width: 12px;
@@ -572,504 +602,205 @@ ul.tabs {
   right: 3px;
   cursor: pointer;
 }
-.pics .actions a:first-child {
-  padding-right: 4px;
-}
+
+.pics .actions a:first-child { padding-right: 4px; }
+
 /*
    8.4 Ckeditor
    ========================================================================== */
-#ckeditor {
+#ckeditor{
   margin-left: 33px;
 }
-#ckeditor-arange {
+#ckeditor-arange{
   margin-left: 0px;
 }
+
 /*
    8.5 Theme settings
    ========================================================================== */
-#submit-theme-select {
+#submit-theme-select{
   width: 100px;
 }
-#refresh_theme {
+#refresh_theme{
   position: relative;
   top: -67px;
   left: -105px;
 }
+
+
 /* ==========================================================================
    8. Media queries
    ========================================================================== */
 /* Devices and browsers with max of 799px */
 @media only screen and (max-width: 799px) {
-  .wrapper {
-    width: 90%;
-    padding: 0 5%;
-  }
-  .content {
-    float: none;
-    width: 90%;
-    margin: 0 auto;
-  }
-  .stats ul li {
-    width: 138px;
-  }
-  .content .title {
-    width: auto;
-  }
-  .leftNav {
-    float: none;
-    background: url(../images/horSep.png) repeat-x;
-    padding-top: 24px;
-    text-align: center;
-    padding-bottom: 20px;
-    margin: 0;
-    width: 100%;
-    max-width: none;
-  }
-  .leftNav ul li {
-    width: 49px;
-    display: inline-block;
-    margin: 0 0 4px 0;
-    position: static;
-  }
-  .leftNav ul li a span {
-    text-indent: -9999px;
-    background-position: 16px;
-  }
-  .leftNav ul li a {
-    margin-bottom: 3px;
-  }
-  .numberLeft {
-    display: none!important;
-  }
-  .widgets .left {
-    float: none;
-    /*width: 344px;*/
-    width: 100%;
-    margin-right: 0;
-  }
-  .widgets .right {
-    float: none;
-    /*width: 344px;*/
-    width: 100%;
-  }
-  ul.sub {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    z-index: 999;
-    border: 1px solid #232628;
-  }
-  ul.sub li {
-    display: block;
-    width: 50%;
-    float: left;
-    margin-bottom: 0;
-    text-align: left;
-    border-bottom: 1px solid #3a3f42;
-    padding: 0;
-  }
-  ul.sub li a {
-    padding: 8px 10px 8px 24px;
-    background: url(../images/arrow.gif) no-repeat 12px 16px;
-  }
-  ul.sub li a:hover,
-  .sub li a:active {
-    background-position: 12px 16px;
-  }
-  ul.sub li:nth-child(odd) {
-    background: url(../images/tabsSepR.png) repeat-y 100% 0;
-  }
-  ul#menu {
-    position: relative;
-  }
-  .leftNav .last {
-    border-bottom: 1px solid #3a3f42;
-  }
+  .wrapper { width: 90%; padding: 0 5%; }
+  .content { float: none; width: 90%; margin: 0 auto; }
+  .stats ul li { width: 138px; }
+  .content .title { width: auto; }
+
+  .leftNav { float: none; background: url(../images/horSep.png) repeat-x; padding-top: 24px; text-align: center; padding-bottom: 20px; margin: 0; width: 100%; max-width: none; }
+  .leftNav ul li { width: 49px; display: inline-block; margin: 0 0 4px 0; position: static; }
+  .leftNav ul li a span { text-indent: -9999px; background-position: 16px; }
+  .leftNav ul li a { margin-bottom: 3px; }
+
+  .numberLeft { display: none!important; }
+  .widgets .left { float: none; /*width: 344px;*/ width: 100%; margin-right: 0; }
+  .widgets .right { float: none; /*width: 344px;*/ width: 100%; }
+
+  ul.sub { position: absolute; width: 100%; left: 0; z-index: 999; border: 1px solid #232628; }
+  ul.sub li { display: block; width: 50%; float: left; margin-bottom: 0; text-align: left; border-bottom: 1px solid #3a3f42; padding: 0; }
+  ul.sub li a { padding: 8px 10px 8px 24px; background: url(../images/arrow.gif) no-repeat 12px 16px; }
+  ul.sub li a:hover, .sub li a:active { background-position: 12px 16px; }
+  ul.sub li:nth-child(even) {  }
+  ul.sub li:nth-child(odd) { background: url(../images/tabsSepR.png) repeat-y 100% 0; }
+  ul#menu { position: relative; }
+  .leftNav .last { border-bottom: 1px solid #3a3f42; }
 }
+
 /* Devices and browsers with max of 767px and less than 799px */
 @media only screen and (max-width: 767px) {
-  .stats ul li {
-    display: inline-block;
-    float: none;
-    margin-left: 18px;
-    vertical-align: top;
-    width: 21%;
-    text-align: center;
-  }
-  .stats ul {
-    text-align: center;
-  }
-  .count {
-    display: inline-block;
-    float: none;
-    padding: 0 15px;
-    text-align: center;
-    margin-bottom: 4px;
-    margin-right: 0;
-  }
-  .middleNav {
-    float: none;
-    margin-right: 0px;
-    display: block;
-    text-align: center;
-    margin-top: 2px;
-  }
-  .middleNav ul li {
-    text-align: center;
-    display: inline-block;
-    float: none;
-    margin-left: 5%;
-    position: relative;
-  }
-  .middleNav ul li:first-child {
-    margin-left: 0;
-  }
-  #header {
-    text-align: center;
-    height: 100%;
-    margin-bottom: 23px;
-  }
-  .logo {
-    float: none;
-  }
-  .userNav ul li span {
-    display: none;
-  }
-  .userNav ul li img {
-    padding: 13px 14px 11px 14px;
-    margin: 0;
-  }
-  .userNav ul li ul {
-    right: -3px;
-    left: auto;
-  }
-  .listData .cNote {
-    display: none;
-  }
-  ul.listData li {
-    padding: 0 0 1px 6px!important;
-  }
-  .rowElem > label {
-    width: 100%;
-    float: none;
-    padding: 8px 0 6px 0;
-  }
-  .formRight {
-    width: 100%;
-    margin: 0;
-    padding: 12px 0;
-    float: none;
-  }
-  .rowElem .topLabel {
-    padding: 5px 12px 5px 0;
-  }
-  .fc-header-right {
-    width: 50%;
-  }
-  .ln-letters a {
-    padding: 4px 2%;
-    margin-bottom: 1px;
-  }
-  #eq span {
-    margin-right: 0;
-    margin-left: 30px;
-  }
-  #eq span:first-child {
-    margin-left: 5px;
-  }
-  .formError {
-    left: auto!important;
-    right: 30px;
-  }
-  .formErrorContent {
-    width: 140px;
-  }
-  .formRight div.checker,
-  .formRight div.radio {
-    padding-bottom: 0;
-    padding-top: 0;
-    margin-top: 2px;
-  }
-  div.selector {
-    margin-bottom: 10px;
-  }
-  .formRight > label {
-    padding-top: 0;
-  }
-  .rowElem > label {
-    padding-bottom: 0;
-  }
-  .step label.error {
-    padding-top: 3px;
-  }
-  .userNav ul li span {
-    display: none;
-  }
-  .userNav ul li img {
-    padding: 14px 14px 11px 14px;
-    margin: 0;
-  }
-  .userNav ul li ul {
-    right: -3px;
-    left: auto;
-  }
-  label.error {
-    margin: 8px 0 -2px 0;
-  }
-  .userWidget .checker {
-    margin-top: 6px;
-  }
+  .stats ul li { display: inline-block; float: none; margin-left: 18px; vertical-align: top; width: 21%; text-align: center; }
+  .stats ul { text-align: center; }
+  .count { display: inline-block; float: none; padding: 0 15px; text-align: center; margin-bottom: 4px; margin-right: 0; }
+
+  .middleNav { float: none; margin-right: 0px; display: block; text-align: center; margin-top: 2px; }
+  .middleNav ul {  }
+  .middleNav ul li { text-align: center; display: inline-block; float: none; margin-left: 5%; position: relative; }
+  .middleNav ul li:first-child { margin-left: 0; }
+
+  #header { text-align: center; height: 100%; margin-bottom: 23px; }
+
+  .logo { float: none; }
+
+  .userNav ul li span { display: none; }
+  .userNav ul li img { padding: 13px 14px 11px 14px; margin: 0; }
+  .userNav ul li ul { right: -3px; left: auto; }
+
+  .listData .cNote { display: none; }
+  ul.listData li { padding: 0 0 1px 6px!important; }
+
+  .rowElem > label { width: 100%; float: none; padding: 8px 0 6px 0; }
+  .formRight { width: 100%; margin: 0; padding: 12px 0; float: none; }
+  .rowElem .topLabel { padding: 5px 12px 5px 0; }
+
+  .fc-header-right { width: 50%; }
+  .ln-letters a { padding: 4px 2%; margin-bottom: 1px; }
+
+  #eq span { margin-right: 0; margin-left: 30px; }
+  #eq span:first-child { margin-left: 5px; }
+
+  .formError { left: auto!important; right: 30px; }
+  .formErrorContent { width: 140px; }
+
+  .formRight div.checker, .formRight div.radio { padding-bottom: 0; padding-top: 0; margin-top: 2px; }
+  div.selector { margin-bottom: 10px; }
+  .formRight > label { padding-top: 0; }
+  .rowElem > label { padding-bottom: 0; }
+  .step label.error { padding-top: 3px; }
+
+  .userNav ul li span { display: none; }
+  .userNav ul li img { padding: 14px 14px 11px 14px; margin: 0; }
+  .userNav ul li ul { right: -3px; left: auto; }
+
+  label.error { margin: 8px 0 -2px 0; }
+
+  .userWidget .checker { margin-top: 6px; }
 }
+
 /* Devices and browsers with min of 800px and max of 979px */
 @media only screen and (min-width: 800px) and (max-width: 979px) {
-  .formRight {
-    width: 76%;
-  }
+  .formRight { width: 76%; }
 }
+
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (min-width: 320px) and (max-width: 479px) {
-  .logo {
-    float: none;
-    text-align: center;
-  }
-  .welcome {
-    display: none;
-  }
-  .userNav {
-    float: none;
-    text-align: center;
-    position: relative;
-  }
-  .userNav ul {
-    height: 36px;
-    text-align: center;
-  }
-  .userNav > ul > li {
-    display: inline-block;
-    float: none;
-    position: static;
-    margin-left: -3px;
-  }
-  .userNav ul li ul {
-    height: auto;
-    text-align: left;
-    position: absolute;
-    top: 36px;
-    left: 50%;
-    margin-left: -85px;
-    width: 162px;
-  }
-  .middleNav ul {
-    text-align: center;
-  }
-  .middleNav ul li {
-    text-align: center;
-    display: inline-block;
-    float: none;
-    margin: 0 2%;
-    position: relative;
-    width: 45%;
-    margin-bottom: 10px;
-  }
-  .middleNav ul li:first-child {
-    margin: 0 2%;
-  }
-  .stats ul {
-    text-align: center;
-  }
-  .stats ul li {
-    display: inline-block;
-    float: none;
-    margin: 5px;
-    vertical-align: top;
-    width: 46%;
-    text-align: center;
-  }
-  .stats ul li:first-child {
-    margin: 5px;
-  }
-  .count {
-    display: inline-block;
-    float: none;
-    padding: 0 15px;
-    text-align: center;
-    margin-bottom: 4px;
-    margin-right: 0;
-    width: 75%;
-  }
-  .w40 {
-    width: auto;
-  }
-  .floatleft,
-  .floatright {
-    float: none;
-  }
-  .floatright {
-    margin-top: 95px;
-  }
-  .countLabel {
-    text-align: center;
-  }
-  .dualControl {
-    text-align: center;
-    width: 90px;
-    margin: 10px 1px;
-    position: absolute;
-    left: 50%;
-    margin-left: -45px;
-  }
-  .moreFields ul li {
-    width: 11.8%;
-  }
-  .moreFields ul li span {
-    display: none;
-  }
-  .radio,
-  .checker {
-    clear: both;
-  }
-  .plupload_file_size,
-  .plupload_file_status,
-  .plupload_progress {
-    width: 11%;
-  }
-  .plupload_disabled span {
-    padding: 5px 8px 6px 8px;
-  }
-  .plupload_add span {
-    background: url(../images/add.png) no-repeat 10px;
-    padding: 5px 8px 6px 20px;
-    display: block;
-  }
-  .fc-header-right {
-    width: auto;
-  }
-  .dataTables_filter input[type="text"] {
-    width: 86px;
-  }
-  .dataTables_paginate {
-    float: left;
-    margin: 25px 5px 35px 5px;
-  }
-  .dataTables_paginate .ui-buttonset .ui-button {
-    margin: 0 1px;
-  }
-  .issueSummary .floatleft {
-    display: none;
-  }
-  .ticketInfo {
-    margin-left: 0;
-  }
-  .breadCrumb {
-    overflow: hidden;
-    height: 100%;
-  }
-  .pages li {
-    display: inline-block;
-    margin: 4px 2px;
-  }
-  #popup_container {
-    min-width: 250px;
-    max-width: 300px;
-  }
-  .el-finder-nav {
-    width: 100px;
-  }
-  .errorPage {
-    width: auto;
-  }
-  .errorPage .bubbles {
-    display: none;
-  }
-  .errorPage .errorTitle,
-  .weAreOff {
-    width: auto;
-  }
-  .errorPage h1 {
-    padding: 0;
-    text-align: center;
-  }
-  #myList > li {
-    clear: both;
-  }
-  ul.listData {
-    float: left;
-    text-align: center;
-    margin: 3px 0 5px 0;
-    font-size: 11px;
-  }
-  ul.listData li {
-    padding: 0;
-    margin: 0 20px 0 -6px;
-    clear: both;
-  }
-  .displayNone {
-    display: none;
-  }
-  .pieWidget {
-    width: 100%;
-    height: 250px;
-    margin: 0 auto;
-  }
-  #header {
-    margin-bottom: 15px;
-  }
-  .paging_full_numbers .ui-button {
-    padding: 2px 5px;
-  }
-  table.display thead th div.DataTables_sort_wrapper {
-    overflow: hidden;
-    padding-right: 10px;
-  }
-  table.display thead th div.DataTables_sort_wrapper span {
-    display: none;
-  }
-  table.display {
-    table-layout: fixed;
-  }
-  table.display td {
-    overflow: hidden;
-  }
-  .dataTables_length {
-    float: none;
-    margin: 6px auto 0 auto;
-    width: 140px;
-  }
-  .dataTables_paginate {
-    float: none;
-    width: 260px;
-    display: inline-block;
-    text-align: center;
-    margin-top: 2px;
-    margin-bottom: 10px;
-  }
-  div.dataTables_wrapper .ui-widget-header {
-    background: #3a4043;
-    height: auto;
-  }
-  .chzn-container {
-    width: 254px!important;
-  }
-  .chzn-container-single .chzn-search input {
-    max-width: 218px;
-  }
+  .logo { float: none; text-align: center; }
+  .welcome { display: none; }
+  .userNav { float: none; text-align: center; position: relative; }
+  .userNav ul { height: 36px; text-align: center; }
+  .userNav > ul > li { display: inline-block; float: none; position: static; margin-left: -3px; }
+  .userNav ul li ul { height: auto; text-align: left; position: absolute; top: 36px; left: 50%; margin-left: -85px; width: 162px; }
+
+  .middleNav ul { text-align: center; }
+  .middleNav ul li { text-align: center; display: inline-block; float: none; margin: 0 2%; position: relative; width: 45%; margin-bottom: 10px; }
+  .middleNav ul li:first-child { margin: 0 2%; }
+
+  .stats ul { text-align: center; }
+  .stats ul li { display: inline-block; float: none; margin: 5px; vertical-align: top; width: 46%; text-align: center; }
+  .stats ul li:first-child { margin: 5px; }
+  .count { display: inline-block; float: none; padding: 0 15px; text-align: center; margin-bottom: 4px; margin-right: 0; width: 75%; }
+
+  .w40 { width: auto; }
+  .floatleft, .floatright { float: none; }
+  .floatright { margin-top: 95px; }
+  .countLabel { text-align: center; }
+  .dualControl { text-align: center; width: 90px; margin: 10px 1px; position: absolute; left: 50%; margin-left: -45px; }
+
+  .moreFields ul li { width: 11.8%; }
+  .moreFields ul li span { display: none; }
+
+  .radio, .checker { clear: both; }
+
+  .plupload_file_size, .plupload_file_status, .plupload_progress { width: 11%; }
+  .plupload_disabled span { padding: 5px 8px 6px 8px; }
+  .plupload_add span { background: url(../images/add.png) no-repeat 10px; padding: 5px 8px 6px 20px; display: block; }
+
+  .fc-header-right { width: auto; }
+
+  .dataTables_filter input[type="text"] { width: 86px; }
+  .dataTables_paginate { float: left; margin: 25px 5px 35px 5px; }
+  .dataTables_paginate .ui-buttonset .ui-button { margin: 0 1px; }
+
+  .issueSummary .floatleft { display: none; }
+  .ticketInfo { margin-left: 0; }
+
+  .breadCrumb { overflow: hidden; height: 100%; }
+
+  .pages li { display: inline-block; margin: 4px 2px; }
+
+  #popup_container { min-width: 250px; max-width: 300px; }
+
+  .el-finder-nav { width: 100px; }
+
+  .errorPage { width: auto; }
+  .errorPage .bubbles { display: none; }
+  .errorPage .errorTitle, .weAreOff { width: auto; }
+  .errorPage h1 { padding: 0; text-align: center; }
+
+  #myList > li { clear: both; }
+  ul.listData { float: left; text-align: center; margin: 3px 0 5px 0; font-size: 11px; }
+  ul.listData li { padding: 0; margin: 0 20px 0 -6px; clear: both; }
+
+  .displayNone { display: none; }
+
+  .pieWidget { width: 100%; height: 250px; margin: 0 auto; }
+
+  #header { margin-bottom: 15px; }
+
+  .paging_full_numbers .ui-button { padding: 2px 5px; }
+
+  table.display thead th div.DataTables_sort_wrapper { overflow: hidden; padding-right: 10px; }
+  table.display thead th div.DataTables_sort_wrapper span { display: none; }
+  table.display { table-layout: fixed; }
+  table.display td { overflow: hidden; }
+  .dataTables_length { float: none; margin: 6px auto 0 auto; width: 140px; }
+  .dataTables_paginate { float: none; width: 260px; display: inline-block; text-align: center; margin-top: 2px; margin-bottom: 10px; }
+  div.dataTables_wrapper .ui-widget-header { background: #3a4043; height: auto; }
+
+  .chzn-container { width: 254px!important; }
+  .chzn-container-single .chzn-search input { max-width: 218px; }
   /*.chzn-container-single .chzn-search input { max-width: 218px; }*/
 }
+
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  .moreFields ul li {
-    width: 13.4%;
-  }
-  .moreFields ul li span {
-    display: none;
-  }
+  .moreFields ul li { width: 13.4%; }
+  .moreFields ul li span { display: none; }
 }
+
 /* Mobile Landscape Size */
 @media only screen and (width: 768px) {
-  .ln-letters a {
-    padding: 4px 7px;
-  }
-  .ln-letters a.ln-last {
-    padding: 4px 22px 4px 22px;
-  }
+  .ln-letters a { padding: 4px 7px; }
+  .ln-letters a.ln-last { padding: 4px 22px 4px 22px; }
 }
+

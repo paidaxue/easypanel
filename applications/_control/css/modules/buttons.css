@@ -1,0 +1,19 @@
+.basicBtn {  background: url(../../images/buttons/basicBtn.png) repeat-x 0 0; }
+.basicBtn:hover { background-position: 0 -27px; }
+.basicBtn:active { background-position: 0 -54px; }
+
+.blueBtn { background: url(../../images/buttons/blueBtn.png) repeat-x 0 0; }
+.blueBtn:hover { background-position: 0 -27px; }
+.blueBtn:active { background-position: 0 -54px; }
+
+.redBtn { background: url(../../images/buttons/redBtn.png) repeat-x 0 0; }
+.redBtn:hover { background-position: 0 -27px; }
+.redBtn:active { background-position: 0 -54px; }
+
+.blackBtn { background: url(../../images/buttons/blackBtn.png) repeat-x 0 0; }
+.blackBtn:hover { background-position: 0 -27px; }
+.blackBtn:active { background-position: 0 -54px; }
+
+.seaBtn{
+  background: url('../images/seaBtn.png') repeat-x scroll 0px 0px transparent;
+}
