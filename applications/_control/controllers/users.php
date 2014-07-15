@@ -44,11 +44,11 @@ class Users extends MY_Controller {
 		$page_title = $lang['lang_page_title'];
 
 		$content_data = array(
-			'avatar' => $user_data['avatar'],
-			'id_user'	=> $user_data['id_user'],
-			'user' => $user_data['user'],
-			'fullname' => $user_data['fullname'],
-			'email' => $user_data['email']
+			'avatar' 		=> $user_data['avatar'],
+			'id_user'		=> $user_data['id_user'],
+			'user' 			=> $user_data['user'],
+			'fullname' 	=> $user_data['fullname'],
+			'email' 		=> $user_data['email']
 		);
 
 		$content = $this->parser->parse( 'users/profile', array_merge($content_data, $lang), true );
@@ -63,9 +63,9 @@ class Users extends MY_Controller {
 	 * @return void
 	 */
 	function profile_process( $id_user ) {
-		$user_data[ 'fullname' ] = $this->input->post( 'fullname', true );
-		$user_data[ 'user' ] = $this->input->post( 'user', true );
-		$user_data[ 'email' ] = $this->input->post( 'email', true );
+		$user_data['fullname'] = $this->input->post( 'fullname', true );
+		$user_data['user'] = $this->input->post( 'user', true );
+		$user_data['email'] = $this->input->post( 'email', true );
 
 		define('MB', 1048576);
 
@@ -94,7 +94,7 @@ class Users extends MY_Controller {
 
 	/**
 	 * Allows editing users
-	 * @param  	$user_id current user being edited
+	 * @param integer $user_id current user being edited
 	 * @return
 	 */
 	function edit_profile($user_id){
