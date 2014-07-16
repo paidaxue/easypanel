@@ -16,7 +16,8 @@ class Homepage extends MY_Controller {
 
     $data = array(
       'page_title'    => $page_info->title,
-      'page_content'  => $page_info->content
+      'page_content'  => $page_info->content,
+      'homepage'      => true
     );
 
 		$template = $this->themes->build_template(

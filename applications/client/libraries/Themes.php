@@ -26,6 +26,7 @@ class Themes {
   			'head.php',
   			'header.php',
   			'nav.php',
+        'homepage.php',
   			'sidebar_left.php',
   			'sidebar_right.php',
   			'page_full.php',
@@ -151,7 +152,14 @@ class Themes {
 	 * @return array with parsed data
 	 */
 	public function build_template($data, $layout_type = 'none', $right_sidebar = '0', $left_sidebar = '0', $module = false, $module_view_folder = false) {
-		// building head...
+		if(isset($data['homepage'])){
+      $homepage = $data['homepage'];
+    }
+    else{
+      $homepage = false;
+    }
+
+    // building head...
     $head_data = array(
       'page_title' => $data['page_title']
     );
@@ -234,6 +242,11 @@ class Themes {
   		$main = $this->CI->parser->parse( $theme_files['page_sidebar_right.php'], $data, true );
     } elseif ($layout_type == 'none') {
   		$main = $this->CI->parser->parse( $theme_files['page_full.php'], $content_data, true );
+    }
+
+    if($homepage){
+      $content = array('item' => 'This is the homepage');
+      $this->CI->parser->parse( $theme_files['homepage.php'], $content );
     }
 
   	// build body...
