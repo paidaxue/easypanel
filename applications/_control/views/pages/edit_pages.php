@@ -69,18 +69,18 @@
         <label id="left_sidebar" class="sidebar_style {show_left_sidebar}">{lang_sidebar_name_left}</label>
         <div class="formRight noSearch {show_left_sidebar}" id="sidebar_name_left">
           <select name="sidebar_left" class="chzn-select" id="sidebar_name_left">
-              {SIDEBARS}
+              {SIDEBARS_left}
                 <option value="{id_sidebar}">{name}</option>
-              {/SIDEBARS}
+              {/SIDEBARS_left}
           </select>
         </div>
 
         <label id="right_sidebar" class="sidebar_style {show_right_sidebar}">{lang_sidebar_name_right}</label>
         <div class="formRight noSearch {show_right_sidebar}" id="sidebar_name_right">
           <select name="sidebar_right" class="chzn-select">
-            {SIDEBARS}
+            {SIDEBARS_right}
               <option value="{id_sidebar}">{name}</option>
-            {/SIDEBARS}
+            {/SIDEBARS_right}
           </select>
         </div>
         <div class="fix"></div>

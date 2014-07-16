@@ -122,7 +122,8 @@ class Pages extends MY_Controller {
 
 		$page_info = $this->pages_model->get_page_by_id( $id_page );
 		$page_title = $this->langs['lang_edit_page'] . $page_info->title;
-		$sidebars = $this->pages_model->get_sidebars();
+		$sidebars_left = $this->pages_model->get_sidebars();
+		$sidebars_right = $this->pages_model->get_sidebars();
 
 		$parent_no_link = $page_info->page_type == 'parent-no-link' ? "selected='selected'" : "";
 		$page_type = $this->pages_model->get_parents_by_id( $id_page );
@@ -172,7 +173,8 @@ class Pages extends MY_Controller {
 		$content_data = array(
 			'PAGE_TYPE'						=> $page_type,
 			'MODULES'							=> $modules,
-			'SIDEBARS'						=> $sidebars,
+			'SIDEBARS_left'				=> $sidebars_left,
+			'SIDEBARS_right'			=> $sidebars_right,
 			'SIDEBARS_STYLE'			=> $sidebars_style,
 			'parent_no_link'			=> $parent_no_link,
 			'show_left_sidebar' 	=> $sidebar_left,
