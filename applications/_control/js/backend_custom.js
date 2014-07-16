@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
 	//===== Login =====//
 
 	$(".inputError").hide();
@@ -292,5 +291,14 @@ $(document).ready(function() {
 			}
 	 	});
 	}
+
+	$("#submit_install").clicl(function(){
+		var localhost = $("#host").val();
+		var username = $("#username").val();
+		var password = $("#password").val();
+		var database = $("#database").val();
+
+		if(localhost = ""){}
+	});
 
 });

@@ -61,6 +61,19 @@ class Main_model extends CI_Model {
   function get_website_setting_by_name($name) {
     return $this->db->get_where('ep_admin_settings', array('name' => $name))->row();
   }
+  /**
+   * Checks install folder
+   */
+  function check_install(){
+    $filename = "install/";
+
+    if(file_exists($filename)){
+      redirect(base_url()."install/");
+    }
+  }
+
+
+
 }
 
 /* End of file main_model.php */

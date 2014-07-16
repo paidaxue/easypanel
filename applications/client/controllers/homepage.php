@@ -13,7 +13,7 @@ class Homepage extends MY_Controller {
 		*/
 	function index () {
 		$page_info = $this->main_model->get_homepage();
-
+    $this->main_model->check_install();
     $data = array(
       'page_title'    => $page_info->title,
       'page_content'  => $page_info->content,

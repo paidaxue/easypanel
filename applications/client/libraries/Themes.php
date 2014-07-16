@@ -245,7 +245,7 @@ class Themes {
     }
 
     if($homepage){
-      $content = array('item' => 'This is the homepage');
+      $content = array('item' => '');
       $this->CI->parser->parse( $theme_files['homepage.php'], $content );
     }
 
