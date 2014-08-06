@@ -226,6 +226,7 @@ class Themes {
 		$header = $this->CI->parser->parse( $theme_files['header.php'], $header_data, true );
 		$nav = $this->CI->parser->parse( $theme_files['nav.php'], $nav_data, true );
 		$footer = $this->CI->parser->parse( $theme_files['footer.php'], $footer_data, true );
+    $main = $this->CI->parser->parse( $theme_files['page_full.php'], $content_data, true );
 
   	if($layout_type == 'both') {
   		$right_sidebar = $this->CI->parser->parse( $theme_files['sidebar_right.php'], $right_sidebar_data, true );
@@ -240,8 +241,6 @@ class Themes {
   		$right_sidebar = $this->CI->parser->parse( $theme_files['sidebar_right.php'], $right_sidebar_data, true );
   		$data = array_merge(array('right_sidebar' => $right_sidebar), $content_data);
   		$main = $this->CI->parser->parse( $theme_files['page_sidebar_right.php'], $data, true );
-    } elseif ($layout_type == 'none') {
-  		$main = $this->CI->parser->parse( $theme_files['page_full.php'], $content_data, true );
     }
 
     if($homepage){
