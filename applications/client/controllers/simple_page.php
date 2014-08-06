@@ -3,7 +3,7 @@
 class Simple_page extends MY_Controller {
 
 	function _remap( $page_slug ) {
-		$this->index( $page_slug );
+		$this->index( $this->uri->segment(2) );
 	}
 
 	/**

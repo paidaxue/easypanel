@@ -8,7 +8,7 @@ class Blog extends MY_Controller {
 
   function _remap( $page_slug ) {
     if($this->uri->segment(2) != 'single') {
-      $this->index( $page_slug );
+      $this->index( $this->uri->segment(2) );
     } else {
       $this->single();
     }
