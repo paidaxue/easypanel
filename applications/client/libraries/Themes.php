@@ -149,8 +149,8 @@ class Themes {
 	 * @return array with parsed data
 	 */
 	public function build_template($data, $sidebars, $homepage = false, $module = false, $module_view_folder = false) {
-    $right_sidebar = $sidebars['right_sidebar'];
-    $left_sidebar = $sidebars['left_sidebar'];
+    $right_sidebar = (isset($sidebars['right_sidebar'])) ? $sidebars['right_sidebar'] : 0;
+    $left_sidebar = (isset($sidebars['left_sidebar'])) ? $sidebars['left_sidebar'] : 0;
 
     // building head...
     $head_data = array(
