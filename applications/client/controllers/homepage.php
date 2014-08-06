@@ -5,7 +5,7 @@ class Homepage extends MY_Controller {
   function __construct() {
     parent::__construct();
 
-    $this->load->model( 'main_model' );
+    $this->load->model('main_model');
   }
 
 	/**
@@ -13,24 +13,16 @@ class Homepage extends MY_Controller {
 		*/
 	function index () {
 		$page_info = $this->main_model->get_homepage();
-    $this->main_model->check_install();
+    $sidebars = $this->main_model->set_sidebars($page_info);
+
     $data = array(
       'page_title'    => $page_info->title,
       'page_content'  => $page_info->content,
       'homepage'      => true
     );
 
-		$template = $this->themes->build_template(
-      $data,
-      $page_info->sidebar_style,
-      $page_info->sidebar_right != 0 ? $page_info->sidebar_right : '0',
-      $page_info->sidebar_left != 0 ? $page_info->sidebar_left : '0'
-    );
+		$template = $this->themes->build_template($data, $sidebars, true);
     $base = $this->themes->get_base();
     $this->parser->parse($base, $template);
 	}
-
 }
-
-/* End of file homepage.php */
-/* Location: ./applications/client/controllers/homepage.php */

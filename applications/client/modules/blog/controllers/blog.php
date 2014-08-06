@@ -16,23 +16,18 @@ class Blog extends MY_Controller {
 
   function index($page_slug) {
     $page_info = $this->main_model->get_page_by_page_slug($page_slug);
+    $sidebars = $this->main_model->set_sidebars($page_info);
     $posts = $this->blog_m->get_posts();
 
     $data = array(
       'page_title'    => $page_info->title,
       'page_content'  => $page_info->content,
       'page_data'     => array(
-                          'POSTS' => $posts,
-                         ),
+        'POSTS' => $posts,
+       ),
     );
 
-    $template = $this->themes->build_template(
-      $data,
-      $page_info->sidebar_style,
-      $page_info->sidebar_right != 0 ? $page_info->sidebar_right : '0',
-      $page_info->sidebar_left != 0 ? $page_info->sidebar_left : '0',
-      $page_info->module
-    );
+    $template = $this->themes->build_template($data, $sidebars, false, $page_info->module);
     $base = $this->themes->get_base();
     $this->parser->parse($base, $template);
   }
@@ -44,14 +39,14 @@ class Blog extends MY_Controller {
     $data = array(
       'page_title'    => $post_info->title,
       'page_data'     => array(
-                          'title' => $post_info->title,
-                          'image' => $post_info->image,
-                          'date_created' => $post_info->date_created,
-                          'content' => $post_info->content,
-                         ),
+        'title' => $post_info->title,
+        'image' => $post_info->image,
+        'date_created' => $post_info->date_created,
+        'content' => $post_info->content,
+       ),
     );
 
-    $template = $this->themes->build_template($data, 'none', 0, 0, 'blog', 'blog_simple');
+    $template = $this->themes->build_template($data, array(), false, 'blog', 'blog_simple');
     $base = $this->themes->get_base();
     $this->parser->parse($base, $template);
   }

@@ -26,13 +26,10 @@ class Themes {
   			'head.php',
   			'header.php',
   			'nav.php',
-        'homepage.php',
+        'home.php',
+        'page.php',
   			'sidebar_left.php',
   			'sidebar_right.php',
-  			'page_full.php',
-  			'page_sidebar_left.php',
-  			'page_sidebar_right.php',
-  			'page_sidebars.php'
   		);
     } else {
       $default = array(
@@ -151,33 +148,29 @@ class Themes {
 	 * Builds the template
 	 * @return array with parsed data
 	 */
-	public function build_template($data, $layout_type = 'none', $right_sidebar = '0', $left_sidebar = '0', $module = false, $module_view_folder = false) {
-		if(isset($data['homepage'])){
-      $homepage = $data['homepage'];
-    }
-    else{
-      $homepage = false;
-    }
+	public function build_template($data, $sidebars, $homepage = false, $module = false, $module_view_folder = false) {
+    $right_sidebar = $sidebars['right_sidebar'];
+    $left_sidebar = $sidebars['left_sidebar'];
 
     // building head...
     $head_data = array(
-      'page_title' => $data['page_title']
+      'page_title' => $data['page_title'],
     );
 
     // building header...
     $header_data = array(
-      'page_title' => $data['page_title']
+      'page_title' => $data['page_title'],
     );
 
 		// building nav...
     $nav_data = array(
-      'NAV' => $this->build_nav()
+      'NAV' => $this->build_nav(),
     );
 
     // building content...
     if(isset($data['page_content'])) {
       $content_data = array(
-        'content'   => $data['page_content'],
+        'content' => $data['page_content'],
       );
     } else {
       $content_data = array();
@@ -190,30 +183,18 @@ class Themes {
     // building footer...
     $footer_data = array(
       'copyright' => $this->build_footer(),
-      'current_year' => date("Y")
+      'current_year' => date("Y"),
     );
 
     // building main content...
-    if($layout_type == 'both') {
-    	$right_sidebar_info = $this->CI->main_model->get_sidebar_by_id($right_sidebar);
-    	$left_sidebar_info = $this->CI->main_model->get_sidebar_by_id($left_sidebar);
-    	$right_sidebar_data = array(
-    		'right_sidebar_content' => $right_sidebar_info->content,
-    	);
-    	$left_sidebar_data = array(
-    		'left_sidebar_content' => $left_sidebar_info->content,
-    	);
-    } elseif ($layout_type == 'left') {
-    	$left_sidebar_info = $this->CI->main_model->get_sidebar_by_id($left_sidebar);
-    	$left_sidebar_data = array(
-    		'left_sidebar_content' => $left_sidebar_info->content,
-    	);
-    } elseif ($layout_type == 'right') {
-    	$right_sidebar_info = $this->CI->main_model->get_sidebar_by_id($right_sidebar);
-    	$right_sidebar_data = array(
-    		'right_sidebar_content' => $right_sidebar_info->content,
-    	);
-    }
+  	$right_sidebar_info = $this->CI->main_model->get_sidebar_by_id($right_sidebar);
+  	$left_sidebar_info = $this->CI->main_model->get_sidebar_by_id($left_sidebar);
+  	$right_sidebar_data = array(
+  		'right_sidebar_content' => (!empty($right_sidebar_info->content)) ? $right_sidebar_info->content : '',
+  	);
+  	$left_sidebar_data = array(
+  		'left_sidebar_content' => (!empty($left_sidebar_info->content)) ? $left_sidebar_info->content : '',
+  	);
 
     // parsing data...
     if($module) {
@@ -226,26 +207,14 @@ class Themes {
 		$header = $this->CI->parser->parse( $theme_files['header.php'], $header_data, true );
 		$nav = $this->CI->parser->parse( $theme_files['nav.php'], $nav_data, true );
 		$footer = $this->CI->parser->parse( $theme_files['footer.php'], $footer_data, true );
-    $main = $this->CI->parser->parse( $theme_files['page_full.php'], $content_data, true );
 
-  	if($layout_type == 'both') {
-  		$right_sidebar = $this->CI->parser->parse( $theme_files['sidebar_right.php'], $right_sidebar_data, true );
-  		$left_sidebar = $this->CI->parser->parse( $theme_files['sidebar_left.php'], $left_sidebar_data, true );
-  		$data = array_merge(array('right_sidebar' => $right_sidebar, 'left_sidebar' => $left_sidebar), $content_data);
-  		$main = $this->CI->parser->parse( $theme_files['page_sidebars.php'], $data, true );
-    } elseif ($layout_type == 'left') {
-  		$left_sidebar = $this->CI->parser->parse( $theme_files['sidebar_left.php'], $left_sidebar_data, true );
-  		$data = array_merge(array('left_sidebar' => $left_sidebar), $content_data);
-  		$main = $this->CI->parser->parse( $theme_files['page_sidebar_left.php'], $data, true );
-    } elseif ($layout_type == 'right') {
-  		$right_sidebar = $this->CI->parser->parse( $theme_files['sidebar_right.php'], $right_sidebar_data, true );
-  		$data = array_merge(array('right_sidebar' => $right_sidebar), $content_data);
-  		$main = $this->CI->parser->parse( $theme_files['page_sidebar_right.php'], $data, true );
-    }
+		$right_sidebar = $this->CI->parser->parse( $theme_files['sidebar_right.php'], $right_sidebar_data, true );
+		$left_sidebar = $this->CI->parser->parse( $theme_files['sidebar_left.php'], $left_sidebar_data, true );
+		$data = array_merge(array('right_sidebar' => $right_sidebar, 'left_sidebar' => $left_sidebar), $content_data);
+		$main = $this->CI->parser->parse( $theme_files['page.php'], $data, true );
 
     if($homepage){
-      $content = array('item' => '');
-      $this->CI->parser->parse( $theme_files['homepage.php'], $content );
+      $main = $this->CI->parser->parse( $theme_files['home.php'], $data, true );
     }
 
   	// build body...

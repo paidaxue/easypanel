@@ -11,18 +11,14 @@ class Simple_page extends MY_Controller {
 	 */
 	function index ( $page_slug ) {
 		$page_info = $this->main_model->get_page_by_page_slug($page_slug);
+    $sidebars = $this->main_model->set_sidebars($page_info);
 
 		$data = array(
       'page_title'    => $page_info->title,
       'page_content'  => $page_info->content
     );
 
-    $template = $this->themes->build_template(
-      $data,
-      $page_info->sidebar_style,
-      $page_info->sidebar_right != 0 ? $page_info->sidebar_right : '0',
-      $page_info->sidebar_left != 0 ? $page_info->sidebar_left : '0'
-    );
+    $template = $this->themes->build_template($data, $sidebars);
     $base = $this->themes->get_base();
     $this->parser->parse($base, $template);
 	}

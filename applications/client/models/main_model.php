@@ -55,6 +55,17 @@ class Main_model extends CI_Model {
   }
 
   /**
+   * Sets sidebar settings in an array.
+   * @param object $page page data
+   * @return array
+   */
+  function set_sidebars($page) {
+    $sidebar['right_sidebar'] = $page->sidebar_right != 0 ? $page->sidebar_right : '0';
+    $sidebar['left_sidebar'] = $page->sidebar_left != 0 ? $page->sidebar_left : '0';
+
+    return $sidebar;
+  }
+  /**
    * Get website setting by name
    * @return object a website setting
    */
