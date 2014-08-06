@@ -58,57 +58,13 @@ if ( ! function_exists('page_builder')) {
  * Verifies if user is logged
  */
 if ( ! function_exists('session_verif')) {
-
   function session_verif () {
-
     $CI =& get_instance();
 
     if ( $CI->session->userdata( 'inside' ) == true ) {
-
-      return true; dumb('dsfsdf');
-
+      return true;
     } else {
-
       return false;
-
     }
-
   }
-
 }
-
-/**
- * Gets logged user by id
- */
-if ( ! function_exists('get_logged_user_by_id')) {
-
-  function get_logged_user_by_id( $id_user ) {
-
-    $CI =& get_instance();
-
-    $CI->load->model('general_admin_model');
-
-    return $CI->general_admin_model->logged_user( $id_user );
-
-  }
-
-}
-
-/**
- * Gets all users
- */
-if ( ! function_exists('get_all_users')) {
-
-  function get_all_users() {
-
-    $CI =& get_instance();
-
-    $CI->load->model('users_model');
-
-    return $CI->users_model->get_users();
-
-  }
-
-}
-/* End of file general_helper.php */
-/* Location: ./applications/_control/helpers/general_helper.php */

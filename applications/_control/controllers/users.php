@@ -38,17 +38,17 @@ class Users extends MY_Controller {
 	 * @return void
 	 */
 	function profile($id_user) {
-		$user_data = get_logged_user_by_id( $id_user );
+		$user_data = $this->users_model->logged_user($id_user);
 
 		$lang = (array)$this->lang->line('account_settings');
 		$page_title = $lang['lang_page_title'];
 
 		$content_data = array(
-			'avatar' 		=> $user_data['avatar'],
-			'id_user'		=> $user_data['id_user'],
-			'user' 			=> $user_data['user'],
-			'fullname' 	=> $user_data['fullname'],
-			'email' 		=> $user_data['email']
+			'avatar' 		=> $user_data->avatar,
+			'id_user'		=> $user_data->id_user,
+			'user' 			=> $user_data->user,
+			'fullname' 	=> $user_data->fullname,
+			'email' 		=> $user_data->email
 		);
 
 		$content = $this->parser->parse( 'users/profile', array_merge($content_data, $lang), true );
@@ -88,7 +88,15 @@ class Users extends MY_Controller {
 			}
 		}
 
-		$this->settings_admin_model->update_user_by_id( $user_data, $id_user );
+		$user = $this->users_model->update_user_by_id( $user_data, $id_user );
+		$session_data = array(
+      'id_user'   => $user->id_user,
+      'username'  => $user->user,
+      'avatar'    => $user->avatar,
+      'full_name' => $user->fullname,
+      'inside'    => true,
+    );
+    $this->session->set_userdata($session_data);
 		redirect( '_control.php/users/profile/' . $id_user );
 	}
 
@@ -148,7 +156,7 @@ class Users extends MY_Controller {
 			}
 		}
 
-		$this->settings_admin_model->update_user_by_id( $user_data, $id_user );
+		$this->users_model->update_user_by_id($user_data, $id_user);
 		redirect( '_control.php/users/edit_profile/' . $id_user );
 	}
 
@@ -252,9 +260,4 @@ class Users extends MY_Controller {
 		$this->users_model->change_pass($id_user, $nwpass);
 		redirect('_control.php/dashboard');
 	}
-
-	function view_user($id_user){
-		$this->users_model->view_user($id_user);
-	}
-
 }

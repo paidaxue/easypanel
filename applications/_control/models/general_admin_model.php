@@ -11,12 +11,10 @@ class General_admin_model extends CI_Model {
 	}
 
   /**
-   *  Gets all users
+   * Gets all registered users
+   * @return array of objects
    */
   function get_all_users(){
-    return $this->db->get('ep_admin_users')->row();
+    return $this->db->get('ep_admin_users')->result();
   }
 }
-
-/* End of file general_admin_model.php */
-/* Location: ./applications/_control/models/general_admin_model.php */

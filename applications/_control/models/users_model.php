@@ -2,8 +2,8 @@
 
 class Users_model extends CI_Model {
   /**
-   * [get_users description]
-   * @return [type] [description]
+   * Gets all registered users
+   * @return array of arrays
    */
   function get_users($id_user){
     return $this->db->get_where('ep_admin_users', array('id_user !=' => $id_user))->result_array();
@@ -18,12 +18,32 @@ class Users_model extends CI_Model {
   }
 
   /**
+   * Update user by ID
+   * @param  array    $data
+   * @param  integer  $id_user
+   * @return object
+   */
+  function update_user_by_id( $data, $id_user ) {
+    $this->db->update( 'ep_admin_users', $data, array( 'id_user' => $id_user ) );
+    return $this->db->get_where('ep_admin_users', array('id_user' => $id_user))->row();
+  }
+
+  /**
    * Deletes an user ($id_user)
    * @param  int $id_user the id of the user which is gonna be deleted
    * @return
    */
   function delete_user($id_user){
     $this->db->delete('ep_admin_users', array('id_user' => $id_user));
+  }
+
+  /**
+   * Gets information about the logged user.
+   * @param  integer $id_user
+   * @return object
+   */
+  function logged_user( $id_user ) {
+    return $this->db->get_where('ep_admin_users', array('id_user' => $id_user))->row();
   }
 
   /**
@@ -62,41 +82,6 @@ class Users_model extends CI_Model {
     $data['avatar']   = $user_data['avatar'];
     $this->db->where('id_user', $user_data['id_user']);
     $this->db->update('ep_admin_users', $data);
-  }
-
-  /**
-   * Gets all data about user
-   * @param
-   * @return
-   */
-  function view_user($id_user){
-    $this->db->where('id_user', $id_user);
-    $user = $this->db->get('ep_admin_users')->row_array();
-
-    echo '<table border="1" style="width: 100%;text-align: center;">
-            <tr>
-              <th>id_user</th>
-              <th>user</th>
-              <th>pass</th>
-              <th>fullname</th>
-              <th>email</th>
-              <th>avatar</th>
-              <th>token</th>
-              <th>reset_active</th>
-            </tr>
-
-            <tr>
-              <td>'.$user['id_user'].'</td>
-              <td>'.$user['user'].'</td>
-              <td>'.$user['pass'].'</td>
-              <td>'.$user['fullname'].'</td>
-              <td>'.$user['email'].'</td>
-              <td>'.$user['avatar'].'</td>
-              <td>'.$user['token'].'</td>
-              <td>'.$user['reset_active'].'</td>
-            </tr>
-
-          </table>';
   }
 
   /**

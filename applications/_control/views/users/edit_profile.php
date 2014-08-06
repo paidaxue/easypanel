@@ -60,7 +60,3 @@
 		</div>
   </fieldset>
 </form>
-
-<a href="{BASE_URL}/users/view_user/{id_user}">
-	<button class="blueBtn outside-button default-theme" >View Details</button>
-</a>

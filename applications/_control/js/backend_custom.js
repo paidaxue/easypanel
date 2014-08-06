@@ -13,43 +13,29 @@ $(document).ready(function() {
 		var user = $("input#user").val();
 
 		if ( user == '' ) {
-
 			$("#username").fadeIn();
 			$("#username").children('label#required').fadeIn();
 			return false;
-
 		}
 
 		var pass = $("input#pass").val();
 
 		if ( pass == '' ) {
-
 			$("#password").fadeIn();
 			$("#password").children('label#required').fadeIn();
 			return false;
-
 		}
 
-		$.post( base_url + "/login/log_in", {
-												user: $('input#user').val(),
-												pass: $('input#pass').val()
-											},
+		$.post( base_url + "/login/log_in", { user: $('input#user').val(), pass: $('input#pass').val() },
 			function( data ){
-
 				if ( data == 1 ){
-
 					document.location = base_url + '/dashboard';
-
 				} else {
-
 					$('#log_in_error').fadeIn();
-
 				}
-
 		});
 
 		return false;
-
 	});
 
 
@@ -291,14 +277,4 @@ $(document).ready(function() {
 			}
 	 	});
 	}
-
-	$("#submit_install").clicl(function(){
-		var localhost = $("#host").val();
-		var username = $("#username").val();
-		var password = $("#password").val();
-		var database = $("#database").val();
-
-		if(localhost = ""){}
-	});
-
 });

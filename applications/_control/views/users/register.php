@@ -30,14 +30,14 @@
       <div class="rowElem">
         <label>{lang_fullname}</label>
         <div class="formRight">
-          <input type="text" name="fullname" placeholder="EaspyPanel Junkie" id="fullname" />
+          <input type="text" name="fullname" placeholder="EasyPanel User" id="fullname" />
         </div>
       </div>
 
       <div class="rowElem">
         <label>{lang_username}</label>
         <div class="formRight">
-          <input type="text" name="user" placeholder="epjunkie" id="user" />
+          <input type="text" name="user" placeholder="ep-user" id="user" />
         </div>
 
         <div class="inputError" id="username">
@@ -49,7 +49,7 @@
       <div class="rowElem">
         <label>{lang_email}</label>
         <div class="formRight">
-          <input type="text" name="email" placeholder="epjunkie@easypanel.com" id="email" />
+          <input type="text" name="email" placeholder="ep.user@easypanel.com" id="email" />
         </div>
       </div>
 

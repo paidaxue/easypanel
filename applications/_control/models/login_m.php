@@ -1,9 +1,12 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Login_admin_model extends CI_Model {
+class Login_m extends CI_Model {
 
 	/**
-	 * Returns the user for login
+	 * Verifies access for admin panel
+	 * @param  string $username
+	 * @param  string $password
+	 * @return object
 	 */
 	function get_access( $username, $password ) {
 		$this->db->where('user', $username);
@@ -16,6 +19,3 @@ class Login_admin_model extends CI_Model {
 		}
 	}
 }
-
-/* End of file login_admin_model.php */
-/* Location: ./applications/_control/models/login_admin_model.php */
