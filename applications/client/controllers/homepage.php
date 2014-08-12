@@ -4,9 +4,13 @@ class Homepage extends MY_Controller {
 
   function __construct() {
     parent::__construct();
+
     $this->load->model('main_model');
   }
 
+	/**
+		* Homepage
+		*/
 	function index () {
 		$page_info = $this->main_model->get_homepage();
     $sidebars = $this->main_model->set_sidebars($page_info);
