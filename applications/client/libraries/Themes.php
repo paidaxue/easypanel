@@ -122,6 +122,12 @@ class Themes {
         $menu->S_NAV = array();
       }
 
+      if($this->CI->uri->segment(2) == $menu->page_slug) {
+        $menu->active = 'active';
+      } else {
+        $menu->active = '';
+      }
+
       $homepage = $this->CI->main_model->get_homepage();
 
       if ( $menu->id_page == $homepage->id_page ) {
