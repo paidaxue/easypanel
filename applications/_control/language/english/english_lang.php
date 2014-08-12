@@ -1,20 +1,20 @@
 <?php
 /* Language array for Dashboard */
 $lang['dashboard'] = array(
-  'lang_page_title'      => 'Dashboard',
-  'lang_website_records' => 'Website records',
-  'lang_modules'         => 'Modules',
-  'lang_amount'          => 'Amount',
-  'lang_records_added'   => 'Record type',
-  'lang_modules_added'   => 'Module name',
-  'lang_pages_singular'  => 'Page',
-  'lang_pages_plural'    => 'Pages',
-  'lang_posts_singular'  => 'Post',
-  'lang_posts_plural'    => 'Posts',
-  'lang_users_singular'  => 'User',
-  'lang_users_plural'    => 'Users',
-  'lang_modules_singular'=> 'Module',
-  'lang_modules_plural'  => 'Modules',
+  'lang_page_title'       => 'Dashboard',
+  'lang_website_records'  => 'Website records',
+  'lang_modules'          => 'Modules',
+  'lang_amount'           => 'Amount',
+  'lang_records_added'    => 'Record type',
+  'lang_modules_added'    => 'Module name',
+  'lang_pages_singular'   => 'Page',
+  'lang_pages_plural'     => 'Pages',
+  'lang_posts_singular'   => 'Post',
+  'lang_posts_plural'     => 'Posts',
+  'lang_users_singular'   => 'User',
+  'lang_users_plural'     => 'Users',
+  'lang_modules_singular' => 'Module',
+  'lang_modules_plural'   => 'Modules',
 );
 
 /* Language array for General settings */
@@ -28,41 +28,41 @@ $lang['general_settings'] = array(
 
 /* Language array for Account settings */
 $lang['account_settings'] = array(
-  'lang_page_title' => 'Account Settings',
-  'lang_fullname'   => 'Full name',
-  'lang_username'   => 'Username',
-  'lang_password'   => 'New password',
-  'lang_email'      => 'Email',
-  'lang_reset'      => 'Reset Password',
+  'lang_page_title'     => 'Account Settings',
+  'lang_fullname'       => 'Full name',
+  'lang_username'       => 'Username',
+  'lang_password'       => 'New password',
+  'lang_email'          => 'Email',
+  'lang_reset'          => 'Reset Password',
   'lang_required_input' => 'This field is important!',
-  'lang_user_avatar'=> 'Avatar',
+  'lang_user_avatar'    => 'Avatar',
 );
 
 /* Language array for User settings */
 $lang['users_settings'] = array(
-  'lang_page_title' => 'Users Settings',
-  'lang_fullname'   => 'Full name',
-  'lang_username'   => 'Username',
-  'lang_password'   => 'New password',
-  'lang_email'      => 'Email',
+  'lang_page_title'     => 'Users Settings',
+  'lang_fullname'       => 'Full name',
+  'lang_username'       => 'Username',
+  'lang_password'       => 'New password',
+  'lang_email'          => 'Email',
   'lang_required_input' => 'This field is important!',
-  'lang_user_avatar'=> 'Avatar',
-  'lang_edit'       => 'Edit',
-  'lang_delete'     => 'Delete',
-  'lang_register_user' => 'Register',
+  'lang_user_avatar'    => 'Avatar',
+  'lang_edit'           => 'Edit',
+  'lang_delete'         => 'Delete',
+  'lang_register_user'  => 'Register',
 );
 
 /* Language array for User Register */
 $lang['user_register'] = array(
-  'lang_page_title' => 'Register a new user',
-  'lang_fullname'   => 'Full name',
-  'lang_username'   => 'Username',
-  'lang_password'   => 'Password',
-  'lang_email'      => 'Email',
+  'lang_page_title'     => 'Register a new user',
+  'lang_fullname'       => 'Full name',
+  'lang_username'       => 'Username',
+  'lang_password'       => 'Password',
+  'lang_email'          => 'Email',
   'lang_required_input' => 'This field is important!',
-  'lang_user_avatar'=> 'Avatar',
-  'lang_edit'       => 'Edit',
-  'lang_delete'     => 'Delete',
+  'lang_user_avatar'    => 'Avatar',
+  'lang_edit'           => 'Edit',
+  'lang_delete'         => 'Delete',
   'lang_register_user' => 'Register',
 );
 
@@ -131,14 +131,14 @@ $lang['pages'] = array(
 
 /* Language array for Sidebars */
 $lang['sidebars'] = array(
-  'lang_page_title'   => 'Sidebars',
-  'lang_title_column'         => 'Title',
-  'lang_edit_column'         => 'Edit',
-  'lang_delete_column' => 'Delete',
-  'lang_add_sidebar' => 'Add sidebar',
-  'lang_add_new_sidebar' => 'Add a new sidebar',
-  'lang_edit_sidebar' => 'Edit sidebar - ',
-  'lang_title_field' => 'Title',
-  'lang_content_field' => 'Content',
-  'lang_submit_form' => 'Submit',
+  'lang_page_title'       => 'Sidebars',
+  'lang_title_column'     => 'Title',
+  'lang_edit_column'      => 'Edit',
+  'lang_delete_column'    => 'Delete',
+  'lang_add_sidebar'      => 'Add sidebar',
+  'lang_add_new_sidebar'  => 'Add a new sidebar',
+  'lang_edit_sidebar'     => 'Edit sidebar - ',
+  'lang_title_field'      => 'Title',
+  'lang_content_field'    => 'Content',
+  'lang_submit_form'      => 'Submit',
 );

@@ -2,7 +2,7 @@
 	<fieldset>
     <div class="widget first">
 			<div class="head">
-			  <h5>{lang_edit_page}{name}</h5>
+			  <h5>{lang_edit_sidebar}{name}</h5>
 		  </div>
 
     	<div class="rowElem nobg">
