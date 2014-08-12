@@ -21,7 +21,6 @@ class Themes {
 		if(!$module) {
       $default = array(
   			'base.php',
-  			'body.php',
   			'footer.php',
   			'header.php',
   			'nav.php',
@@ -33,7 +32,6 @@ class Themes {
     } else {
       $default = array(
         'base.php',
-        'body.php',
         'footer.php',
         'header.php',
         'nav.php',
@@ -217,15 +215,10 @@ class Themes {
 
     $view['page_title'] = $data['page_title'];
 
-  	// build body...
-    $body_data = array(
-    	'HEADER'    => $header,
-      'NAV'       => $nav,
-      'MAIN'      => $main,
-      'FOOTER'    => $footer
-    );
-
-    $view['BODY'] = $this->CI->parser->parse( $theme_files['body.php'], $body_data, true );
+    $view['HEADER'] = $header;
+    $view['NAV']    = $nav;
+    $view['MAIN']   = $main;
+    $view['FOOTER'] = $footer;
 
     return $view;
 	}

@@ -32,7 +32,15 @@
     <link rel="apple-touch-icon" sizes="114x114" href="{T_URL}/default/images/apple-touch-icon-114x114.png">
 	</head>
 	<body>
-		{BODY}
+		<div class="container">
+      {HEADER}
+
+      {NAV}
+
+      {MAIN}
+
+      {FOOTER}
+    </div><!-- container -->
 	</body>
 </html>
 
