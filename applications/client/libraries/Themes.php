@@ -23,7 +23,6 @@ class Themes {
   			'base.php',
   			'body.php',
   			'footer.php',
-  			'head.php',
   			'header.php',
   			'nav.php',
         'home.php',
@@ -36,7 +35,6 @@ class Themes {
         'base.php',
         'body.php',
         'footer.php',
-        'head.php',
         'header.php',
         'nav.php',
         'sidebar_left.php',
@@ -158,11 +156,6 @@ class Themes {
     $right_sidebar = (isset($sidebars['right_sidebar'])) ? $sidebars['right_sidebar'] : 0;
     $left_sidebar = (isset($sidebars['left_sidebar'])) ? $sidebars['left_sidebar'] : 0;
 
-    // building head...
-    $head_data = array(
-      'page_title' => $data['page_title'],
-    );
-
     // building header...
     $header_data = array(
       'page_title' => $data['page_title'],
@@ -209,26 +202,27 @@ class Themes {
       $theme_files = $this->get_theme_files();
     }
 
-    $view['HEAD'] = $this->CI->parser->parse( $theme_files['head.php'], $head_data, true );
 		$header = $this->CI->parser->parse( $theme_files['header.php'], $header_data, true );
 		$nav = $this->CI->parser->parse( $theme_files['nav.php'], $nav_data, true );
 		$footer = $this->CI->parser->parse( $theme_files['footer.php'], $footer_data, true );
 
 		$right_sidebar = $this->CI->parser->parse( $theme_files['sidebar_right.php'], $right_sidebar_data, true );
 		$left_sidebar = $this->CI->parser->parse( $theme_files['sidebar_left.php'], $left_sidebar_data, true );
-		$data = array_merge(array('right_sidebar' => $right_sidebar, 'left_sidebar' => $left_sidebar), $content_data);
-		$main = $this->CI->parser->parse( $theme_files['page.php'], $data, true );
+		$sidebar_data = array_merge(array('right_sidebar' => $right_sidebar, 'left_sidebar' => $left_sidebar), $content_data);
+		$main = $this->CI->parser->parse( $theme_files['page.php'], $sidebar_data, true );
 
     if($homepage){
-      $main = $this->CI->parser->parse( $theme_files['home.php'], $data, true );
+      $main = $this->CI->parser->parse( $theme_files['home.php'], $sidebar_data, true );
     }
+
+    $view['page_title'] = $data['page_title'];
 
   	// build body...
     $body_data = array(
-    	'HEADER'    => $header,
-      'NAV'       => $nav,
-      'MAIN'      => $main,
-      'FOOTER'    => $footer
+    	'HEADER'      => $header,
+      'NAV'         => $nav,
+      'MAIN'        => $main,
+      'FOOTER'      => $footer
     );
 
     $view['BODY'] = $this->CI->parser->parse( $theme_files['body.php'], $body_data, true );
