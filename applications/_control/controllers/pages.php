@@ -75,7 +75,7 @@ class Pages extends MY_Controller {
 	 */
 	function add_process() {
 		$pages[ 'title' ] = $this->input->post( 'title', true );
-		$pages[ 'page_type' ] = $this->input->post( 'page_type' );
+		$pages[ 'page_type' ] = ($this->input->post( 'page_type' ) == 0) ? 'parent' : $this->input->post( 'page_type' );
 		$pages[ 'module' ] = $this->input->post( 'modules' );
 
 		$pages[ 'content' ] = $this->input->post( 'content' );
@@ -198,7 +198,7 @@ class Pages extends MY_Controller {
 	 */
 	function edit_process($id_page) {
 		$pages[ 'title' ] = $this->input->post( 'title', true );
-		$pages[ 'page_type' ] = $this->input->post( 'page_type' );
+		$pages[ 'page_type' ] = ($this->input->post( 'page_type' ) == 0) ? 'parent' : $this->input->post( 'page_type' );
 		$pages[ 'module' ] = $this->input->post( 'modules' );
 
 		$pages[ 'content' ] = $this->input->post( 'content' );
