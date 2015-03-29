@@ -1,7 +1,7 @@
 <IfModule mod_rewrite.c>
-# For security reasons, Option followsymlinks cannot be overridden.
+	# For security reasons, Option followsymlinks cannot be overridden.
 
-# Options +FollowSymLinks
+	# Options +FollowSymLinks
   Options +SymLinksIfOwnerMatch
   RewriteEngine on
 

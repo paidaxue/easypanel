@@ -4,7 +4,6 @@ class Migration_Build_structure extends CI_Migration {
 
   public function up() {
     $this->load->dbforge();
-    //creating database...
 
     //creating admin users...
     $this->dbforge->add_field(array(
@@ -191,60 +190,90 @@ class Migration_Build_structure extends CI_Migration {
     $this->dbforge->add_key('id_theme', TRUE);
     $this->dbforge->create_table('ep_themes');
 
-    // Seeds
-    $ep_admin_settings_seed[1]['name'] = 'website_title';
-    $ep_admin_settings_seed[1]['value'] = 'Website Title';
+    $ep_admin_settings = array(
+      array(
+        'name'  => 'website_title',
+        'value' => 'Website Title',
+      ),
+      array(
+        'name'  => 'website_logo',
+        'value' => 'logo.png',
+      ),
+      array(
+        'name'  => 'website_copyright',
+        'value' => 'Website Copyright',
+      ),
+      array(
+        'name'  => 'website_homepage',
+        'value' => '1',
+      ),
+    );
 
-    $ep_admin_settings_seed[2]['name'] = 'website_logo';
-    $ep_admin_settings_seed[2]['value'] = 'logo.png';
-
-    $ep_admin_settings_seed[3]['name'] = 'website_copyright';
-    $ep_admin_settings_seed[3]['value'] = 'Website Copyright';
-
-    $ep_admin_settings_seed[4]['name'] = 'website_homepage';
-    $ep_admin_settings_seed[4]['value'] = '1';
-
-    foreach ($ep_admin_settings_seed as $admin_setting) {
+    foreach ($ep_admin_settings as $admin_setting) {
       $this->db->insert( "ep_admin_settings", $admin_setting );
     }
 
-    $ep_admin_users[1]['user'] = 'admin';
-    $ep_admin_users[1]['pass'] = '$1$bA3.Ib5.$0aMvbLek/MvCcpzfvja98.';
-    $ep_admin_users[1]['fullname'] = 'July Administrator';
-    $ep_admin_users[1]['email'] = 'admin@easypanel-cms.com';
-    $ep_admin_users[1]['avatar'] = 'account/default.png';
+    $ep_admin_users = array(
+      array(
+        'user'      => 'admin',
+        'pass'      => '$1$bA3.Ib5.$0aMvbLek/MvCcpzfvja98.',
+        'fullname'  => 'Administrator',
+        'email'     => 'admin@easypanel-cms.com',
+        'avatar'    => 'account/default.png',
+      ),
+    );
 
     foreach ($ep_admin_users as $admin_user) {
       $this->db->insert( "ep_admin_users", $admin_user );
     }
 
-    $ep_modules[1]['name'] = 'Simple page';
-    $ep_modules[1]['module_slug'] = 'simple_page';
+    $ep_modules = array(
+      array(
+        'name'        => 'Simple page',
+        'module_slug' => 'simple_page',
+      ),
+    );
 
     foreach ($ep_modules as $admin_module) {
       $this->db->insert( "ep_modules", $admin_module );
     }
 
-    $ep_pages[1]['title'] = 'Home';
-    $ep_pages[1]['page_slug'] = 'homepage';
-    $ep_pages[1]['module'] = 'simple_page';
-    $ep_pages[1]['page_type'] = 'parent';
-    $ep_pages[1]['content'] = '<p>homepage</p>';
-    $ep_pages[1]['sidebar_style'] = 'none';
-    $ep_pages[1]['sidebar_left'] = '0';
-    $ep_pages[1]['sidebar_right'] = '0';
-
-    $ep_pages[2]['title'] = 'First Page';
-    $ep_pages[2]['page_slug'] = 'first_page';
-    $ep_pages[2]['module'] = 'simple_page';
-    $ep_pages[2]['page_type'] = 'parent';
-    $ep_pages[2]['content'] = '<p>Lorem ipsum</p>';
-    $ep_pages[2]['sidebar_style'] = 'none';
-    $ep_pages[2]['sidebar_left'] = '0';
-    $ep_pages[2]['sidebar_right'] = '0';
+    $ep_pages = array(
+      array(
+        'title'         => 'Home',
+        'page_slug'     => 'homepage',
+        'module'        => 'simple_page',
+        'page_type'     => 'parent',
+        'content'       => '<p>homepage</p>',
+        'sidebar_style' => 'none',
+        'sidebar_left'  => '0',
+        'sidebar_right' => '0',
+      ),
+      array(
+        'title'         => 'First Page',
+        'page_slug'     => 'first_page',
+        'module'        => 'simple_page',
+        'page_type'     => 'parent',
+        'content'       => '<p>Lorem ipsum</p>',
+        'sidebar_style' => 'none',
+        'sidebar_left'  => '0',
+        'sidebar_right' => '0',
+      )
+    );
 
     foreach ($ep_pages as $page) {
-      $this->db->insert( "ep_pages", $page );
+      $this->db->insert("ep_pages", $page);
+    }
+
+    $ep_themes = array(
+      array(
+        'name'    => 'test',
+        'active'  => '0',
+      ),
+    );
+
+    foreach ($ep_themes as $themes) {
+      $this->db->insert("ep_themes", $themes);
     }
   }
 

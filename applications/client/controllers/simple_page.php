@@ -2,10 +2,6 @@
 
 class Simple_page extends MY_Controller {
 
-	function _remap( $page_slug ) {
-		$this->index( $this->uri->segment(2) );
-	}
-
 	/**
 	 * Main function for generating pages
 	 */

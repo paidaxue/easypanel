@@ -39,7 +39,7 @@
 */
 
 $route['default_controller'] = "homepage";
-
+$route['simple_page/(:any)'] = "simple_page/index/$1";
 
 /* End of file routes.php */
 /* Location: ./applications/client/config/routes.php */

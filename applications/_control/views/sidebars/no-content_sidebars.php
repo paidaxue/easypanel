@@ -1,6 +1,6 @@
 <div class="widget first">
 	<div class="head">
-    <h5>{lang_sidebar_title}</h5>
+    <h5>{lang_page_title}</h5>
   </div>
 </div>
 
