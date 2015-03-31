@@ -31,7 +31,7 @@
 
     <div class="widget">
 			<div class="rowElem">
-				<label class="allRequired"> * {lang_required_fields}</label>
+				<label class="allRequired"> * {edit_required_fields}</label>
 				<div class="formRight submitRight">
 					<input type="submit" value="{lang_submit_form}" class="basicBtn edit" id="submitPages" />
 				</div>

@@ -14,6 +14,7 @@ class Sidebars extends MY_Controller {
 		$this->load->model( 'sidebars_admin_model' );
 		$this->load->helper( 'sidebars' );
 		$this->langs = (array)$this->lang->line('sidebars');
+		$this->langs = array_merge($this->langs, (array)$this->lang->line('form_errors'));
   }
 
 	/**
