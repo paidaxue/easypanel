@@ -97,7 +97,7 @@ class Users extends MY_Controller {
       'inside'    => true,
     );
     $this->session->set_userdata($session_data);
-		redirect( '_control.php/users/profile/' . $id_user );
+		redirect('_control.php/users/');
 	}
 
 	/**
@@ -157,7 +157,7 @@ class Users extends MY_Controller {
 		}
 
 		$this->users_model->update_user_by_id($user_data, $id_user);
-		redirect( '_control.php/users/edit_profile/' . $id_user );
+		redirect('_control.php/users/');
 	}
 
 	/**

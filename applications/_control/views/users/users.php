@@ -28,7 +28,6 @@
         </td>
       </tr>
       {/USERS}
-
     </tbody>
   </table>
 </div>

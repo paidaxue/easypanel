@@ -49,7 +49,7 @@
 			<div class="rowElem">
 				<label>{lang_email}</label>
 				<div class="formRight">
-					<input type="text" name="email" value="{email}" id="email" />
+					<input type="email" name="email" value="{email}" id="email" />
 				</div>
 			</div>
 
