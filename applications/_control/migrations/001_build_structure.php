@@ -275,6 +275,32 @@ class Migration_Build_structure extends CI_Migration {
     foreach ($ep_themes as $themes) {
       $this->db->insert("ep_themes", $themes);
     }
+
+    $this->dbforge->add_field(
+      array(
+        'id_post' => array(
+        'type' => 'INT',
+        'constraint' => 5,
+        'unsigned' => TRUE,
+        'auto_increment' => TRUE
+      ),
+        'title' => array(
+        'type' => 'VARCHAR',
+        'constraint' => '255',
+      ),
+        'image' => array(
+        'type' => 'VARCHAR',
+        'constraint' => '255',
+      ),
+        'content' => array(
+        'type' => 'TEXT',
+      ),
+        'date_created' => array(
+        'type' => 'DATE',
+      ),
+    ));
+    $this->dbforge->add_key('id_post', TRUE);
+    $this->dbforge->create_table('blog');
   }
 
   public function down() {
