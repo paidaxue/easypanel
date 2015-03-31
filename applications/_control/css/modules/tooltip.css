@@ -4,7 +4,7 @@
   opacity: 0.8;
   filter: alpha(opacity=80);
   background-repeat: no-repeat;
-  background-image: url(../../images/tipsy.gif);
+  background-image: url(../images/tipsy.gif);
 }
 
 .tipsy-inner {

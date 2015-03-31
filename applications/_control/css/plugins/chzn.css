@@ -27,9 +27,9 @@
 .chzn-container-single .chzn-single abbr { display: block; position: absolute; right: 26px; top: 6px; width: 12px; height: 13px; font-size: 1px; }
 .chzn-container-single .chzn-single abbr:hover { }
 .chzn-container-single .chzn-single div { position: absolute; right: -1px; top: -1px; display: block; height: 28px; width: 27px; }
-.chzn-container-single .chzn-single div b { background: url(../../images/forms/select_right.png) no-repeat center right; display: block; width: 27px; height: 26px; }
+.chzn-container-single .chzn-single div b { background: url(../images/forms/select_right.png) no-repeat center right; display: block; width: 27px; height: 26px; }
 .chzn-container-single .chzn-search { padding: 3px 4px; position: relative; margin: 0; white-space: nowrap; z-index: 1010; }
-.chzn-container-single .chzn-search input { margin: 1px 0; padding: 4px 20px 4px 5px; outline: 0; border: 1px solid #aaa; font-family: sans-serif; font-size: 11px; background: url(../../images/searchSmall.png) no-repeat 98% !important; box-sizing: content-box; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; -ms-box-sizing: content-box; }
+.chzn-container-single .chzn-search input { margin: 1px 0; padding: 4px 20px 4px 5px; outline: 0; border: 1px solid #aaa; font-family: sans-serif; font-size: 11px; background: url(../images/searchSmall.png) no-repeat 98% !important; box-sizing: content-box; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; -ms-box-sizing: content-box; }
 .chzn-container-single .chzn-drop {}
 
 .chzn-container-single-nosearch .chzn-search input { position: absolute; left: -9000px; }
@@ -58,7 +58,7 @@ box-shadow: 0 1px 0 #363B3E;
 .chzn-container-multi .chzn-choices .search-choice { position: relative; line-height: 16px; font-size: 11px; border: 1px solid #A5D24A; display: block; float: left; padding: 5px 24px 5px 8px; background: #CDE69C; color: #638421; margin: 4px; }
 
 .chzn-container-multi .chzn-choices .search-choice-focus { background: #d4d4d4; }
-.chzn-container-multi .chzn-choices .search-choice .search-choice-close { display: block; position: absolute; right: 6px; top: 8px; width: 10px; height: 10px; font-size: 1px; background: url(../../images/forms/closeSelection.png) 50% no-repeat; }
+.chzn-container-multi .chzn-choices .search-choice .search-choice-close { display: block; position: absolute; right: 6px; top: 8px; width: 10px; height: 10px; font-size: 1px; background: url(../images/forms/closeSelection.png) 50% no-repeat; }
 .chzn-container-multi .chzn-choices .search-choice-focus .search-choice-close { background-position: right -11px; }
 
 .chzn-container .chzn-results { margin: 0 4px 4px 0; max-height: 240px; padding: 0 0 0 4px; position: relative; overflow-x: hidden; overflow-y: auto; }

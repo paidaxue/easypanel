@@ -2,7 +2,7 @@
   margin-top: 40px;
   border: 1px solid #272c30;
   display: block;
-  background: url(../../images/widgetBg.png) repeat;
+  background: url(../images/widgetBg.png) repeat;
   clear: both;
   border-top: none;
   color:#fff;
@@ -29,7 +29,7 @@
   padding: 3px 0 2px 0;
   text-align: center;
   border-left: 1px solid #3B4144;
-  background: #efefef url(../../images/darkerBg.png) repeat;
+  background: #efefef url(../images/darkerBg.png) repeat;
   border-bottom: 1px solid #3B4144;
   font-size: 11px;
   color: #54585d;
@@ -39,7 +39,7 @@
 
 .tableStatic tbody tr { border-top: 1px solid #3B4144; }
 
-.tableStatic tbody tr:nth-child(even) { background: url(../../images/darkerBg.png) repeat; }
+.tableStatic tbody tr:nth-child(even) { background: url(../images/darkerBg.png) repeat; }
 
 .tableStatic tbody td {
 

@@ -33,12 +33,9 @@
         </div>
         <div class="fix"></div>
       </div><!-- .rowElem -->
- 	    <div id="normal_content">
-      	<label id="ckeditor">{lang_content_field}</label><br />
-        <p id="ckeditor-arange">
-          <textarea class="ckeditor" cols="80" id="editor1" name="content" rows="10">{content}</textarea>
-        </p>
-      </div><!-- #normal_content -->
+
+    	<label>{lang_content_field}</label><br />
+      <textarea class="js-trumbowyg" name="content">{content}</textarea>
     </div><!-- .widget -->
 
 		<div class = "widget">

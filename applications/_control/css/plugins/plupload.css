@@ -9,13 +9,13 @@
 
 .plupload_start {
   float: left;
-  background: url(../../images/greenBtn.png) repeat-x 0 0;
+  background: url(../images/greenBtn.png) repeat-x 0 0;
   border: 1px solid #292d2f;
   color: #fff;
 }
 
 .plupload_start span {
-  background: url(../../images/upload.png) no-repeat 10px;
+  background: url(../images/upload.png) no-repeat 10px;
   padding: 6px 13px 6px 26px;
   display: block;
 }
@@ -43,7 +43,7 @@
 .plupload_add {
 
   margin-right: 15px;
-  background: url(../../images/basicBtn.png) repeat-x 0 0;
+  background: url(../images/basicBtn.png) repeat-x 0 0;
   float: left;
   border: 1px solid #292d2f;
   color: #fff;
@@ -52,7 +52,7 @@
 
 .plupload_add span {
 
-  background: url(../../images/add.png) no-repeat 10px;
+  background: url(../images/add.png) no-repeat 10px;
   padding: 6px 13px 6px 26px;
   display: block;
 
@@ -90,7 +90,7 @@
 .plupload_scroll .plupload_filelist {
 
   height: 185px;
-  background: url(../../images/widgetBg.png) repeat;
+  background: url(../images/widgetBg.png) repeat;
   overflow-y: auto;
 
 }
@@ -98,18 +98,18 @@
 .plupload_filelist li {
 
   padding: 10px 12px;
-  background: url(../../images/widgetBg.png) repeat;
+  background: url(../images/widgetBg.png) repeat;
   border-bottom: 1px solid #343a3d;
 
 }
 
-.plupload_filelist li:nth-child(even) { background: url(../../images/darkerBg.png) repeat; }
+.plupload_filelist li:nth-child(even) { background: url(../images/darkerBg.png) repeat; }
 
 .plupload_filelist li:hover { background: ; }
 
 .plupload_filelist_header {
 
-  background: url(../../images/darkerBg.png) repeat-x 0 1px;
+  background: url(../images/darkerBg.png) repeat-x 0 1px;
   padding: 3px 12px;
   color: #54585D;
 
@@ -117,7 +117,7 @@
 
 .plupload_filelist_footer {
 
-  background: url(../../images/titleBg.png) repeat-x;
+  background: url(../images/titleBg.png) repeat-x;
   padding: 3px 12px;
   color: #878787;
 
@@ -178,18 +178,18 @@ li.plupload_uploading {  }
 
 li.plupload_done { color: #AAA; }
 
-li.plupload_delete a { background: url(../../images/deleteFile.png) no-repeat 0; }
+li.plupload_delete a { background: url(../images/deleteFile.png) no-repeat 0; }
 
 li.plupload_failed a {
 
-  background: url(../../images/error.png) no-repeat 0;
+  background: url(../images/error.png) no-repeat 0;
   cursor: default;
 
 }
 
 li.plupload_done a {
 
-  background: url(../../images/uploaded.png) no-repeat 0;
+  background: url(../images/uploaded.png) no-repeat 0;
   cursor: default;
 
 }

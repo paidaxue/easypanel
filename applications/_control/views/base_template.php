@@ -3,7 +3,7 @@
 	<head>
     <meta charset="utf-8">
     <meta name="robots" value="noindex">
-    <meta name="author" content="Microdevt">
+    <meta name="author" content="Banyacskay Werner">
 
     <title>Easy Panel - {page_title}</title>
 
@@ -20,7 +20,7 @@
 
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
       <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" ></script>
-      <script src="{APP_URL}/js/ckeditor/ckeditor.js"></script>
+      <script src="{APP_URL}/js/trumbowyg/trumbowyg.min.js"></script>
       <script src="{APP_URL}/js/forms/forms.js"></script>
       <script src="{APP_URL}/js/forms/chosen.jquery.min.js"></script>
       <script src="{APP_URL}/js/ui/jquery.tipsy.js"></script>

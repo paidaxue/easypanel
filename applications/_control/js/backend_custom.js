@@ -42,20 +42,17 @@ $(document).ready(function() {
 	//===== User settings =====//
 
 	$("#user_submit").click(function() {
-
 		$(".inputError").hide();
-
 		var user = $("input#user").val();
 
 		if ( ! user.length )  {
-
 			$("#username").fadeIn();
 			$("#username").children('label#required').fadeIn();
 			return false;
-
 		}
+	});
 
-	});	//===== Reset Password settings =====//
+	//===== Reset Password settings =====//
 
 	$("#reset_submit").click(function() {
 		var npw = $("input#new_password").val();
@@ -80,34 +77,26 @@ $(document).ready(function() {
 	//===== Pages - form verification =====//
 
 	$('.allRequired').hide();
-
 	$('#submitPages').click( function() {
-
 		$('.allRequired').hide();
-
 		var title = $("input#title").val();
 
 		if ( title == '' ) {
-
 			$('.allRequired').fadeIn();
 			return false;
-
 		}
 
 		return true;
-
 	});
 
 	//===== Themes - enabling =====//
 
 	$(".enableTheme").click( function() {
+		$( this ).attr( 'class' , 'blueBtn enableTheme');
+		id_theme = $( this ).attr('id');
+		$( this ).html('...');
 
-			$( this ).attr( 'class' , 'blueBtn enableTheme');
-			id_theme = $( this ).attr('id');
-			$( this ).html('...');
-
-			enable_theme(id_theme);
-
+		enable_theme(id_theme);
 	});
 
 	function enable_theme( id_theme ) {
@@ -122,9 +111,7 @@ $(document).ready(function() {
 	}
 
 	$(".default-theme").click( function() {
-
-			default_theme();
-
+		default_theme();
 	});
 
 
@@ -132,66 +119,53 @@ $(document).ready(function() {
 	//===== Alert windows - delete =====//
 
 	$(".bConfirm").click( function() {
-
 		id = $( this ).attr( 'id' );
-
 		if($(this).hasClass('theme-delete')){
 			jConfirm('Are you sure you want to delete this theme?', 'Delete theme', function(r) {
 
 				if( r ) {
 					delete_theme( id );
 				}
-
 			});
 		}
 
 		if($(this).hasClass('user-delete')){
 			jConfirm('Are you sure you want to delete this user?', 'Delete user', function(r) {
-
 				if( r ) {
 					delete_user( id );
 				}
-
 			});
 		}
 
 		if($(this).hasClass('page-delete')){
 			jConfirm('Are you sure you want to delete this page?', 'Delete page', function(r) {
-
 				if( r ) {
 					delete_page( id );
 				}
-
 			});
 		}
 
 		if($(this).hasClass('sidebar-delete')){
 			jConfirm('Are you sure you want to delete this sidebar?', 'Delete sidebar', function(e) {
-
 				if( e ) {
 					delete_sidebar( id );
 				}
-
 			});
 		}
 
 		if($(this).hasClass('module-delete')){
 			jConfirm('Are you sure you want to delete this module?', 'Delete module', function(e) {
-
 				if( e ) {
 					delete_module( id );
 				}
-
 			});
 		}
 
 		if($(this).hasClass('post-delete')){
 			jConfirm('Are you sure you want to delete this post?', 'Delete post', function(e) {
-
 				if( e ) {
 					delete_post( id );
 				}
-
 			});
 		}
 

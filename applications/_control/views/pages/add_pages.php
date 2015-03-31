@@ -25,12 +25,8 @@
         <div class="fix"></div>
       </div>
 
- 	    <div id="normal_content">
-      	<label id="ckeditor">{lang_content_field}</label><br />
-        <p id="ckeditor-arange">
-          <textarea class="ckeditor" cols="80" id="editor1" name="content" rows="10"></textarea>
-        </p>
-      </div>
+    	<label>{lang_content_field}</label><br />
+      <textarea class="js-trumbowyg" name="content"></textarea>
     </div>
 
     <div class="widget">

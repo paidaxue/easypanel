@@ -2,5 +2,5 @@
 .nNote strong { margin-right: 5px; }
 .nNote p { font-size: 11px; padding: 18px 25px 10px 54px; margin: 0px; color: #565656; }
 .nMessage p { font-size: 11px; }
-.nSuccess { background: #effeb9 url(../../images/notifications/accept.png) no-repeat 15px center; border: 1px solid #c1d779; color: #3C5A01; }
-.nFailure { background: #fccac1 url(../../images/notifications/exclamation.png) no-repeat 15px center; border: 1px solid #e18b7c; color: #AC260F; }
+.nSuccess { background: #effeb9 url(../images/notifications/accept.png) no-repeat 15px center; border: 1px solid #c1d779; color: #3C5A01; }
+.nFailure { background: #fccac1 url(../images/notifications/exclamation.png) no-repeat 15px center; border: 1px solid #e18b7c; color: #AC260F; }
