@@ -15,6 +15,7 @@ class Pages extends MY_Controller {
 		$this->load->model( 'sidebars_admin_model' );
 		$this->load->helper( 'pages' );
 		$this->langs = (array)$this->lang->line('pages');
+		$this->langs = array_merge($this->langs, (array)$this->lang->line('form_errors'));
   }
 
 	/**
