@@ -1,9 +1,11 @@
-<!-- Left sidebar -->
-{left_sidebar}
-<!-- End left sidebar -->
+<div class="container">
+	<!-- Left sidebar -->
+	{left_sidebar}
+	<!-- End left sidebar -->
 
-{content}
+	{content}
 
-<!-- Right sidebar -->
-{right_sidebar}
-<!-- End Right sidebar -->
+	<!-- Right sidebar -->
+	{right_sidebar}
+	<!-- End Right sidebar -->
+</div>

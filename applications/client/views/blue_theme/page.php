@@ -1,13 +1,7 @@
-<!-- Left sidebar -->
-<div class="one-third column">
-  {left_sidebar}
-</div>
-<!-- End left sidebar -->
+<div class="container">
+	{left_sidebar}
 
-{content}
+	{content}
 
-<!-- Right sidebar -->
-<div class="one-third column">
-  {right_sidebar}
+	{right_sidebar}
 </div>
-<!-- End Right sidebar -->
