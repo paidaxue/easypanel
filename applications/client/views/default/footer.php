@@ -1,8 +1,5 @@
 <hr />
 
-<div class="sixteen columns">
-
+<div class="container text-center">
 	{copyright}
-
 </div>
-

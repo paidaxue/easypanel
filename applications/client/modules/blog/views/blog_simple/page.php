@@ -1,18 +1,14 @@
 <!-- Left sidebar -->
-<div class="one-third column">
-  {left_sidebar}
-</div>
+{left_sidebar}
 <!-- End left sidebar -->
 
-<div class="sixteen columns">
+<div class="container">
   <h1>{title}</h1>
   <h2>{date_created}</h2>
-  <img src="{UP_URL}/blog/{image}" alt="image" />
+  <img src="{UP_URL}/blog/{image}" alt="{image}" class="img-responsive" />
   <p>{content}</p>
 </div>
 
 <!-- Right sidebar -->
-<div class="one-third column">
-  {right_sidebar}
-</div>
+{right_sidebar}
 <!-- End Right sidebar -->

@@ -1,21 +1,23 @@
-<div class="sixteen columns">
+<div class="navbar navbar-default">
+  <div class="container">
+    <a class="navbar-brand" href="{BASE_URL}">
+			<img src="{UP_URL}/general/settings/{website_logo}" alt="Logo" title="Logo" width="70" />
+    </a>
 
-	<nav class="sixteen columns">
+    <ul class="nav navbar-nav">
+      {NAV}
+      <li class="{active}">
+      	<a href="{page_link}">{title}</a>
 
-		<ul class="sixteen columns">
-			{NAV}
-			<li class="two columns"><a href="{page_link}" class="{active}">{title}</a>
-
-				<ul class="two columns">
+				<ul class="dropdown-menu" role="menu">
 					{S_NAV}
-					<li class="two columns"><a href="{s_page_link}">{s_title}</a></li>
+					<li>
+						<a href="{s_page_link}">{s_title}</a>
+					</li>
 					{/S_NAV}
 				</ul>
-
-			</li>
-			{/NAV}
-		</ul>
-
-	</nav><!--/ #navigation-->
-
+      </li>
+      {/NAV}
+    </ul>
+  </div>
 </div>

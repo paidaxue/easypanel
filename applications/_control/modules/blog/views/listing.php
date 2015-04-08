@@ -30,5 +30,5 @@
 </div><!-- .widget .first -->
 
 <a href="{BASE_URL}/blog/add">
-  <button class="blueBtn add">{lang_add_post}</button><!-- .blueBtn -->
+  <button class="blueBtn add outside-button">{lang_add_post}</button><!-- .blueBtn -->
 </a>

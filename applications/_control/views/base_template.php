@@ -5,7 +5,7 @@
     <meta name="robots" value="noindex">
     <meta name="author" content="Banyacskay Werner">
 
-    <title>Easy Panel - {page_title}</title>
+    <title>Easypanel - {page_title}</title>
 
     <link href="{APP_URL}/images/favicon.png" rel="shortcut icon">
     <link href="{APP_URL}/css/main.css" rel="stylesheet">
