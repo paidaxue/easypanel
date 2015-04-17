@@ -18,7 +18,3 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-
-
-/* End of file database.php */
-/* Location: common/config/database.php */
