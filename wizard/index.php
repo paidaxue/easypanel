@@ -63,7 +63,7 @@
 				  </div>
 				  <div class="form-group">
 				    <label for="db_pass">Database password</label>
-				    <input type="text" class="form-control" id="db_pass" name="db_pass" placeholder="Enter your database password">
+				    <input type="text" class="form-control" id="db_pass" name="db_pass" placeholder="Enter your database password, if you have any">
 				  </div>
 				  <div class="form-group">
 				    <label for="db_name">Database name</label>

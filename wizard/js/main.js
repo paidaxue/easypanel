@@ -12,9 +12,6 @@ $(document).ready(function() {
 				db_user: {
 					required: true
 				},
-				db_pass: {
-					required: true
-				},
 				db_name: {
 					required: true
 				}
@@ -25,9 +22,6 @@ $(document).ready(function() {
 				},
 				db_user: {
 					required: "This field is required!",
-				},
-				db_pass: {
-					required: "This field is required. You should put a password on your user."
 				},
 				db_name: {
 					required: "This field is required!"
