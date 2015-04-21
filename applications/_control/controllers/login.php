@@ -15,11 +15,12 @@ class Login extends CI_Controller {
 		}
 
 		$lang = (array)$this->lang->line('login');
+		$lang_errors = (array)$this->lang->line('form_errors');
 		$page_title = $lang['lang_page_title'];
 
 		$content_data = array(
-			'lang_incorrect_login' 	=> $this->lang->line('error_incorrenct_login'),
-			'lang_required_input' 	=> $this->lang->line('error_required_input'),
+			'lang_incorrect_login' 	=> $lang_errors['error_incorrenct_login'],
+			'lang_required_input' 	=> $lang_errors['error_required_input'],
 		);
 
 		$top_nav_data = array(
