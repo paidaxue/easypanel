@@ -66,7 +66,7 @@
         <div class="formRight noSearch {show_left_sidebar}" id="sidebar_name_left">
           <select name="sidebar_left" class="chzn-select" id="sidebar_name_left">
               {SIDEBARS_left}
-                <option value="{id_sidebar}">{name}</option>
+                <option value="{id_sidebar}" {selected}>{name}</option>
               {/SIDEBARS_left}
           </select>
         </div>
@@ -75,7 +75,7 @@
         <div class="formRight noSearch {show_right_sidebar}" id="sidebar_name_right">
           <select name="sidebar_right" class="chzn-select">
             {SIDEBARS_right}
-              <option value="{id_sidebar}">{name}</option>
+              <option value="{id_sidebar}" {selected}>{name}</option>
             {/SIDEBARS_right}
           </select>
         </div>
@@ -85,7 +85,7 @@
 
     <div class="widget">
 			<div class="rowElem">
-				<label class="allRequired"> * {lang_required_fields}</label>
+				<label class="allRequired"> * {error_required_fields}</label>
 				<div class="formRight submitRight">
 					<input type="submit" value="{lang_submit_form}" class="basicBtn edit" id="submitPages" />
 				</div>

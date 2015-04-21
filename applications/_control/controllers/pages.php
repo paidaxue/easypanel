@@ -123,8 +123,24 @@ class Pages extends MY_Controller {
 
 		$page_info = $this->pages_model->get_page_by_id( $id_page );
 		$page_title = $this->langs['lang_edit_page'] . $page_info->title;
-		$sidebars_left = $this->pages_model->get_sidebars();
+
 		$sidebars_right = $this->pages_model->get_sidebars();
+		foreach( $sidebars_right as $sidebar_right ){
+			if ( $sidebar_right->id_sidebar == $page_info->sidebar_right ) {
+				$sidebar_right->selected = "selected='selected'";
+			} else {
+				$sidebar_right->selected = "";
+			}
+		}
+
+		$sidebars_left = $this->pages_model->get_sidebars();
+		foreach( $sidebars_left as $sidebar_left ){
+			if ( $sidebar_left->id_sidebar == $page_info->sidebar_left ) {
+				$sidebar_left->selected = "selected='selected'";
+			} else {
+				$sidebar_left->selected = "";
+			}
+		}
 
 		$parent_no_link = $page_info->page_type == 'parent-no-link' ? "selected='selected'" : "";
 		$page_type = $this->pages_model->get_parents_by_id( $id_page );
