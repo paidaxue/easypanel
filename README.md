@@ -14,6 +14,5 @@ Easypanel is a small CMS for simple websites.
 
 ## Instructions for install:
 * Create a database in MySQL
-* Change the MySQL database, username and password from /common/config/database.php
-* In the browser, go to http://www.example.com/_control.php/migrate/build. The message “Structure created” should appear
+* Go to www.example.com/wizard and complete the form
 * Go to http://www.example.com/_control.php to access admin page. Credentials are username: admin, password: admin
