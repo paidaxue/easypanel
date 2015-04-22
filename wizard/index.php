@@ -15,7 +15,7 @@
 		}
 
 		.alert {
-			/*display: none;*/
+			display: none;
 		}
 	</style>
 </head>
