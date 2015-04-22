@@ -15,7 +15,7 @@
 		}
 
 		.alert {
-			display: none;
+			/*display: none;*/
 		}
 	</style>
 </head>
@@ -40,10 +40,10 @@
 				?>
 
 				<p class="alert alert-success">
-					Perfect! Now you can go to <a href="/">your website</a> or to <a href="../_control.php">your admin panel</a>
+					Perfect! Now you can go to <a href="../">your website</a> or to <a href="../_control.php">your admin panel</a>
 				</p>
 				<p class="alert alert-info">
-					Please don't forget to delete this folder.
+					Please don't forget to delete the folder 'wizard'.
 				</p>
 				<p class="alert alert-danger">
 					Oops! Please check your credentials and try again.
