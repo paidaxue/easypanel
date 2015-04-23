@@ -1,18 +1,19 @@
-# EasyPanel - Your mini CMS
+# Easypanel - Create a website in minutes
 
-Easypanel is a small CMS for simple websites.
+Easypanel is a small content management system used for simple websites and quick setup.
 
 ## Some features:
-* MVC design pattern
-* Modularity
+* MVC
 * Small footprint
-* Add, edit, delete pages
-* Add, edit, delete sidebars
-* Select themes
+* Manage pages
+* Manage sidebars
+* Manage users
+* Enabling, deleting themes
+* Enabling, deleting modules
 * General website settings
 
 
 ## Instructions for install:
 * Create a database in MySQL
-* Go to www.example.com/wizard and complete the form
-* Go to http://www.example.com/_control.php to access admin page. Credentials are username: admin, password: admin
+* Go to [your-domain]/wizard and complete the installation
+* Go to [your-domain]/_control.php to access admin page. Credentials are username: admin and password: admin
